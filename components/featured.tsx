@@ -15,8 +15,8 @@ export default async function Featured({stories, featAds}:{stories:any, featAds:
     <div>
     <div className={styles.row}>
       <div className={styles.column + ' ' + styles.left}>
-        <MainStory title="main story" url="dailyillini.com" createdBy="Lika" createdAt="08/08/08" />
-        {stories && stories.slice(0,4).map((story: any) => (
+        <MainStory title={stories[0].title} url={stories[0].url} createdBy={stories[0].publishedBy} createdAt={stories[0].publishedAt} />
+        {stories && stories.slice(1,4).map((story: any) => (
           <FeatStory
             title={story.title}
             url="dailyillini.com"

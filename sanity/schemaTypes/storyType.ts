@@ -21,7 +21,7 @@ const storyType = {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: (doc: any) => slug_gen(`${doc.tags}`, `${doc.title}`)
+        source: 'title'
       }
     },
     {

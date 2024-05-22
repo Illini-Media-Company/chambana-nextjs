@@ -13,7 +13,7 @@ export const menuItems: MenuItem[] = [
 	},
 	{
 		title: 'Podcasts',
-		href: '/podcast',
+		href: '/podcasts',
 		newWindow: false,
 	},
 	{

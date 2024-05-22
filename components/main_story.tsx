@@ -24,6 +24,7 @@ export default function MainStory({
         <div>
             <div className={styles.title}>
                 <h1>{title}</h1>
+                <h4>By: {createdBy}, {createdAt}</h4>
             </div>
             <div className={styles.parentContainer}>
                 <Image 

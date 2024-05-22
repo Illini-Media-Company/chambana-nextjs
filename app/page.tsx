@@ -39,6 +39,8 @@ async function getFeaturedStories() {
     title,
     publishedBy,
     publishedAt,
+    tags,
+    slug,
     "imgUrl" : poster.asset->url
   }`, {revalidate: {revalidate}});
   // console.log(data)

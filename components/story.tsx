@@ -1,10 +1,16 @@
 import React from 'react'
 import styles from "./story.module.css"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+
+function create_url(tag: string, url: string) {
+    return tag + '/' + url
+}
 
 interface FeatStoryProps {
     title: string
     url: string
+    tag: string
     imgUrl?: string
     description?: string
     createdBy: string
@@ -14,12 +20,14 @@ interface FeatStoryProps {
 export default function FeatStory({
     title,
     url,
+    tag,
     imgUrl,
     description,
     createdBy,
     createdAt
 
 }: FeatStoryProps) {
+
     return (
         <div>
             <div className={styles.parentContainer}>

@@ -19,6 +19,7 @@ export default function StoryScroll({
                 {stories && stories.slice(0,storyCount).map((story: any) => (
                   <Story
                     title={story.title}
+                    tag={story.tags}
                     url="dailyillini.com"
                     imgUrl={story.imgUrl}
                     createdBy={story.publishedBy}
@@ -37,6 +38,7 @@ export default function StoryScroll({
             {stories && stories.map((story: any) => (
               <Story
                 title={story.title}
+                tag={story.tags}
                 url="dailyillini.com"
                 imgUrl={story.imgUrl}
                 createdBy={story.publishedBy}
