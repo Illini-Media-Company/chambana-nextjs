@@ -1,0 +1,36 @@
+.mobileMenu {
+	padding: 1em;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	color: var(--main-bg-color);
+	z-index: 100;
+	margin-top: 0;
+}
+
+.mobileMenu > li {
+	list-style-type: none;
+}
+
+.menuItem > a {
+	color: var(--main-bg-color);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 100%;
+}
+
+/* .menuItem:active {
+	background-color: var(--main-bg-color);
+}
+
+.menuItem:active > a {
+	color: black;
+} */
+
+@media (min-width: 768px) {
+	.mobileMenu {
+		display: none;
+	}
+}

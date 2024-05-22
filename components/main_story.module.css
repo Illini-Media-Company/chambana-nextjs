@@ -1,0 +1,15 @@
+.parentContainer {
+    width: 80%;
+    height: 400px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    /* border: 2px solid black; */
+    position: relative
+}
+.title {
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    margin-left: 20px; 
+}

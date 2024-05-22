@@ -1,0 +1,33 @@
+.row {
+	/* margin-top: 5%; */
+	display: flex;
+	margin-left: 18%;
+	margin-right: 18%;	
+	position: relative
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	position: relative;
+}
+.column {
+	float: left;
+	position: relative;
+}
+.right {
+	width: 20%;
+	margin-left: 20px;
+	position: relative;
+}
+.left {
+	width: 80%;
+	position: relative;
+	background-color:#dcdee0;
+	border-radius: 5px;
+}
+
+.banner {
+	float: right;
+	clear: both;
+}
