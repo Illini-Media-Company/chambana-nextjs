@@ -1,8 +1,8 @@
 import Banner from "@components/banner"
-import client from "../sanity"
+import fetchStories from '../helpers/fetchStories'
 
 export default async function EventsPage() {
-    const data = await getEvents()
+    const data = await fetchStories('events')
     console.log(data)
     return (
         <main>
@@ -11,14 +11,4 @@ export default async function EventsPage() {
             </div>
         </main>
     )
-}
-
-async function getEvents() {
-    const data = await client.fetch(`*[_type == "story" && tags == "events"] {
-        title,
-        "imgUrl": poster.asset->url,
-        slug
-    }`)
-
-    return data
 }

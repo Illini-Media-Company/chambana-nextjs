@@ -39,7 +39,7 @@ export default function StoryScroll({
               <Story
                 title={story.title}
                 tag={story.tags}
-                url="dailyillini.com"
+                url={story.slug}
                 imgUrl={story.imgUrl}
                 createdBy={story.publishedBy}
                 createdAt={story.publishedAt}

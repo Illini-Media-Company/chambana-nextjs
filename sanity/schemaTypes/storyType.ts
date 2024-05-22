@@ -35,7 +35,7 @@ const storyType = {
       type: 'datetime',
       options: {
         dateFormat: 'MM-DD-YYYY',
-        timeFormat: 'LT'
+        timeFormat: 'HH:mm'
       }
     },
     {

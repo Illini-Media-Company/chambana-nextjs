@@ -1,9 +1,10 @@
 import Banner from "@components/banner"
 import StoryScroll from "@components/story_scroll"
 import client from "../sanity"
+import fetchStories from "../helpers/fetchStories"
 
-export default async function NewsPage() {
-    const data = await getPodcasts()
+export default async function PodcastsPage() {
+    const data = await fetchStories('podcasts')
     console.log(data)
     return (
         <main>
@@ -13,16 +14,6 @@ export default async function NewsPage() {
             </div>
         </main>
     )
-}
-
-async function getPodcasts() {
-    const data = await client.fetch(`*[_type == "story" && tags == "podcasts"] | order(_createdAt desc) {
-        title,
-        "imgUrl": poster.asset->url,
-        slug
-    }`)
-
-    return data
 }
 
 export const revalidate = 60;

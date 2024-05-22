@@ -25,6 +25,7 @@ export default function FeatStory({
     createdAt
 
 }: FeatStoryProps) {
+    const dateTime = new Date(createdAt);
     return (
         <div>
             <div className={styles.parentContainer}>
@@ -45,8 +46,8 @@ export default function FeatStory({
                         </a>
                     </div>
                     <div className={styles.column + ' ' + styles.title}>
-                        <a href={create_url(tag, url)}><h1>{title}</h1></a>
-                        <h3>By: {createdBy}, {createdAt}</h3>
+                        <a style={{textDecoration: 'none'}} href={create_url(tag, url)}><h1>{title}</h1></a>
+                        <h3>By: {createdBy}, {dateTime.toLocaleDateString()}</h3>
                     </div>
                 </div>
             </div>

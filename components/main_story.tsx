@@ -25,11 +25,12 @@ export default function MainStory({
     createdAt
 }: MainStoryProps) {
     var defImgUrl = '/placeholder.webp';
+    const dateTime = new Date(createdAt);
     return (
         <div>
             <div className={styles.title}>
-                <a href={create_url(tag, url)}><h1>{title}</h1></a>
-                <h4>By: {createdBy}, {createdAt}</h4>
+                <a style={{textDecoration: 'none'}} href={create_url(tag, url)}><h1>{title}</h1></a>
+                <h3>By: {createdBy}, {dateTime.toLocaleDateString()}</h3>
             </div>
             <div className={styles.parentContainer}>
                 <a href={create_url(tag, url)}>

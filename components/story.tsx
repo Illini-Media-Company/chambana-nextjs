@@ -29,6 +29,7 @@ export default function FeatStory({
 
 }: FeatStoryProps) {
     const router = useRouter();
+    const dateTime = new Date(createdAt);
 
     return (
         <div>
@@ -50,8 +51,8 @@ export default function FeatStory({
                         </a>
                     </div>
                     <div className={styles.column + ' ' + styles.title}>
-                        <a href={create_url(tag, url)}><h2>{title}</h2></a>
-                        <h4>By: {createdBy}, {createdAt}</h4>
+                        <a style={{textDecoration: 'none'}} href={create_url(tag, url)}><h2>{title}</h2></a>
+                        <h4>By: {createdBy}, {dateTime.toLocaleDateString()}</h4>
                     </div>
                 </div>
             </div>
