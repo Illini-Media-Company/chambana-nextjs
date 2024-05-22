@@ -1,21 +1,26 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from './main_story.module.css'
+import { create } from 'domain'
+
+function create_url(tag: string, url: string) {
+    return tag + '/' + url
+}
 
 interface MainStoryProps {
     title: string
     imgUrl?: string
     url: string
+    tag: string
     createdBy: string
     createdAt: string
 }
-
-
 
 export default function MainStory({
     title,
     imgUrl,
     url,
+    tag,
     createdBy,
     createdAt
 }: MainStoryProps) {
@@ -23,13 +28,14 @@ export default function MainStory({
     return (
         <div>
             <div className={styles.title}>
-                <h1>{title}</h1>
+                <a href={create_url(tag, url)}><h1>{title}</h1></a>
                 <h4>By: {createdBy}, {createdAt}</h4>
             </div>
             <div className={styles.parentContainer}>
-                <Image 
+                <a href={create_url(tag, url)}>
+                    <Image 
                     priority
-                    src={defImgUrl}
+                    src={imgUrl ? imgUrl : defImgUrl}
                     alt={title}
                     layout="fill"
                     objectFit="contain"
@@ -37,7 +43,8 @@ export default function MainStory({
                     style = {{
                         borderRadius: '5px'
                     }}
-                />
+                    />
+                </a>
             </div>
         </div>
     );

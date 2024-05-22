@@ -40,7 +40,7 @@ async function getFeaturedStories() {
     publishedBy,
     publishedAt,
     tags,
-    slug,
+    "slug" : slug.current,
     "imgUrl" : poster.asset->url
   }`, {revalidate: {revalidate}});
   // console.log(data)

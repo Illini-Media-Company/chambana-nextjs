@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import styles from "./story.module.css"
 import Image from "next/image"
@@ -27,26 +28,29 @@ export default function FeatStory({
     createdAt
 
 }: FeatStoryProps) {
+    const router = useRouter();
 
     return (
         <div>
             <div className={styles.parentContainer}>
                 <div className = {styles.row}>
                     <div className={styles.column + ' ' + styles.imageContainer}>
-                        <Image
-                            src={imgUrl ? imgUrl : '/placeholder.webp'}
-                            alt={description ? description : "Featured Story"}
-                            priority
-                            layout='fill'
-                            objectFit='contain'
-                            objectPosition='left'
-                            style = {{
-                                borderRadius: '5px'
-                            }}
-                        />
+                        <a href={create_url(tag, url)}>
+                            <Image
+                                src={imgUrl ? imgUrl : '/placeholder.webp'}
+                                alt={description ? description : "Featured Story"}
+                                priority
+                                layout='fill'
+                                objectFit='contain'
+                                objectPosition='left'
+                                style = {{
+                                    borderRadius: '5px'
+                                }}
+                            />
+                        </a>
                     </div>
                     <div className={styles.column + ' ' + styles.title}>
-                        <h2>{title}</h2>
+                        <a href={create_url(tag, url)}><h2>{title}</h2></a>
                         <h4>By: {createdBy}, {createdAt}</h4>
                     </div>
                 </div>
