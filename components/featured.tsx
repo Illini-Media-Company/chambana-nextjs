@@ -24,6 +24,7 @@ export default async function Featured({
       <div className={styles.leftContainer}>
         <MainStory
           title={stories[0].title}
+          imgUrl={stories[0].imgUrl}
           url={stories[0].slug}
           tag={stories[0].tags}
           createdBy={stories[0].publishedBy}

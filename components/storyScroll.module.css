@@ -1,7 +1,6 @@
 .row {
 	display: flex;
-	margin-left: 20%;
-	margin-right: 20%;	
+	margin: 1em;
 	position: relative
 }
 .row:after {
@@ -15,11 +14,15 @@
 	position: relative;
 }
 .right {
+	display: flex;
+	flex-direction: column;
 	width: 25%;
 	position: relative;
 }
 .left {
 	width: 75%;
+	display: flex;
+	flex-direction: column;
 	position: relative;
 }
 

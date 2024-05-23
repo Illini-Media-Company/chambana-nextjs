@@ -1,5 +1,5 @@
 import Banner from "@components/banner";
-import StoryScroll from "@components/story_scroll";
+import StoryScroll from "@components/storyScroll";
 import client from "../sanity";
 import fetchStories from "../helpers/fetchStories";
 

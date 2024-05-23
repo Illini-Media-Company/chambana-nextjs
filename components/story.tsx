@@ -41,12 +41,9 @@ export default function FeatStory({
                 src={imgUrl ? imgUrl : "/placeholder.webp"}
                 alt={description ? description : "Featured Story"}
                 priority
-                layout="fill"
-                objectFit="contain"
-                objectPosition="left"
-                style={{
-                  borderRadius: "5px",
-                }}
+                height={166}
+                width={250}
+                className={styles.storyImage}
               />
             </a>
           </div>

@@ -3,6 +3,7 @@ import Featured from "@components/featured";
 import StoryScroll from "@components/storyScroll";
 import client from "./sanity";
 import styles from "./page.module.css";
+import getFeaturedStories from "./helpers/fetchStories";
 
 export default async function Home() {
   const stories = await getFeaturedStories();
@@ -29,24 +30,6 @@ export default async function Home() {
       </div>
     </main>
   );
-}
-
-// TODO: move this to a separate helpers.ts file
-async function getFeaturedStories() {
-  const revalidate = 60;
-  const data = await client.fetch(
-    `*[_type == 'story'] | order(_createdAt desc) {
-    title,
-    publishedBy,
-    publishedAt,
-    tags,
-    "slug" : slug.current,
-    "imgUrl" : poster.asset->url
-  }`,
-    { revalidate: { revalidate } }
-  );
-  // console.log(data)
-  return data;
 }
 
 // TODO: move this to a separate helpers.ts file

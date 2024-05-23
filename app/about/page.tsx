@@ -1,8 +1,7 @@
 import Banner from "@components/banner";
-import StoryScroll from "@components/storyScroll";
 import client from "../sanity";
 
-export default async function NewsPage() {
+export default async function AboutPage() {
   return (
     <main>
       {/* TODO: remove inline styles */}

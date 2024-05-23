@@ -1,5 +1,5 @@
 import Banner from "@components/banner";
-import StoryScroll from "@components/story_scroll";
+import StoryScroll from "@components/storyScroll";
 import fetchStories from "../helpers/fetchStories";
 
 export default async function NewsPage() {

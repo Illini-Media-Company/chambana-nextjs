@@ -1,6 +1,7 @@
 import Story from "@components/story";
 import styles from "./storyScroll.module.css";
 import FeatStory from "./featuredStory";
+import FeatAd from "./featuredAd"
 
 interface StoryScrollProps {
   storyCount?: number;
@@ -28,6 +29,10 @@ export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
                   />
                 ))}
           </div>
+          <div className={styles.column + " " + styles.right}>
+            <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
+            <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
+          </div>
         </div>
       </div>
     );
@@ -48,6 +53,10 @@ export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
                   key={story.slug}
                 />
               ))}
+          </div>
+          <div className={styles.column + " " + styles.right}>
+            <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
+            <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
           </div>
         </div>
       </div>
