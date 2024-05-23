@@ -1,8 +1,9 @@
 .parentContainer {
-    width:100%;
+    width:inherit;
     height: 200px;
     margin-bottom: 20px;
     margin-left: 20px;
+    margin-right: 20px;
     position: relative;
     /* border: 2px solid black; */
 }

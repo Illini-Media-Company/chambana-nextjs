@@ -1,4 +1,3 @@
-import {createClient} from 'next-sanity'
 import client from '../sanity'
 
 export default async function getFeaturedStories(filter) {

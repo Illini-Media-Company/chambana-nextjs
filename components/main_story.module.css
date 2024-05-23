@@ -1,9 +1,10 @@
 .parentContainer {
-    width: 80%;
+    width: inherit;
     height: 400px;
     padding: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
+    margin-right: 20px;
     /* border: 2px solid black; */
     position: relative
 }
@@ -12,4 +13,5 @@
     color: black;
     margin-bottom: 20px;
     margin-left: 20px; 
+    margin-right: 20px;
 }

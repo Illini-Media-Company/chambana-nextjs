@@ -15,6 +15,7 @@ export default async function Home() {
       <Banner />
       <Featured stories={stories} featAds={ads}/>
       <div style={{ display: "flex", justifyContent: "center" }}>
+        {/* This is the banner ad spot for the page */}
         <Image 
           src={"/banner-placeholder.png"}
           alt={"banner ad"}
@@ -22,8 +23,9 @@ export default async function Home() {
           height="0"
           style={{
             width: '80%',
-            height: '100px',
+            height: '200px',
             marginBottom: '20px',
+            marginTop: '20px'
           }}
         /> 
       </div>
