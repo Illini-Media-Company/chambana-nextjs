@@ -3,7 +3,7 @@
     height: 150px;
     margin-bottom: 20px;
     position: relative;
-    /* border: 2px solid black; */
+    /* border: 2px solid rgb(var(--foreground-rgb));; */
 }
 .row {
 	display: flex;
@@ -17,13 +17,13 @@
     height: 150px;
     width: 25%;
     margin-right: 20px
-    /* border: 2px solid black; */
+    /* border: 2px solid rgb(var(--foreground-rgb));; */
 }
 .title {
     width: 70%;
     vertical-align: middle;
     top: 50%;
-    /* border: 2px solid black; */
+    /* border: 2px solid rgb(var(--foreground-rgb));; */
     font-weight: bold;
-    color: black;
+    color: rgb(var(--foreground-rgb));;
 }

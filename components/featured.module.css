@@ -1,33 +1,24 @@
-.row {
-	/* margin-top: 5%; */
+.container {
 	display: flex;
-	margin-left: 18%;
-	margin-right: 18%;	
-	position: relative
-}
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-	position: relative;
-}
-.column {
-	float: left;
-	position: relative;
-}
-.right {
-	width: 20%;
-	margin-left: 20px;
-	position: relative;
-}
-.left {
-	width: 80%;
-	position: relative;
-	background-color:#dcdee0;
-	border-radius: 5px;
+	flex-direction: row;
+	margin-top: 1em;
+	gap: 1em
 }
 
-.banner {
-	float: right;
-	clear: both;
+.leftContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	flex-grow: 2;
+	border-radius: var(--border-radius);
+	background-color:#dcdee0;
+	gap: 1em;
+
+}
+
+.rightContainer {
+	flex-grow: 1;
+	position: relative;
+	border-radius: var(--border-radius)
+
 }
