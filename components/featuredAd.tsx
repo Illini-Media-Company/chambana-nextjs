@@ -17,9 +17,9 @@ export default function FeatAd({imgUrl, href}: FeatAdProps) {
                 src={imgUrl}
                 alt={"Featured Ad"}
                 priority
-                layout='fill'
-                objectFit='contain'
-                objectPosition="right"
+                height={250}
+                width={300}
+                className={styles.image}
             /></a>
         </div>
         </div>

@@ -1,5 +1,10 @@
 .parentContainer {
     height: 250px;
     width: 300px;
-    position: relative
+    margin: 2em;
+}
+
+.image {
+    border-radius: var(--border-radius);
+    object-fit: cover;
 }

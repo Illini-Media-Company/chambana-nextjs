@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.18",
     "@sanity/client": "6.12.4",
     "@sanity/icons": "2.8",
     "@sanity/image-url": "1",

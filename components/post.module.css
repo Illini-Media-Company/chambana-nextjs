@@ -1,0 +1,46 @@
+.title {
+    margin: 0;
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+
+.byline {
+	margin: 0;
+    margin-bottom: 1em;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 1em;
+	gap: 1em
+}
+
+.leftContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	flex-grow: 2;
+	border-radius: var(--border-radius);
+	background-color:#dcdee0;
+	/* gap: 1em; */
+
+}
+
+.rightContainer {
+	flex-grow: 1;
+	position: relative;
+	border-radius: var(--border-radius)
+
+}
+
+.body {
+	font-size: large;
+}
+
+.imageContainer {
+	border-radius: var(--border-radius);
+    width: 100%;
+    object-fit: cover;
+}
