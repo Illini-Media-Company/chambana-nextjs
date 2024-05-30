@@ -1,61 +1,52 @@
-'use client';
-import React from 'react'
-import styles from "./story.module.css"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
+"use client";
+import React from "react";
+import styles from "./story.module.css";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function create_url(tag: string, url: string) {
-    return tag + '/' + url
+  return tag + "/" + url;
 }
 
-interface FeatStoryProps {
-    title: string
-    url: string
-    tag: string
-    imgUrl?: string
-    description?: string
-    createdBy: string
-    createdAt: string
+interface Story {
+  title: string;
+  url: string;
+  tag: string;
+  imgUrl?: string;
+  description?: string;
+  createdBy: string;
+  createdAt: string;
 }
+              // 
+export default function Story({
+  title,
+  url,
+  tag,
+  imgUrl,
+  description,
+  createdBy,
+  createdAt,
+}: Story) {
+  const dateTime = new Date(createdAt);
 
-export default function FeatStory({
-    title,
-    url,
-    tag,
-    imgUrl,
-    description,
-    createdBy,
-    createdAt
-
-}: FeatStoryProps) {
-    const router = useRouter();
-    const dateTime = new Date(createdAt);
-
-    return (
-        <div>
-            <div className={styles.parentContainer}>
-                <div className = {styles.row}>
-                    <div className={styles.column + ' ' + styles.imageContainer}>
-                        <a href={create_url(tag, url)}>
-                            <Image
-                                src={imgUrl ? imgUrl : '/placeholder.webp'}
-                                alt={description ? description : "Featured Story"}
-                                priority
-                                layout='fill'
-                                objectFit='contain'
-                                objectPosition='left'
-                                style = {{
-                                    borderRadius: '5px'
-                                }}
-                            />
-                        </a>
-                    </div>
-                    <div className={styles.column + ' ' + styles.title}>
-                        <a style={{textDecoration: 'none'}} href={create_url(tag, url)}><h2>{title}</h2></a>
-                        <h4>By: {createdBy}, {dateTime.toLocaleDateString()}</h4>
-                    </div>
-                </div>
-            </div>
+  return (
+    <a className={styles.link} href={create_url(tag, url)}>
+      <div className={styles.container}>
+        <div className={styles.leftContainer}>
+          <Image
+              src={imgUrl ? imgUrl : "/placeholder.webp"}
+              alt={description ? description : "Featured Story"}
+              priority
+              height={166}
+              width={250}
+              className={styles.storyImage}
+            />
         </div>
-    );
+        <div className={styles.rightContainer}>
+          <h2 className={styles.title}>{title}</h2>
+          <h4 className={styles.date}>By {createdBy}, {dateTime.toLocaleDateString()}</h4>
+        </div>
+      </div>
+    </a>
+  );
 }

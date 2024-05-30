@@ -51,6 +51,9 @@ const storyType = {
         {
           type: 'block',
         },
+        {
+          type: 'image'
+        }
       ],
     },
     {

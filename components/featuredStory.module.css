@@ -1,0 +1,24 @@
+.parentContainer {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em
+}
+.row {
+	display: flex;
+}
+.column {
+    float: left;
+}
+
+.featStoryImage {
+    border-radius: var(--border-radius);
+}
+
+.imageContainer {
+   
+    gap: 1em;
+}
+.featStory {
+    text-decoration: none;
+}

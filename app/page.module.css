@@ -1,0 +1,16 @@
+.bannerAd {
+    width: 80%;
+    height: 100px; 
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+}
+
+.bannerAdContainer {
+    display: flex;
+    justify-content: center;
+}
