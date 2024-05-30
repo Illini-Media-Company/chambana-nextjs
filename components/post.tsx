@@ -53,15 +53,6 @@ export default async function Post({story, ads}: PostProps) {
             <div className={styles.leftContainer}>
                 <h1 className={styles.title}>{story.title}</h1>
                 <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>
-                {(story.imageUrl) &&
-                  <Image 
-                    src={story.imageUrl} 
-                    alt={"main image"} 
-                    width={600} 
-                    height={400} 
-                    className={styles.imageContainer}
-                  />
-                }
                 <div className={styles.body}>
                   <PortableText value={story.body} components={myPortableTextComponents}/>
                 </div>
