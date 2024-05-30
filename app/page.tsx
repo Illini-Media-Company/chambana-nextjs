@@ -4,6 +4,7 @@ import StoryScroll from "@components/storyScroll";
 import client from "./sanity";
 import styles from "./page.module.css";
 import getFeaturedStories from "./helpers/fetchStories";
+import getFeaturedAds from "./helpers/fetchAds"
 
 export default async function Home() {
   const stories = await getFeaturedStories();
@@ -31,16 +32,4 @@ export default async function Home() {
     </main>
   );
 }
-
-// TODO: move this to a separate helpers.ts file
-async function getFeaturedAds() {
-  const revalidate = 60; // will you really need to revalidate ads this often?
-  const data = await client.fetch(
-    `*[_type == 'ad'][0..1] {
-    "imgUrl": ad.asset->url,
-    href
-  }`,
-    { revalidate: { revalidate } }
-  );
-  return data;
-}
+export const revalidate = 60

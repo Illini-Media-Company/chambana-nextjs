@@ -10,7 +10,7 @@ export default async function getFeaturedStories(filter) {
         publishedAt,
         publishedBy,
         "slug": slug.current
-    }`)
+    }`, {}, {next: {revalidate: 60}})
 
     return data
   } else {
@@ -21,7 +21,7 @@ export default async function getFeaturedStories(filter) {
       publishedAt,
       publishedBy,
       "slug": slug.current
-  }`)
+  }`, {}, {next: {revalidate: 60}})
 
   return data
   }

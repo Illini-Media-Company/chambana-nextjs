@@ -20,16 +20,49 @@
     gap: 1em;
     /* border: 2px solid rgb(var(--foreground-rgb));; */
 }
-.title {
-    width: 70%;
-    vertical-align: middle;
-    top: 50%;
-    /* border: 2px solid rgb(var(--foreground-rgb));; */
-    font-weight: bold;
-    color: rgb(var(--foreground-rgb));
-}
 
 .storyImage {
     border-radius: var(--border-radius);
     object-fit: cover
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    min-width: 0;
+     overflow: hidden
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5em;
+    min-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.date {
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    text-decoration: none;
 }
