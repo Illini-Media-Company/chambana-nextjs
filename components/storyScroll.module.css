@@ -1,36 +1,3 @@
-.row {
-	display: flex;
-	margin: 1em;
-	position: relative
-}
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-	position: relative;
-}
-.column {
-	float: left;
-	position: relative;
-}
-.right {
-	display: flex;
-	flex-direction: column;
-	width: 25%;
-	position: relative;
-}
-.left {
-	width: 75%;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-
-.banner {
-	float: right;
-	clear: both;
-}
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .container {
