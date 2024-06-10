@@ -1,8 +1,8 @@
 import Banner from "@components/banner";
-import fetchStories from "../helpers/fetchStories";
+import fetchHelper from "../helpers/fetchStories";
 
 export default async function EventsPage() {
-  const data = await fetchStories("events");
+  const data = await fetchHelper.getFeaturedStories("events");
   console.log(data);
   return (
     <main>

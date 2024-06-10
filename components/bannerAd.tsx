@@ -10,14 +10,14 @@ export default function BannerAd({
     href
 }: BannerAdProps) {
     return(
-        <div className={styles.parentContainer}>
-            <Image
-                src={imgUrl}
-                alt={"Banner Ad"}
-                priority
-                fill
-                objectFit="contain"
-            />
-        </div>
+        <a href="https://dailyillini.com" className={styles.bannerAdContainer}>
+          <Image
+            src={"/banner-placeholder.png"}
+            alt={`Banner ad`}
+            width="0"
+            height="0"
+            className={styles.bannerAd}
+          />
+        </a>
     );
 }

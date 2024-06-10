@@ -5,6 +5,7 @@ import MainStory from "./mainStory";
 import FeatStory from "./featuredStory";
 import FeatAd from "./featuredAd";
 import BannerAd from "./bannerAd";
+import Newsletter from "./newsletter"
 
 interface StoryProps {
   // is this used?
@@ -46,7 +47,8 @@ export default async function Featured({
             ))}
       </div>
       {/* TODO: redo this css */}
-      <div>
+      <div className={styles.rightContainer}>
+        <Newsletter />
         {featAds &&
           featAds.map((ad: any) => (
             <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad.imgUrl} />

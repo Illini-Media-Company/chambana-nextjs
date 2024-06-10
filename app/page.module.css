@@ -1,6 +1,7 @@
 .bannerAd {
     width: 80%;
     height: 100px; 
+    object-fit: cover;
 }
 
 .contentContainer {

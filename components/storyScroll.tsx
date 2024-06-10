@@ -2,12 +2,13 @@ import Story from "@components/story";
 import styles from "./storyScroll.module.css";
 import FeatStory from "./featuredStory";
 import FeatAd from "./featuredAd"
+import Newsletter from "./newsletter"
 
 interface StoryScrollProps {
   storyCount?: number;
   stories: any;
 }
-            {/*  */}
+
 export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
   console.log(stories)
   if (storyCount) {

@@ -2,3 +2,11 @@
     height: 100px;
     width: 100%;
 }
+.bannerAdContainer {
+    display: flex;
+    justify-content: center;
+}
+.bannerAd {
+    width: 80%;
+    height: 100px; 
+}

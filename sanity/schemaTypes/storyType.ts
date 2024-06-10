@@ -1,12 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-async function slug_gen(tag: string, title: string) {
-  return(
-    tag + "/" + title
-  )
-}
-
-const storyType = {
+const storyType = defineType({
   name: 'story',
   title: 'Story',
   type: 'document',
@@ -89,7 +83,32 @@ const storyType = {
           title: 'Attribution',
         }
       ]
-    }
+    },
+    {
+      name: 'gallery',
+      type: 'array',
+      title: 'Gallery',
+      of: [
+        {
+          name: 'image',
+          type: 'image',
+          title: 'Image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+          ],
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+    },
   ],
   preview: {
     select: {
@@ -97,6 +116,6 @@ const storyType = {
       title: 'title',
     },
   },
-}
+})
 
 export default storyType

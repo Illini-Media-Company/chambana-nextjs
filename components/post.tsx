@@ -4,6 +4,8 @@ import FeatAd from "./featuredAd"
 import Image from 'next/image'
 import urlBuilder from '@sanity/image-url'
 import client from "../app/sanity"
+import EmblaCarousel from "./EmblaCarousel"
+import { EmblaOptionsType } from 'embla-carousel'
 
 interface PostProps {
     story: any
@@ -47,7 +49,10 @@ const myPortableTextComponents = {
 }
 
 export default async function Post({story, ads}: PostProps) {
-  console.log(story)
+  const OPTIONS: EmblaOptionsType = { loop: true }
+  const SLIDE_COUNT = 5
+  const IMAGES = story.gallery
+  console.log(IMAGES)
     return (
         <div className={styles.container}>
             <div className={styles.leftContainer}>
@@ -55,6 +60,8 @@ export default async function Post({story, ads}: PostProps) {
                 <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>
                 <div className={styles.body}>
                   <PortableText value={story.body} components={myPortableTextComponents}/>
+                  {(IMAGES) && 
+                    <EmblaCarousel slides={IMAGES} options={OPTIONS} />}
                 </div>
             </div>
             <div className={styles.rightContainer}>

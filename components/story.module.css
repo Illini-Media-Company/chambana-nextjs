@@ -21,9 +21,9 @@
 .rightContainer {
     display: flex;
     flex-direction: column;
-    flex: 2;
+    flex-basis: 2;
     min-width: 0;
-     overflow: hidden
+    overflow: hidden;
 }
 
 .title {
@@ -42,4 +42,13 @@
 
 .link {
     text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+    .leftContainer {
+        display: none
+    }
 }

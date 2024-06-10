@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    background-color:#dcdee0;
+    margin: 2em;
+    margin-top: 0;
+    border-radius: var(--border-radius);
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    gap: 1em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.button {
+    height: 50px;
+    width: 100%;
+    background-color:#ff6400;
+    border-style: solid;
+    border-radius: var(--border-radius);
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: #ff6400
+}
+
+.input {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border-style: solid;
+    font-size: 16px;
+}

@@ -13,3 +13,13 @@
     width: 100%;
     object-fit: cover;
 }
+
+@media (max-width: 500px) {
+    .mainImage {
+        height: 300px;
+    }
+    .link {
+        border-bottom: 2px black solid;
+        padding-bottom: 1em;
+    }
+}

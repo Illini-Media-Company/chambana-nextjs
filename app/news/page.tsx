@@ -1,9 +1,9 @@
 import Banner from "@components/banner";
 import StoryScroll from "@components/storyScroll";
-import fetchStories from "../helpers/fetchStories";
+import fetchHelper from "../helpers/fetchStories";
 
 export default async function NewsPage() {
-  const data = await fetchStories("news");
+  const data = await fetchHelper.getFeaturedStories("news");
   console.log(data);
   return (
     <main>

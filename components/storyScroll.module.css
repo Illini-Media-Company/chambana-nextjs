@@ -4,7 +4,8 @@
 	display: flex;
 	flex-direction: row;
 	margin-top: 1em;
-	gap: 1em
+	gap: 1em;
+	justify-content: center;
 }
 
 .leftContainer {
@@ -13,13 +14,20 @@
 	padding: 1em;
 	flex-grow: 2;
 	border-radius: var(--border-radius);
-	background-color:#dcdee0;
 	gap: 1em;
+	justify-content: flex-start;
 
 }
 
 .rightContainer {
 	flex-grow: 1;
 	position: relative;
-	border-radius: var(--border-radius)
+	border-radius: var(--border-radius);
+	flex-basis: 2em
+}
+
+@media (max-width: 500px) {
+	.container {
+		flex-direction: column;
+	}
 }

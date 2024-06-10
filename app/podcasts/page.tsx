@@ -1,10 +1,10 @@
 import Banner from "@components/banner";
 import StoryScroll from "@components/storyScroll";
 import client from "../sanity";
-import fetchStories from "../helpers/fetchStories";
+import fetchHelper from "../helpers/fetchStories";
 
 export default async function PodcastsPage() {
-  const data = await fetchStories("podcasts");
+  const data = await fetchHelper.getFeaturedStories("podcasts");
   console.log(data);
   return (
     <main>

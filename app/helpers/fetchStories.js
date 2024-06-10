@@ -1,6 +1,6 @@
 import client from '../sanity'
 
-export default async function getFeaturedStories(filter) {
+async function getFeaturedStories(filter) {
   if (filter != null) {
     const data = await client.fetch(`*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) {
         title,
@@ -25,3 +25,20 @@ export default async function getFeaturedStories(filter) {
   return data
   }
 }
+
+async function getStoryBySlug(slug) {
+  const story = await client.fetch(`*[_type == "story" && slug.current=='${slug}']{
+    title,
+    body,
+    gallery[] {
+      "url": asset->url,
+      caption
+    },
+    publishedBy,
+    publishedAt,
+    "imageUrl": poster.asset->url
+  }` , {}, {next: {revalidate: 60}})
+  return story
+}
+
+export default {getFeaturedStories, getStoryBySlug}

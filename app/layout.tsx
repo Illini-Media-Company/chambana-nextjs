@@ -4,7 +4,7 @@ import "./globals.css";
 import Banner from "@/components/banner";
 import styles from "./layout.module.css";
 
-const inter = Inter({ subsets: ["latin"] }); // TODO: choose a different font if you so desire, Inter pretty good tho
+const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
 
 export const metadata: Metadata = {
   title: "Chambana Eats",

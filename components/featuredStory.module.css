@@ -22,3 +22,27 @@
 .featStory {
     text-decoration: none;
 }
+.title {
+    margin-top: 0;
+}
+
+@media (max-width: 500px) {
+    .parentContainer {
+        flex-direction: column;
+        gap: 0;
+    }
+    .featStoryImage {
+        display: none;
+    }
+    .column {
+        border-bottom: 2px black solid;
+        padding-bottom: 1em;
+    }
+    .title {
+        font-size: larger
+    }
+    .byline {
+        margin-top: 1em;
+        font-size: medium;
+    }
+}

@@ -22,6 +22,7 @@
 	flex-direction: column;
 	padding: 1em;
 	flex-grow: 2;
+	/* flex-basis: 50%; */
 	border-radius: var(--border-radius);
 	background-color:#dcdee0;
 	/* gap: 1em; */
@@ -43,4 +44,10 @@
 	border-radius: var(--border-radius);
     width: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 500px) {
+	.container {
+		flex-direction: column;
+	}
 }

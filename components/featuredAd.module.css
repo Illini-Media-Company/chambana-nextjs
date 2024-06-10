@@ -9,3 +9,10 @@
     border-radius: var(--border-radius);
     object-fit: cover;
 }
+
+@media (max-width: 500px) {
+    .parentContainer {
+        justify-content: center;
+        display: flex;
+    }
+}

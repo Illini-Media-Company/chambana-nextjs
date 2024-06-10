@@ -18,6 +18,7 @@
 }
 
 body {
+  padding: 0;
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -31,4 +32,14 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
 }

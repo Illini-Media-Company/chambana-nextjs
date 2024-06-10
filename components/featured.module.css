@@ -22,3 +22,12 @@
 	border-radius: var(--border-radius)
 
 }
+
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column
+	}
+	.leftContainer {
+		border-radius: 0;
+	}
+}

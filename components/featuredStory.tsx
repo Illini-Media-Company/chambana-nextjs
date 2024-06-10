@@ -39,8 +39,8 @@ export default function FeatStory({
           />
         </div>
         <div className={styles.column + " " + styles.title}>
-          <h1>{title}</h1>
-          <h3>
+          <h1 className={styles.title}>{title}</h1>
+          <h3 className={styles.byline}>
             By {createdBy}, {dateTime.toLocaleDateString()}
           </h3>
         </div>
