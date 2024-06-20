@@ -10,15 +10,17 @@ import {
 import useEmblaCarousel from 'embla-carousel-react'
 import styles from './embla.module.css'
 import Image from 'next/image'
+import Autoplay from 'embla-carousel-autoplay'
 
 type PropType = {
   slides: any
   options?: EmblaOptionsType
+  ad?: boolean
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const { slides, options, ad} = props
+  const [emblaRef, emblaApi] = !ad ? useEmblaCarousel(options) : useEmblaCarousel(options, [Autoplay()])
 
   const {
     prevBtnDisabled,
@@ -34,14 +36,29 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           {slides.map((image: any, index: number) => (
             <div className={styles.embla__slide} key={index}>
               <div className={styles.embla__slide__number}>
-                <Image 
-                    src={image.url}
-                    alt="pic"
-                    height={400}
-                    width={600}
-                    className={styles.image_container}
-                />
-                {image.caption}
+                {ad && 
+                  <a href={image.href}>
+                    <Image 
+                      src={image.imgUrl}
+                      alt="ad"
+                      height={250}
+                      width={300}
+                      className={styles.ad_container}
+                    />
+                  </a>
+                }
+                {!ad && 
+                  <div className={styles.embla__slide__number}>
+                    <Image 
+                      src={image.url}
+                      alt="pic"
+                      height={400}
+                      width={600}
+                      className={styles.image_container}
+                    />
+                    {image.caption}
+                  </div>
+                }
               </div>
             </div>
           ))}
@@ -49,14 +66,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className={styles.embla__controls}>
-        <div className={styles.embla__buttons}>
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
+        {!ad &&
+          <div className={styles.embla__buttons}>
+            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          </div>
+        }
       </div>
     </section>
   )
 }
 
 export default EmblaCarousel
-

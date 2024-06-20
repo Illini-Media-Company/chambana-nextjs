@@ -5,14 +5,11 @@ import MainStory from "./mainStory";
 import FeatStory from "./featuredStory";
 import FeatAd from "./featuredAd";
 import BannerAd from "./bannerAd";
-import Newsletter from "./newsletter"
+import Newsletter from "./newsletter";
+import EmblaCarousel from "./EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel';
 
-interface StoryProps {
-  // is this used?
-  children: React.ReactNode;
-}
-
-export default async function Featured({
+export default function Featured({
   stories,
   featAds,
 }: {
@@ -20,6 +17,7 @@ export default async function Featured({
   stories: any;
   featAds: any;
 }) {
+  const OPTIONS: EmblaOptionsType = { loop: true }
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
@@ -49,10 +47,16 @@ export default async function Featured({
       {/* TODO: redo this css */}
       <div className={styles.rightContainer}>
         <Newsletter />
-        {featAds &&
-          featAds.map((ad: any) => (
-            <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad.imgUrl} />
+        <div className={styles.carousel}>
+          <EmblaCarousel ad={true} slides={featAds} options={OPTIONS}/>
+        </div>
+
+        <div className={styles.ads}>
+          {(featAds) &&
+            featAds.map((ad: any) => (
+              <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad.imgUrl} />
           ))}
+        </div>
       </div>
     </div>
   );

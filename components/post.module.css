@@ -32,8 +32,8 @@
 .rightContainer {
 	flex-grow: 1;
 	position: relative;
-	border-radius: var(--border-radius)
-
+	border-radius: var(--border-radius);
+	flex-basis: 2em
 }
 
 .body {

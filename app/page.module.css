@@ -15,3 +15,14 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .bannerAdContainer {
+        position: sticky;
+        top: 0;
+        z-index: 99999;
+    }
+    .bannerAd {
+        width: 100%
+    }
+}

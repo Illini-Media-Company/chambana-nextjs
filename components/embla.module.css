@@ -22,6 +22,7 @@
 .embla__slide__number {
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
   border-radius: var(--border-radius);
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +33,12 @@
   position: relative;
   border-radius: var(--border-radius);
   width: 90%;
+  object-fit: cover;
+}
+.ad_container {
+  position: relative;
+  border-radius: var(--border-radius);
+  width: 100%;
   object-fit: cover;
 }
 .embla__controls {
@@ -76,4 +83,9 @@
   width: 35%;
   height: 35%;
 }
-  
+
+@media (max-width: 768px) {
+  .image_container {
+    height: 250px;
+  }
+}

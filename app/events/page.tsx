@@ -3,7 +3,7 @@ import fetchHelper from "../helpers/fetchStories";
 
 export default async function EventsPage() {
   const data = await fetchHelper.getFeaturedStories("events");
-  console.log(data);
+  // console.log(data);
   return (
     <main>
       {/* TODO: remove inline styles */}

@@ -1,11 +1,13 @@
-import {PortableText} from "@portabletext/react"
-import styles from "./post.module.css"
-import FeatAd from "./featuredAd"
-import Image from 'next/image'
-import urlBuilder from '@sanity/image-url'
-import client from "../app/sanity"
-import EmblaCarousel from "./EmblaCarousel"
-import { EmblaOptionsType } from 'embla-carousel'
+'use client';
+
+import {PortableText} from "@portabletext/react";
+import styles from "./post.module.css";
+import FeatAd from "./featuredAd";
+import Image from 'next/image';
+import urlBuilder from '@sanity/image-url';
+import client from "../app/sanity";
+import EmblaCarousel from "./EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel';
 
 interface PostProps {
     story: any
@@ -30,11 +32,11 @@ const myPortableTextComponents = {
   },
 
   block: {
-      // Ex. 1: customizing common block types
-      blockquote: ({ children }: {children?: any}) => (
-        <blockquote className="border-l-purple-500">{children}</blockquote>
-      ),
-    },
+    // Ex. 1: customizing common block types
+    blockquote: ({ children }: {children?: any}) => (
+      <blockquote className="border-l-purple-500">{children}</blockquote>
+    ),
+  },
 
   marks: {
     link: ({children, value}: {children?: any, value?: any}) => {
@@ -48,26 +50,54 @@ const myPortableTextComponents = {
   },
 }
 
-export default async function Post({story, ads}: PostProps) {
+export default function Post({story, ads}: PostProps) {
   const OPTIONS: EmblaOptionsType = { loop: true }
   const SLIDE_COUNT = 5
   const IMAGES = story.gallery
-  console.log(IMAGES)
-    return (
-        <div className={styles.container}>
-            <div className={styles.leftContainer}>
-                <h1 className={styles.title}>{story.title}</h1>
-                <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>
-                <div className={styles.body}>
-                  <PortableText value={story.body} components={myPortableTextComponents}/>
-                  {(IMAGES) && 
-                    <EmblaCarousel slides={IMAGES} options={OPTIONS} />}
-                </div>
-            </div>
-            <div className={styles.rightContainer}>
-                <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
-                <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
-            </div>
-        </div>
-    )
+  console.log('ads', ads)
+
+
+  // THIS IS THE TEMPLATE FOR ADDING ADS TO THE MIDDLE OF THE PORTABLE TEXT
+
+  // story.body.push(
+  //   {    
+  //     asset: {
+  //       _ref: 'image-19bc486b92afd40f0db056173aa60486f1c286a5-4000x2015-jpg',
+  //       _type: 'reference'
+  //     },
+  //     _type: 'image'
+  //   }
+  // )
+  // console.log(IMAGES)
+  
+  return (
+      <div className={styles.container}>
+          <div className={styles.leftContainer}>
+              <h1 className={styles.title}>{story.title}</h1>
+              <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>
+              <div className={styles.body}>
+                <PortableText value={story.body} components={myPortableTextComponents}/>
+                {(IMAGES) && 
+                  <EmblaCarousel slides={IMAGES} options={OPTIONS} />}
+              </div>
+          </div>
+          <div className={styles.rightContainer}>
+              {ads &&
+                ads.map((ad: any) => {
+                  return <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
+                })}
+          </div>
+      </div>
+  )
+}
+
+function cleanUpAds(ads: any) {
+  const clean = {
+    asset: {
+      _ref: ads.imgUrl,
+      _type: 'reference'
+    },
+    type: 'image'
+  }
+  return clean
 }

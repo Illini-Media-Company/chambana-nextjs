@@ -16,18 +16,32 @@
 	border-radius: var(--border-radius);
 	gap: 1em;
 	justify-content: flex-start;
-
 }
 
 .rightContainer {
 	flex-grow: 1;
 	position: relative;
 	border-radius: var(--border-radius);
-	flex-basis: 2em
+	flex-basis: 2em;
 }
 
-@media (max-width: 500px) {
+.ads {
+	display: flex;
+	flex-direction: column;
+}
+
+.mobileAds {
+	display: none;
+}
+
+@media (max-width: 768px) {
 	.container {
 		flex-direction: column;
+	}
+	.ads {
+		display: none;
+	}
+	.mobileAds {
+		display: flex;
 	}
 }

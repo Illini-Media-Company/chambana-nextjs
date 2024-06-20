@@ -14,6 +14,7 @@ const storyType = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: rule => rule.required(),
       options: {
         source: 'title'
       }
@@ -21,12 +22,14 @@ const storyType = defineType({
     {
       name: 'main',
       title: 'Main Story',
-      type: 'boolean'
+      type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: rule => rule.required(),
       options: {
         dateFormat: 'MM-DD-YYYY',
         timeFormat: 'HH:mm'

@@ -4,43 +4,52 @@ import StoryScroll from "@components/storyScroll";
 import client from "./sanity";
 import styles from "./page.module.css";
 import fetchHelper from "./helpers/fetchStories";
-import getFeaturedAds from "./helpers/fetchAds";
+import adsHelper from "./helpers/fetchAds";
 import BannerAd from "@components/bannerAd"
+import shuffle from "./helpers/randomize"
+import rearrangeStories from "./helpers/sortStories"
 
 export default async function Home() {
   const stories = await fetchHelper.getFeaturedStories();
-  const ads = await getFeaturedAds();
+  const ads = await adsHelper.getFeaturedAds(0, 2);
+  const banners = await adsHelper.getBannerAds();
+  const pAds = await adsHelper.getPageAds();
 
+  const sortedStories = rearrangeStories(stories)
+
+  const pageAds = shuffle(pAds);
+  const bannerAds = shuffle(banners);
   // TODO: add some error handling here in case the fetch fails
+  console.log(sortedStories)
 
   const exampleAdName = "ButtFuckers";
   return (
     <main>
       <div className={styles.contentContainer}>
-        <Featured stories={stories} featAds={ads} />
+        <Featured stories={sortedStories} featAds={ads} />
         {/* TODO: you may want to put this in its own component? Like <BannerAd />? */}
-        <a href="https://dailyillini.com" className={styles.bannerAdContainer}>
+        <a href={bannerAds[0].href} className={styles.bannerAdContainer}>
           <Image
-            src={"/banner-placeholder.png"}
+            src={bannerAds[0].imgUrl}
             alt={`Banner ad for ${exampleAdName}`}
             width="400"
             height="100"
             className={styles.bannerAd}
           />
         </a>
-        <StoryScroll storyCount={5} stories={stories.slice(4)} />
-        <a href="https://dailyillini.com" className={styles.bannerAdContainer}>
+        <StoryScroll storyCount={5} stories={sortedStories.slice(4)} ads={pageAds.slice(0, 2)}/>
+        <a href={bannerAds[1].href} className={styles.bannerAdContainer}>
           <Image
-            src={"/banner-placeholder.png"}
+            src={bannerAds[1].imgUrl}
             alt={`Banner ad for ${exampleAdName}`}
             width="400"
             height="100"
             className={styles.bannerAd}
           />
         </a>
-        <StoryScroll storyCount={5} stories={stories.slice(9)} />
+        <StoryScroll storyCount={5} stories={sortedStories.slice(9)} ads={pageAds.slice(2)}/>
       </div>
     </main>
   );
 }
-export const revalidate = 60
+export const revalidate = 60;

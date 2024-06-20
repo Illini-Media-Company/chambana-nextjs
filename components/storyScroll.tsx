@@ -3,14 +3,19 @@ import styles from "./storyScroll.module.css";
 import FeatStory from "./featuredStory";
 import FeatAd from "./featuredAd"
 import Newsletter from "./newsletter"
+import EmblaCarousel from "./EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel';
 
 interface StoryScrollProps {
   storyCount?: number;
   stories: any;
+  ads?: any;
+  inverse?: boolean;
 }
 
-export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
-  console.log(stories)
+export default function StoryScroll({ storyCount, stories, ads, inverse }: StoryScrollProps) {
+  // console.log(stories)
+  const OPTIONS: EmblaOptionsType = { loop: true }
   if (storyCount) {
     return (
       <div className={styles.container}>
@@ -30,8 +35,16 @@ export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
               ))}
         </div>
         <div className={styles.rightContainer}>
-          <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
-          <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
+          <div className={styles.ads}>
+            {(ads) && 
+            ads.map((ad: any) => {
+              return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+            })} 
+          </div>
+          <div className={styles.mobileAds}>
+            {ads &&
+              <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
+          </div>
         </div>
       </div>
     );
@@ -53,8 +66,15 @@ export default function StoryScroll({ storyCount, stories }: StoryScrollProps) {
               ))}
         </div>
         <div className={styles.rightContainer}>
-          <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
-          <FeatAd imgUrl="/placeholder.webp" href="https://dailyillini.com"/>
+        <div className={styles.ads}>
+            {(ads) && 
+            ads.map((ad: any) => {
+              return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+            })} 
+          </div>
+          <div className={styles.mobileAds}>
+            <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />
+          </div>
         </div>
       </div>
     );

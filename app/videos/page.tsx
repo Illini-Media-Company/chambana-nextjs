@@ -5,7 +5,7 @@ import fetchHelper from "../helpers/fetchStories";
 
 export default async function VideosPage() {
   const data = await fetchHelper.getFeaturedStories("videos");
-  console.log(data);
+  // console.log(data);
   return (
     <main>
       {/* TODO: remove inline styles */}

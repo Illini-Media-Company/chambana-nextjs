@@ -20,6 +20,8 @@ export default function FeatAd({imgUrl, href}: FeatAdProps) {
                 height={250}
                 width={300}
                 className={styles.image}
+                placeholder="blur"
+                blurDataURL="/blur.png"
             /></a>
         </div>
         </div>

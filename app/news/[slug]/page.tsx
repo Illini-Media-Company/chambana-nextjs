@@ -2,6 +2,8 @@ import client from "../../sanity"
 import React from 'react'
 import Post from "@components/post"
 import fetchHelper from "../../helpers/fetchStories"
+import fetchAds from "../../helpers/fetchAds"
+import shuffle from "../../helpers/randomize"
 
 type Props = {
   params: {
@@ -17,17 +19,12 @@ export async function generateStaticParams() {
 }
 
 async function Page({params: {slug}}: Props) {
-  // const story = await client.fetch(`*[_type == "story" && slug.current=='${slug}']{
-  //   title,
-  //   body,
-  //   publishedBy,
-  //   publishedAt,
-  //   "imageUrl": poster.asset->url
-  // }` , {}, {next: {revalidate: 60}})
   const story = await fetchHelper.getStoryBySlug(slug)
+  const pre_ad = await fetchAds.getPageAds();
+  const ads = shuffle(pre_ad)
   return(
     <div>
-      <Post story={story[0]}/>
+      <Post story={story[0]} ads={ads}/>
     </div>
   )
 }

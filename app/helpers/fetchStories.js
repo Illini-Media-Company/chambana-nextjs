@@ -2,32 +2,39 @@ import client from '../sanity'
 
 async function getFeaturedStories(filter) {
   if (filter != null) {
-    const data = await client.fetch(`*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) {
+    const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) {
         title,
         "imgUrl": poster.asset->url,
+        main,
         tags,
         publishedAt,
         publishedBy,
+        _id,
         "slug": slug.current
-    }`, {}, {next: {revalidate: 60}})
+    }`
+
+    const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
 
     return data
   } else {
-    const data = await client.fetch(`*[_type == "story"] | order(_createdAt desc) {
-      title,
-      "imgUrl": poster.asset->url,
-      tags,
-      publishedAt,
-      publishedBy,
-      "slug": slug.current
-  }`, {}, {next: {revalidate: 60}})
+    const groq = `*[_type == "story"] | order(_createdAt desc) {
+        title,
+        "imgUrl": poster.asset->url,
+        main,
+        tags,
+        publishedAt,
+        publishedBy,
+        _id,
+        "slug": slug.current
+    }`
+    const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
 
-  return data
+    return data
   }
 }
 
 async function getStoryBySlug(slug) {
-  const story = await client.fetch(`*[_type == "story" && slug.current=='${slug}']{
+  const groq = `*[_type == "story" && slug.current=='${slug}']{
     title,
     body,
     gallery[] {
@@ -37,7 +44,8 @@ async function getStoryBySlug(slug) {
     publishedBy,
     publishedAt,
     "imageUrl": poster.asset->url
-  }` , {}, {next: {revalidate: 60}})
+  }`
+  const story = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
   return story
 }
 

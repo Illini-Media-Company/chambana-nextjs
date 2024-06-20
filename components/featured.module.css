@@ -17,10 +17,21 @@
 }
 
 .rightContainer {
+	display: flex;
 	flex-grow: 1;
-	position: relative;
-	border-radius: var(--border-radius)
+	/* position: relative; */
+	border-radius: var(--border-radius);
+	flex-direction: column;
+	flex-basis: 2em;
+}
 
+.carousel {
+	display: none;
+}
+
+.ads {
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 768px) {
@@ -29,5 +40,14 @@
 	}
 	.leftContainer {
 		border-radius: 0;
+	}
+	.rightContainer {
+		flex-direction: column-reverse
+	}
+	.ads {
+		display: none
+	}
+	.carousel {
+		display:flex;
 	}
 }

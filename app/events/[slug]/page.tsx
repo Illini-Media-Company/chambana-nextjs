@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 
 async function Page({params: {slug}}: Props) {
   const story = await client.fetch(`*[_type == "story" && slug.current=='${slug}']`, {}, {next: {revalidate: 60}})
-  console.log(story)
+  // console.log(story)
   return(
     <div>
       <Post story={story[0]}/>
