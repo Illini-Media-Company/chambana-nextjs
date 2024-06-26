@@ -46,8 +46,22 @@
     object-fit: cover;
 }
 
+.ads {
+	display: flex;
+	flex-direction: column;
+}
+.mobileAds {
+	display: none;
+}
 @media (max-width: 500px) {
 	.container {
 		flex-direction: column;
+	}
+	.ads {
+		display: none;
+	}
+	.mobileAds {
+		display: flex;
+		justify-content: center;
 	}
 }

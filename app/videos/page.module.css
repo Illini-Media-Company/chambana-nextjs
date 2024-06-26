@@ -1,0 +1,20 @@
+.mobile {
+    display: none;
+}
+
+.pc {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+@media(max-width: 768px) {
+    .mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .pc {
+        display: none;
+    }
+}

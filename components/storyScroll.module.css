@@ -43,5 +43,6 @@
 	}
 	.mobileAds {
 		display: flex;
+		justify-content: center;
 	}
 }

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Banner from "@/components/banner";
 import styles from "./layout.module.css";
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
 
@@ -19,10 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " " + styles.body}>
-        <header>
+        <div className={inter.className + " " + styles.header}> 
           <Banner />
-        </header>
-        {children}
+          <hr /> 
+        </div>
+        <div className={inter.className + " " + styles.bodyWrap}>
+           {children} 
+        </div>
         <footer>copyright illini media or whatever</footer>
       </body>
     </html>

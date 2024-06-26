@@ -1,5 +1,3 @@
-'use client';
-
 import {PortableText} from "@portabletext/react";
 import styles from "./post.module.css";
 import FeatAd from "./featuredAd";
@@ -51,10 +49,9 @@ const myPortableTextComponents = {
 }
 
 export default function Post({story, ads}: PostProps) {
-  const OPTIONS: EmblaOptionsType = { loop: true }
-  const SLIDE_COUNT = 5
-  const IMAGES = story.gallery
-  console.log('ads', ads)
+  const OPTIONS: EmblaOptionsType = { loop: true };
+  const SLIDE_COUNT = 5;
+  const IMAGES = story.gallery;
 
 
   // THIS IS THE TEMPLATE FOR ADDING ADS TO THE MIDDLE OF THE PORTABLE TEXT
@@ -82,10 +79,16 @@ export default function Post({story, ads}: PostProps) {
               </div>
           </div>
           <div className={styles.rightContainer}>
-              {ads &&
-                ads.map((ad: any) => {
-                  return <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
-                })}
+              <div className={styles.ads}>
+                {ads &&
+                  ads.map((ad: any) => {
+                    return <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
+                  })}
+              </div>
+              <div className={styles.mobileAds}>
+                {ads && 
+                  <EmblaCarousel ad={true} slides={ads} options={OPTIONS}/>}
+              </div>
           </div>
       </div>
   )

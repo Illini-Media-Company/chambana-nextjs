@@ -12,13 +12,14 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-    const posts = await client.fetch(`*[_type == "story"]`)
+    const posts = await client.fetch(`*[_type == "story"]`).catch((err) => console.log('error', err));
     return posts.map((post: any) => {
         slug: post.slug
     })
 }
 
 async function Page({params: {slug}}: Props) {
+  console.log('slug', slug);
   const story = await fetchHelper.getStoryBySlug(slug)
   const pre_ad = await fetchAds.getPageAds();
   const ads = shuffle(pre_ad)

@@ -11,10 +11,11 @@ interface StoryScrollProps {
   stories: any;
   ads?: any;
   inverse?: boolean;
+  adslides?: boolean;
 }
 
-export default function StoryScroll({ storyCount, stories, ads, inverse }: StoryScrollProps) {
-  // console.log(stories)
+export default function StoryScroll({ storyCount, stories, ads, inverse, adslides = true }: StoryScrollProps) {
+  console.log('ads', ads)
   const OPTIONS: EmblaOptionsType = { loop: true }
   if (storyCount) {
     return (
@@ -42,8 +43,10 @@ export default function StoryScroll({ storyCount, stories, ads, inverse }: Story
             })} 
           </div>
           <div className={styles.mobileAds}>
-            {ads &&
+            {ads && adslides && 
               <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
+            {ads && !adslides && 
+              <FeatAd imgUrl={ads[0]} href={ads[0].href}/>}
           </div>
         </div>
       </div>
@@ -73,7 +76,10 @@ export default function StoryScroll({ storyCount, stories, ads, inverse }: Story
             })} 
           </div>
           <div className={styles.mobileAds}>
-            <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />
+            {ads && adslides && 
+              <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
+            {ads && !adslides && 
+              <FeatAd imgUrl={ads[0].imgUrl} href={ads[0].href}/>}
           </div>
         </div>
       </div>

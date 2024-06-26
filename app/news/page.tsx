@@ -26,7 +26,7 @@ export default async function NewsPage() {
       <div className={styles.mobile}>
         {rows && 
           rows.map((row: any, index: number) => {
-            return <StoryScroll stories={row} ads={ads} />
+            return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
           })}
       </div>
       <div className={styles.pc}>
