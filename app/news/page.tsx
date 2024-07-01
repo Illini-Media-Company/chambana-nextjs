@@ -19,10 +19,10 @@ export default async function NewsPage() {
   }, []);
 
   ads = shuffle(ads)
+  console.log('stories', data.lastId)
 
   return (
     <main>
-      {/* TODO: remove inline styles */}
       <div className={styles.mobile}>
         {rows && 
           rows.map((row: any, index: number) => {

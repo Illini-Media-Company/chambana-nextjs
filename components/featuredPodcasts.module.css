@@ -1,0 +1,16 @@
+.featContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding: 2em;
+    border-radius: var(--border-radius);
+}
+
+.imageContainer {
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.title {
+    /* margin-top: 1em; */
+}

@@ -32,7 +32,15 @@ body {
   visibility: hidden;
 }
 
-h1,
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
 h2,
 h3 {
 	margin: 0;

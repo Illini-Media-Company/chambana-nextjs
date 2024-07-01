@@ -15,7 +15,6 @@ interface StoryScrollProps {
 }
 
 export default function StoryScroll({ storyCount, stories, ads, inverse, adslides = true }: StoryScrollProps) {
-  console.log('ads', ads)
   const OPTIONS: EmblaOptionsType = { loop: true }
   if (storyCount) {
     return (

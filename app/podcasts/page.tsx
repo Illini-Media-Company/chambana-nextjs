@@ -4,6 +4,8 @@ import fetchHelper from "../helpers/fetchStories";
 import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
 import styles from "./page.module.css"
+import Podcast from "@/components/podcast";
+import FeaturedPodcasts from "@/components/featuredPodcasts";
 
 export default async function PodcastsPage() {
   const data = await fetchHelper.getFeaturedStories("podcasts");
@@ -30,6 +32,8 @@ export default async function PodcastsPage() {
           })}
       </div>
       <div className={styles.pc}>
+        <Podcast />
+        <FeaturedPodcasts/>
         <StoryScroll stories={data} ads={ads.splice(0, 4)} />
       </div>
     </main>

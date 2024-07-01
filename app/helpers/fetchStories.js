@@ -2,7 +2,8 @@ import client from '../sanity'
 
 async function getFeaturedStories(filter) {
   if (filter != null) {
-    const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) {
+    let lastId = ' '
+    const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) [0...20] {
         title,
         "imgUrl": poster.asset->url,
         main,
@@ -13,11 +14,16 @@ async function getFeaturedStories(filter) {
         "slug": slug.current
     }`
 
-    const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
+    const data = await client.fetch(groq, {lastId}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
+
+    if (data.length > 0)
+      lastId = data[data.length - 1]._id
+    else
+      lastId = null
 
     return data
   } else {
-    const groq = `*[_type == "story"] | order(_createdAt desc) {
+    const groq = `*[_type == "story"] | order(_createdAt desc) [0...50] {
         title,
         "imgUrl": poster.asset->url,
         main,
@@ -49,4 +55,28 @@ async function getStoryBySlug(slug) {
   return story
 }
 
-export default {getFeaturedStories, getStoryBySlug}
+
+async function getNextPage(id, filter) {
+  if (id == null) {
+    return []
+  }
+  const groq = `[_type == "story" && tags == "${filter}" && _id>${id}][0...20] {
+    title,
+    "imgUrl": poster.asset->url,
+    main,
+    tags,
+    publishedAt,
+    publishedBy,
+    _id,
+    "slug": slug.current
+  }`
+  const {result} = await client.fetch(groq, {lastId})
+
+  if (result.length > 0)
+    lastId = result[result.length - 1]._id
+  else
+    lastId = null;
+
+  return result;
+}
+export default {getFeaturedStories, getStoryBySlug, getNextPage}
