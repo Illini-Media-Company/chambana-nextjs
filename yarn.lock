@@ -7622,6 +7622,7 @@ __metadata:
     styled-components: "npm:6.0"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5"
+    wavesurfer.js: "npm:^7.8.1"
   languageName: unknown
   linkType: soft
 
@@ -10527,6 +10528,13 @@ __metadata:
   dependencies:
     loose-envify: "npm:^1.0.0"
   checksum: 10c0/aebab445129f3e104c271f1637fa38e55eb25f968593e3825bd2f7a12bd58dc3738bb70dc8ec85826621d80b4acfed5a29ebc9da17397c6125864d72301b937e
+  languageName: node
+  linkType: hard
+
+"wavesurfer.js@npm:^7.8.1":
+  version: 7.8.1
+  resolution: "wavesurfer.js@npm:7.8.1"
+  checksum: 10c0/1d5165f66992153d16f73688d428a30a85e819edd52a19ccc7a78370acf348bd3cf062604a2956a9f1385d30a8f204a5c68e78abdfdba1fc2558dcc16f89d463
   languageName: node
   linkType: hard
 

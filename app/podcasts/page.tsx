@@ -4,7 +4,7 @@ import fetchHelper from "../helpers/fetchStories";
 import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
 import styles from "./page.module.css"
-import Podcast from "@/components/podcast";
+import Podcast from "@/components/embeddedPodcast";
 import FeaturedPodcasts from "@/components/featuredPodcasts";
 
 export default async function PodcastsPage() {

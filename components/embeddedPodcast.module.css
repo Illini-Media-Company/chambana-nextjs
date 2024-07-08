@@ -1,0 +1,60 @@
+.audioPlayer {
+    display: none;
+}
+
+.podcastContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+    background-color: #dcdee0;
+    border-radius: var(--border-radius);
+    padding: 2em;
+    justify-content: center;
+    gap: 2em;
+    width: 75%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.leftContainer {
+
+}
+.rightContainer {
+    flex-direction: column;
+
+}
+
+.imageContainer {
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.playButton {
+	color: #000000;
+	font-size: 100%;
+    border-radius: var(--border-radius);
+	/* border: 2px solid var(--main-bg-color); */
+	border: none;
+	padding: 0.3em 0.7em;
+	display: flex;
+	gap: 1ch;
+	text-transform: uppercase;
+	letter-spacing: 0.1ch;
+	font-weight: bold;
+	font-family: inherit;
+}
+
+.volumeSlider {
+    margin-top: 1em;
+	max-width: 10em;
+}
+
+.playPauseContainer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.waveform {
+    width: 100%
+}

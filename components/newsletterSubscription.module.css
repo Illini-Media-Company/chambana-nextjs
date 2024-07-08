@@ -4,6 +4,7 @@
     margin: 2em;
     margin-top: 0;
     border-radius: var(--border-radius);
+    justify-content: center;
 }
 
 .newsletter {

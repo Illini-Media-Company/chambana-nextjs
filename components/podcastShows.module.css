@@ -1,0 +1,14 @@
+.parentContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.title {
+    margin-bottom: 0;
+    font-weight: 900;
+}

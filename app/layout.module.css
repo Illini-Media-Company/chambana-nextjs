@@ -1,5 +1,10 @@
 .header {
-    padding: 0
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+    padding: 0;
+    padding-top: 0.5em;
+    background-color: #FFFFFF
 }
 
 .bodyWrap {
@@ -7,6 +12,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 2em;
+    border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
@@ -16,6 +22,7 @@
     }
     .header {
         padding: 0;
+        position: relative;
     }
     .bodyWrap {
         padding: 0;

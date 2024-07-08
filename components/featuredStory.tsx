@@ -11,7 +11,7 @@ interface FeatStoryProps {
   tag: string;
   imgUrl?: string;
   description?: string;
-  createdBy: string;
+  createdBy?: string;
   createdAt: string;
 }
 

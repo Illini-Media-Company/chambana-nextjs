@@ -1,5 +1,7 @@
 import styles from './featuredPodcasts.module.css'
 import Image from 'next/image'
+import Podcast from './embeddedPodcast'
+import Show from './podcastShows'
 
 export default function FeaturedPodcasts() {
     return(
@@ -8,34 +10,10 @@ export default function FeaturedPodcasts() {
             <hr></hr>
             {/* Replace these images with featuredPodcast components that include title and show host */}
             <div className={styles.featContainer}>
-                <Image 
-                    src={'/placeholder.webp'}
-                    alt={"podcast image"}
-                    width={300}
-                    height={300}
-                    className={styles.imageContainer}
-                />
-                <Image 
-                    src={'/placeholder.webp'}
-                    alt={"podcast image"}
-                    width={300}
-                    height={300}
-                    className={styles.imageContainer}
-                />
-                <Image 
-                    src={'/placeholder.webp'}
-                    alt={"podcast image"}
-                    width={300}
-                    height={300}
-                    className={styles.imageContainer}
-                />
-                <Image 
-                    src={'/placeholder.webp'}
-                    alt={"podcast image"}
-                    width={300}
-                    height={300}
-                    className={styles.imageContainer}
-                />
+                <Show title='Sports Ball' host='Sydney'/>
+                <Show title='Politics' host='Sydney'/>
+                <Show title='Events' host='Sydney'/>
+                <Show title='Random Stuff' host='Sydney'/>
             </div>
 
             <h1 className={styles.title}>Recent Episodes</h1>

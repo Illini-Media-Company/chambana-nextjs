@@ -71,7 +71,8 @@ export default function Post({story, ads}: PostProps) {
       <div className={styles.container}>
           <div className={styles.leftContainer}>
               <h1 className={styles.title}>{story.title}</h1>
-              <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>
+              {story.publishedBy &&
+                <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>}
               <div className={styles.body}>
                 <PortableText value={story.body} components={myPortableTextComponents}/>
                 {(IMAGES) && 

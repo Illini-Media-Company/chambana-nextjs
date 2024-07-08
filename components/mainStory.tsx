@@ -12,7 +12,7 @@ interface MainStoryProps {
   imgUrl?: string;
   url: string;
   tag: string;
-  createdBy: string;
+  createdBy?: string;
   createdAt: string;
 }
 

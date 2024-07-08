@@ -26,13 +26,15 @@ export default function Banner() {
       </div>
       {/*  todo: make this a link to the homepage */}
       <div className={styles.navBarContainer}>
-        <Image
-          src={logo}
-          alt={"Logo for the Daily Illini"}
-          width={100}
-          height={100}
-          className={styles.logo}
-        />
+        <a href={"/"}>
+          <Image
+            src={logo}
+            alt={"Logo for the Daily Illini"}
+            width={100}
+            height={100}
+            className={styles.logo}
+          /> 
+        </a>
         <div className={styles.column + " " + styles.right}>
           <NavBar />
         </div>
