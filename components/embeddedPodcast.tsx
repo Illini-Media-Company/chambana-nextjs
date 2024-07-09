@@ -52,13 +52,13 @@ export default function Podcast() {
             dragToSeek: true,
             fillParent: true,
             // width: "12vw",
-            height: 60,
+            height: 64,
             hideScrollbar: true,
             normalize: true,
-            barGap: 1,
+            // barGap: 1,
             barHeight: 20,
             barRadius: 20,
-            barWidth: 5
+            // barWidth: 5,
         })
     }
       

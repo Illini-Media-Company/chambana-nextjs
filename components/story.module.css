@@ -24,6 +24,7 @@
     flex-basis: 2;
     min-width: 0;
     overflow: hidden;
+    width: 100%;
 }
 
 .title {

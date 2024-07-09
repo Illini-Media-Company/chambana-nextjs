@@ -44,7 +44,9 @@ export default function Story({
         </div>
         <div className={styles.rightContainer}>
           <h2 className={styles.title}>{title}</h2>
-          <h4 className={styles.date}>By {createdBy}, {dateTime.toLocaleDateString()}</h4>
+          {createdBy && 
+            <h4 className={styles.date}>By {createdBy}, {dateTime.toLocaleDateString()}</h4>
+          }
         </div>
       </div>
     </a>
