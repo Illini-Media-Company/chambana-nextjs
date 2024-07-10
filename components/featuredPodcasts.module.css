@@ -12,6 +12,21 @@
     object-fit: cover;
 }
 
+.mobile {
+    display: none;
+}
+
 .title {
     /* margin-top: 1em; */
+}
+
+@media (max-width: 768px) {
+    .mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .featContainer {
+        display: none;
+    }
 }

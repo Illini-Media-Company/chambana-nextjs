@@ -26,6 +26,8 @@ export default async function PodcastsPage() {
     <main>
       {/* TODO: remove inline styles */}
       <div className={styles.mobile}>
+        <Podcast />
+        <FeaturedPodcasts />
         {rows && 
           rows.map((row: any, index: number) => {
             return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
@@ -33,7 +35,7 @@ export default async function PodcastsPage() {
       </div>
       <div className={styles.pc}>
         <Podcast />
-        <FeaturedPodcasts/>
+        <FeaturedPodcasts />
         <StoryScroll stories={data} ads={ads.splice(0, 4)} />
       </div>
     </main>

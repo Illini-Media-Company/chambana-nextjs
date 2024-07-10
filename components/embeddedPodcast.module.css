@@ -14,10 +14,11 @@
     width: 75%;
     margin: auto;
     margin-top: 1em;
+    align-items: center;
 }
 
 .leftContainer {
-
+    justify-content: center;
 }
 .rightContainer {
     flex-direction: column;
@@ -57,4 +58,12 @@
 
 .waveform {
     width: 100%
+}
+
+@media (max-width: 500px) {
+    .podcastContainer {
+        flex-direction: column;
+        margin: 0;
+        width: auto;
+    }
 }

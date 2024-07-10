@@ -1,5 +1,5 @@
 .embla {
-  max-width: 48rem;
+  max-width: 100%;
   margin: auto;
   --slide-height: 27rem;
   --slide-spacing: 1rem;
@@ -83,6 +83,7 @@
   width: 35%;
   height: 35%;
 }
+
 
 @media (max-width: 768px) {
   .image_container {

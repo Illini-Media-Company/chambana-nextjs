@@ -2,11 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    align-items: center;
 }
 
 .imageContainer {
     border-radius: var(--border-radius);
     object-fit: cover;
+    width: 90%
 }
 
 .title {
