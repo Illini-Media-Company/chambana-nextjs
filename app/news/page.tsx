@@ -3,10 +3,12 @@ import StoryScroll from "@components/storyScroll";
 import fetchHelper from "../helpers/fetchStories";
 import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
-import styles from "./page.module.css"
+import styles from "./page.module.css";
+import PaginatedScroll from "@components/PaginatedScroll";
 
 export default async function NewsPage() {
   const data = await fetchHelper.getFeaturedStories("news");
+  const [paginated, lastDate] = await fetchHelper.getPaginatedStories("news");
   const feat_ads = await adsHelper.getFeaturedAds(); 
   const page_ads = await adsHelper.getPageAds(); 
   const scrolls = data.length / 5;
@@ -30,7 +32,8 @@ export default async function NewsPage() {
           })}
       </div>
       <div className={styles.pc}>
-        <StoryScroll stories={data} ads={ads.splice(0, 4)} />
+        {/* <StoryScroll stories={data} ads={ads.splice(0, 4)} /> */}
+        <PaginatedScroll stories={paginated} ads={ads.splice(0, 4)} filter="news" lastDate={lastDate}/>
       </div>
     </main>
   );

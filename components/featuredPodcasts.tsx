@@ -15,10 +15,10 @@ export default function FeaturedPodcasts() {
             <hr></hr>
             {/* Replace these images with featuredPodcast components that include title and show host */}
             <div className={styles.featContainer}>
-                <Show title='Sports Ball' host='Sydney'/>
-                <Show title='Politics' host='Sydney'/>
-                <Show title='Events' host='Sydney'/>
-                <Show title='Random Stuff' host='Sydney'/>
+                {showItems &&
+                    showItems.map((show: any) => (
+                        <Show title={show.title} host={show.host} image={show.imgUrl} href={show.href} />
+                    ))}
             </div>
             <div className={styles.mobile}>
                 <PodcastCarousel slides={showItems} options={OPTIONS}/>

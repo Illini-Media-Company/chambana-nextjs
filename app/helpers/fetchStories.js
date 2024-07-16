@@ -39,6 +39,29 @@ async function getFeaturedStories(filter) {
   }
 }
 
+async function getPaginatedStories(filter) {
+  let lastId = ' '
+  const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) [0...20] {
+      title,
+      "imgUrl": poster.asset->url,
+      main,
+      tags,
+      publishedAt,
+      publishedBy,
+      _id,
+      "slug": slug.current
+  }`
+
+  const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
+
+  if (data.length > 0)
+    lastId = data[data.length - 1].publishedAt
+  else
+    lastId = null
+
+  return [data, lastId]
+}
+
 async function getStoryBySlug(slug) {
   const groq = `*[_type == "story" && slug.current=='${slug}']{
     title,
@@ -56,11 +79,12 @@ async function getStoryBySlug(slug) {
 }
 
 
-async function getNextPage(id, filter) {
-  if (id == null) {
+async function getNextPage(published, filter) {
+  if (published == null) {
     return []
   }
-  const groq = `[_type == "story" && tags == "${filter}" && _id>${id}][0...20] {
+  let lastId = ' ';
+  const groq = `[_type == "story" && tags == "${filter}" && publishedAt>"${published}"] | order(publishedAt) [0...20] {
     title,
     "imgUrl": poster.asset->url,
     main,
@@ -70,13 +94,14 @@ async function getNextPage(id, filter) {
     _id,
     "slug": slug.current
   }`
-  const {result} = await client.fetch(groq, {lastId})
+  const result = await client.fetch(groq, {})
+  console.log('result', result);
 
-  if (result.length > 0)
-    lastId = result[result.length - 1]._id
+  if (result != null && result.length > 0 && result[(result.length - 1)] != null)
+    lastId = result[result.length - 1].publishedAt
   else
     lastId = null;
 
-  return result;
+  return [result, lastId];
 }
-export default {getFeaturedStories, getStoryBySlug, getNextPage}
+export default {getFeaturedStories, getStoryBySlug, getNextPage, getPaginatedStories}

@@ -1,0 +1,17 @@
+.mobile {
+    display: none;
+}
+
+.pc {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    height: 2em;
+    width: 3em;
+}
+
+.button:active {
+    display: none;
+}

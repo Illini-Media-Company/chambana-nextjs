@@ -28,6 +28,7 @@
 .imageContainer {
     object-fit: cover;
     border-radius: var(--border-radius);
+    /* width: 100% */
 }
 
 .playButton {
@@ -60,10 +61,13 @@
     width: 100%
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .podcastContainer {
         flex-direction: column;
         margin: 0;
         width: auto;
+    }
+    .imageContainer {
+        width: 100%;
     }
 }

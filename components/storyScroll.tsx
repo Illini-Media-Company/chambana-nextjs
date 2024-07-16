@@ -1,3 +1,5 @@
+'use client'
+
 import Story from "@components/story";
 import styles from "./storyScroll.module.css";
 import FeatStory from "./featuredStory";

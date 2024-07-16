@@ -31,7 +31,8 @@ export default async function PodcastsPage() {
         {rows && 
           rows.map((row: any, index: number) => {
             return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
-          })}
+          })
+        }
       </div>
       <div className={styles.pc}>
         <Podcast />
