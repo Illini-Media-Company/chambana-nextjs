@@ -1,4 +1,5 @@
 import client from '../sanity'
+import rearrangeStories from './sortStories'
 
 async function getFeaturedStories(filter) {
   if (filter != null) {
@@ -78,13 +79,13 @@ async function getStoryBySlug(slug) {
   return story
 }
 
-
+// tags == "${filter}" &&
 async function getNextPage(published, filter) {
   if (published == null) {
     return []
   }
   let lastId = ' ';
-  const groq = `[_type == "story" && tags == "${filter}" && publishedAt>"${published}"] | order(publishedAt) [0...20] {
+  const query = `*[_type == "story" && tags == "${filter}" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
     main,
@@ -94,8 +95,8 @@ async function getNextPage(published, filter) {
     _id,
     "slug": slug.current
   }`
-  const result = await client.fetch(groq, {})
-  console.log('result', result);
+
+  const result = await client.fetch(query, {}, {});
 
   if (result != null && result.length > 0 && result[(result.length - 1)] != null)
     lastId = result[result.length - 1].publishedAt

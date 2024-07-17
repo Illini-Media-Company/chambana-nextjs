@@ -16,27 +16,58 @@ interface PaginatedProps {
 }
 
 export default function PaginatedScroll({stories, filter, ads, lastDate}: PaginatedProps) {
-    const [story, setStory] = useState<typeof storyType[]>(stories)
-    const [click, setClicked] = useState(false);
-    let date = lastDate;
-    const HandleLoad = async () => {
-        setClicked(!click);
-        const data = await fetchHelper.getNextPage(date, filter);
-        date = data[1];
-        if (date != null)
-            setStory([...story, ...data[0]])
+    const [story, setStory] = useState<any>(stories)
+    const [loading, setLoading] = useState(false);
+    const [date, setDate] = useState(lastDate);
+    const [more, setMore] = useState(true);
+    console.log(date);
 
-        return(console.log('lastId', date))
+    const HandleLoad = async () => {
+        setLoading(true);
+        const data = await fetchHelper.getNextPage(date, filter); 
+        setDate(data[1]);
+
+        if (data[1] != null)
+            setStory([...story, ...data[0]])
+        else
+            setMore(false);
+
+        setLoading(false);
     }
-    console.log(story)
- 
+
+    const rows = story.reduce(function (rows: any, key: any, index: any) { 
+        return ((index % 4 == 0) ? rows.push([key]) 
+          : rows[rows.length-1].push(key)) && rows;
+      }, []);
+
+    console.log('rows', rows);
+
     return(
+        <>
         <div className={styles.pc}> 
             <StoryScroll stories={story} ads={ads}/>
-            <button onClick={() => HandleLoad()}>
-                {click && 'true'}
-                {!click && 'false'}
-            </button>    
+            {loading == false && more &&
+                <> 
+                    <button onClick={HandleLoad}>
+                        Load More
+                    </button>
+                </>    
+            }
+            {/* <StoryScroll stories={story} ads={ads}/> */}
         </div>
+        <div className={styles.mobile}>
+            {rows && 
+                rows.map((row: any, index: number) => {
+                    return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
+            })}
+            {loading == false && more &&
+                <> 
+                    <button onClick={HandleLoad}>
+                        Load More
+                    </button>
+                </>    
+            }
+        </div>
+        </>
     )
 }
