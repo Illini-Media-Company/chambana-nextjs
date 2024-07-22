@@ -74,9 +74,9 @@ export default function Post({story, ads}: PostProps) {
               {story.publishedBy &&
                 <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>}
               <div className={styles.body}>
-                <PortableText value={story.body} components={myPortableTextComponents}/>
                 {(IMAGES) && 
                   <EmblaCarousel slides={IMAGES} options={OPTIONS} />}
+                <PortableText value={story.body} components={myPortableTextComponents}/>
               </div>
           </div>
           <div className={styles.rightContainer}>

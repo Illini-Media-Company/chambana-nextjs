@@ -5,8 +5,9 @@ import fetchHelper from "@/app/helpers/fetchStories";
 import adHelper from "@/app/helpers/fetchAds";
 import styles from "./PaginatedScroll.module.css"
 import shuffle from "@/app/helpers/randomize";
-import { useState } from 'react';
-import storyType from '@/sanity/schemaTypes/storyType'
+import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import storyType from '@/sanity/schemaTypes/storyType';
 
 interface PaginatedProps {
     stories: any
@@ -20,7 +21,8 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     const [loading, setLoading] = useState(false);
     const [date, setDate] = useState(lastDate);
     const [more, setMore] = useState(true);
-    console.log(date);
+    const [ref, inView] = useInView();
+    const [mRef, mInView] = useInView();
 
     const HandleLoad = async () => {
         setLoading(true);
@@ -35,8 +37,20 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
         setLoading(false);
     }
 
+    useEffect(() => {
+        if (inView) {
+            HandleLoad();
+        }
+    }, [inView])
+
+    useEffect(() => {
+        if (mInView) {
+            HandleLoad();
+        }
+    }, [mInView])
+
     const rows = story.reduce(function (rows: any, key: any, index: any) { 
-        return ((index % 4 == 0) ? rows.push([key]) 
+        return ((index % 6 == 0) ? rows.push([key]) 
           : rows[rows.length-1].push(key)) && rows;
       }, []);
 
@@ -45,27 +59,22 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     return(
         <>
         <div className={styles.pc}> 
-            <StoryScroll stories={story} ads={ads}/>
-            {loading == false && more &&
-                <> 
-                    <button onClick={HandleLoad}>
-                        Load More
-                    </button>
-                </>    
+            <StoryScroll stories={story} ads={ads} sticky={true}/>
+            {loading == false && more && 
+                <div ref={ref}>
+                    ...Loading
+                </div>
             }
-            {/* <StoryScroll stories={story} ads={ads}/> */}
         </div>
         <div className={styles.mobile}>
             {rows && 
                 rows.map((row: any, index: number) => {
                     return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
             })}
-            {loading == false && more &&
-                <> 
-                    <button onClick={HandleLoad}>
-                        Load More
-                    </button>
-                </>    
+            {loading == false && more && 
+                <div ref={mRef}>
+                    ...Loading
+                </div>
             }
         </div>
         </>

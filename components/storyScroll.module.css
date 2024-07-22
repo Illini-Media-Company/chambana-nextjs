@@ -19,15 +19,22 @@
 }
 
 .rightContainer {
+	display: flex;
+	flex-direction: column;
 	flex-grow: 1;
 	position: relative;
 	border-radius: var(--border-radius);
 	flex-basis: 2em;
+	align-items: flex-start;
 }
 
 .ads {
 	display: flex;
 	flex-direction: column;
+}
+.sticky {
+	position: sticky;
+	top: 130px;
 }
 
 .mobileAds {
@@ -44,5 +51,8 @@
 	.mobileAds {
 		display: flex;
 		justify-content: center;
+	}
+	.rightContainer {
+		align-items: center;
 	}
 }

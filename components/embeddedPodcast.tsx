@@ -45,10 +45,11 @@ export default function Podcast() {
 
     const create = async () => {
         wavesurfer.current = WaveSurfer.create({
+            backend: 'MediaElement',
             container: waveformRef.current,
             waveColor: "#34374B",
             progressColor: "#ff6400",
-            url: "/MiceonVenus.mp3",
+            // url: "https://podcasts.captivate.fm/media/4bae19d2-ed73-48cf-9113-6541d6984934/NWS240509-mixdown.mp3",
             dragToSeek: true,
             fillParent: true,
             // width: "12vw",
@@ -60,6 +61,8 @@ export default function Podcast() {
             barRadius: 20,
             // barWidth: 5,
         })
+
+        wavesurfer.current.load("/MiceonVenus.mp3")
     }
       
     return (

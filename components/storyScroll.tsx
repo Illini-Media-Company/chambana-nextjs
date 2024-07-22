@@ -14,9 +14,10 @@ interface StoryScrollProps {
   ads?: any;
   inverse?: boolean;
   adslides?: boolean;
+  sticky?: boolean;
 }
 
-export default function StoryScroll({ storyCount, stories, ads, inverse, adslides = true }: StoryScrollProps) {
+export default function StoryScroll({ storyCount, stories, ads, inverse, adslides = true, sticky = false }: StoryScrollProps) {
   const OPTIONS: EmblaOptionsType = { loop: true }
   if (storyCount) {
     return (
@@ -70,12 +71,29 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               ))}
         </div>
         <div className={styles.rightContainer}>
-        <div className={styles.ads}>
-            {(ads) && 
-            ads.map((ad: any) => {
-              return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+          <div className={styles.ads}>
+            {(ads) && (sticky) &&
+              ads
+              .slice(0, 2)
+              .map((ad: any) => {
+                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+            })} 
+
+            {(ads) && (!sticky) &&
+              ads
+              .map((ad: any) => {
+                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
             })} 
           </div>
+          {(sticky) &&
+          <div className={styles.sticky}>
+            {(ads) && (sticky) &&
+              ads
+              .slice(2, 4)
+              .map((ad: any) => {
+                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/> 
+              })}
+          </div>}
           <div className={styles.mobileAds}>
             {ads && adslides && 
               <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
