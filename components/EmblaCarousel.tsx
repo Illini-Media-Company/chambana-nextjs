@@ -52,11 +52,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                     <Image 
                       src={image.url}
                       alt="pic"
-                      height={400}
+                      height={500}
                       width={600}
                       className={styles.image_container}
                     />
-                    {image.caption}
+                    <div className={styles.caption}>{image.caption}</div>
                   </div>
                 }
               </div>

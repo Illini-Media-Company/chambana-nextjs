@@ -75,7 +75,7 @@ export default function Post({story, ads}: PostProps) {
                 <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>}
               <div className={styles.body}>
                 {(IMAGES) && 
-                  <EmblaCarousel slides={IMAGES} options={OPTIONS} />}
+                  <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
                 <PortableText value={story.body} components={myPortableTextComponents}/>
               </div>
           </div>
@@ -93,15 +93,4 @@ export default function Post({story, ads}: PostProps) {
           </div>
       </div>
   )
-}
-
-function cleanUpAds(ads: any) {
-  const clean = {
-    asset: {
-      _ref: ads.imgUrl,
-      _type: 'reference'
-    },
-    type: 'image'
-  }
-  return clean
 }

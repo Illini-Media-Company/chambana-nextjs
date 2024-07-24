@@ -3,6 +3,7 @@ import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
 import styles from "./page.module.css";
 import PaginatedScroll from "@components/PaginatedScroll";
+import FeatStory from "@/components/featuredStory";
 
 export default async function NewsPage() {
   const [paginated, lastDate] = await fetchHelper.getPaginatedStories("news");

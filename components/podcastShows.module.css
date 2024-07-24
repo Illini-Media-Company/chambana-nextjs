@@ -11,6 +11,10 @@
     width: 90%
 }
 
+.host {
+    margin-top: 0;
+}
+
 .title {
     margin-bottom: 0;
     font-weight: 900;

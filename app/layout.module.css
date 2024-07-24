@@ -15,6 +15,10 @@
     border-radius: var(--border-radius);
 }
 
+.foot {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .body {
         padding: 0;

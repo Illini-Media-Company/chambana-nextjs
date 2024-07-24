@@ -105,6 +105,11 @@ const storyType = defineType({
               type: 'string',
               title: 'Caption',
             },
+            {
+              name: 'attribute',
+              type: 'string',
+              title: 'Attribution'
+            }
           ],
         },
       ],

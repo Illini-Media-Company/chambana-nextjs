@@ -32,7 +32,7 @@
 .image_container {
   position: relative;
   border-radius: var(--border-radius);
-  width: 90%;
+  width: 95%;
   object-fit: cover;
 }
 .ad_container {
@@ -46,7 +46,7 @@
   grid-template-columns: auto 1fr;
   justify-content: space-between;
   gap: 1.2rem;
-  margin-top: 1.8rem;
+  /* margin-top: 1.8rem; */
 }
 .embla__buttons {
   display: grid;
@@ -82,6 +82,14 @@
 .embla__button__svg {
   width: 35%;
   height: 35%;
+}
+
+.caption {
+  font-weight: normal;
+  font-size: medium;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 0.5em;
 }
 
 

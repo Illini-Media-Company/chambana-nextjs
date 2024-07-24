@@ -16,16 +16,16 @@ export const menuItems: MenuItem[] = [
 		href: '/podcasts',
 		newWindow: false,
 	},
-	{
-		title: 'Videos',
-		href:'/videos',
-		newWindow: false,
-	},
-	{
-		title: 'Events',
-		href: '/events',
-		newWindow: false
-	},
+	// {
+	// 	title: 'Videos',
+	// 	href:'/videos',
+	// 	newWindow: false,
+	// },
+	// {
+	// 	title: 'Events',
+	// 	href: '/events',
+	// 	newWindow: false
+	// },
 	{
 		title: 'Donate',
 		href: 'https://illinimedia.org/donate/',

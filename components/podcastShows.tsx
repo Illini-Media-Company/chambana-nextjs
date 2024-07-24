@@ -20,7 +20,7 @@ export default function Show({title, host, image, tags, href} : ShowProps) {
                 className={styles.imageContainer}
             />
             <h1 className={styles.title}>{title}</h1>
-            <h3>Hosted By: {host}</h3>
+            <h3 className={styles.host}>Hosted By: {host}</h3>
         </a>
     )
 }

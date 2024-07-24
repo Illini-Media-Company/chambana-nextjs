@@ -27,7 +27,7 @@ export default function RootLayout({
         <div className={inter.className + " " + styles.bodyWrap}>
            {children} 
         </div>
-        <footer>copyright illini media or whatever</footer>
+        <footer className={styles.foot}>Chambana Eats • © 2024 Illini Media Company</footer>
       </body>
     </html>
   );

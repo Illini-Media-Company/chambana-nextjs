@@ -9,7 +9,12 @@ import { FaVolumeMute } from 'react-icons/fa';
 import Link from 'next/link'
 import WaveSurfer from 'wavesurfer.js'
 
-export default function Podcast() {
+interface PodcastProps {
+    url: string
+    description?: string
+}
+
+export default function Podcast({url, description}: PodcastProps) {
     const [playing, setPlaying] = useState(false); 
     const [volume, setVolume] = useState(1);
     const [loaded, setLoaded] = useState(false);
@@ -26,8 +31,12 @@ export default function Podcast() {
         create();
 
         return () => {
-            if (wavesurfer.current) {
-                wavesurfer.current.destroy(); 
+            try {
+                if (wavesurfer.current) {
+                    wavesurfer.current.destroy(); 
+                }
+            } catch (err) {
+                console.log('Could not destroy current Wavesurfer element')
             }
         }
       }, []);
@@ -45,15 +54,15 @@ export default function Podcast() {
 
     const create = async () => {
         wavesurfer.current = WaveSurfer.create({
-            backend: 'MediaElement',
             container: waveformRef.current,
+            backend: 'MediaElement',
             waveColor: "#34374B",
             progressColor: "#ff6400",
             // url: "https://podcasts.captivate.fm/media/4bae19d2-ed73-48cf-9113-6541d6984934/NWS240509-mixdown.mp3",
             dragToSeek: true,
             fillParent: true,
             // width: "12vw",
-            height: 64,
+            height: 75,
             hideScrollbar: true,
             normalize: true,
             // barGap: 1,
@@ -61,8 +70,11 @@ export default function Podcast() {
             barRadius: 20,
             // barWidth: 5,
         })
-
-        wavesurfer.current.load("/MiceonVenus.mp3")
+        try {
+            wavesurfer.current.load(url)
+        } catch (err) {
+            console.log('Error in loading audio')
+        }
     }
       
     return (
@@ -100,7 +112,7 @@ export default function Podcast() {
                         max="1"
                         step="0.01"
                     />
-                    <p>This is the description of the podcast that will be displayed here. it's supposed to be pretty long so... ipsum lorem dolores umbridge dolore</p>
+                    <p>{description}</p>
                 </div>
             </div>
         </div>
