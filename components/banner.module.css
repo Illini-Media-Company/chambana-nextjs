@@ -25,6 +25,12 @@
 	font-size: larger;
 }
 
+.socials {
+	margin-left: 2em;
+	display: flex;
+	gap: 1em; 
+}
+
 .menuContainer {
 	width: 100%;
 	margin-top: auto;
@@ -36,6 +42,11 @@
 	z-index: 99999;
 }
 
+.right {
+	display: flex;
+	gap: 0.5em;
+}
+
 /* select mobile devices */
 /* us --mobile-breakpoint */
 @media (max-width: 768px) {
@@ -44,6 +55,9 @@
 	}
 	.mobileMenuButton {
 		display: inline-block !important;
+	}
+	.right {
+		display: none;
 	}
 }
 

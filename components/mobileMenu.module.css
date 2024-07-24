@@ -21,6 +21,12 @@
 	width: 100%;
 }
 
+.socials {
+	display: flex;
+	/* flex-direction: column; */
+	gap: 1em;
+}
+
 
 /* .menuItem:active {
 	background-color: var(--main-bg-color);
