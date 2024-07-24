@@ -5,6 +5,7 @@
     padding: 2em;
     border-radius: var(--border-radius);
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .imageContainer {

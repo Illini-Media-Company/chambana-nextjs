@@ -81,7 +81,7 @@ export default function Podcast({url, description}: PodcastProps) {
         <div className={styles.podcastContainer}>
             <div className={styles.leftContainer}>
                 <Image 
-                    src={'/placeholder.webp'}
+                    src={'/wpgupodcast.png'}
                     alt={'podcast image'}
                     height={300}
                     width={300}
@@ -90,7 +90,7 @@ export default function Podcast({url, description}: PodcastProps) {
             </div>
             <div className={styles.rightContainer}>
                 <div>
-                    <h1>Featured Podcast</h1>
+                    <h1>WPGU News Podcast</h1>
                     <div className={styles.playPauseContainer}>
                         <button className={styles.playButton} onClick={() => handlePlayPause()}>
                             {playing ? <FaCircleStop size={64} /> : <FaPlayCircle size={64} />}

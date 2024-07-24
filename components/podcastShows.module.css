@@ -8,7 +8,6 @@
 .imageContainer {
     border-radius: var(--border-radius);
     object-fit: cover;
-    width: 90%
 }
 
 .host {

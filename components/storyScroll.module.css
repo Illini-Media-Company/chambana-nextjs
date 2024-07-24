@@ -44,6 +44,7 @@
 @media (max-width: 768px) {
 	.container {
 		flex-direction: column;
+		margin-top: 0;
 	}
 	.ads {
 		display: none;
@@ -54,5 +55,9 @@
 	}
 	.rightContainer {
 		align-items: center;
+	}
+	.leftContainer {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }

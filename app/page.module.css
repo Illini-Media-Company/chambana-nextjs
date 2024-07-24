@@ -17,11 +17,11 @@
 }
 
 @media (max-width: 768px) {
-    .bannerAdContainer {
+    /* .bannerAdContainer {
         position: sticky;
         top: 0;
         z-index: 99999;
-    }
+    } */
     .bannerAd {
         width: 100%
     }
