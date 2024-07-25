@@ -13,7 +13,7 @@ export default async function SearchPage({
     console.log(stories);
     return(
         <>
-        {(stories.length == 0) &&
+        {(!stories || stories.length == 0) &&
             <h1>Sorry, no titles found...</h1>}
         {(stories && stories.length != 0) && 
             <PaginatedSearch stories={stories} search="news" ads={ads} lastDate={published}/>

@@ -119,7 +119,7 @@ async function getSearch(search) {
     "slug": slug.current
   }` 
 
-  const result = await client.fetch(query, {}, {});
+  const result = await client.fetch(query, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
   if (result != null && result.length > 0 && result[(result.length - 1)] != null)
     lastId = result[result.length - 1].publishedAt;
   else
