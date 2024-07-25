@@ -105,4 +105,52 @@ async function getNextPage(published, filter) {
 
   return [result, lastId];
 }
-export default {getFeaturedStories, getStoryBySlug, getNextPage, getPaginatedStories}
+
+async function getSearch(search) {
+  let lastId = ' ';
+  const query = `*[_type == "story" && title match "${search}*"] | order(_createdAt desc) [0...20] {
+    title,
+    "imgUrl": poster.asset->url,
+    main,
+    tags,
+    publishedAt,
+    publishedBy,
+    _id,
+    "slug": slug.current
+  }` 
+
+  const result = await client.fetch(query, {}, {});
+  if (result != null && result.length > 0 && result[(result.length - 1)] != null)
+    lastId = result[result.length - 1].publishedAt;
+  else
+    lastId = null
+
+  return [result, lastId]
+}
+
+async function getSearchNext(search, published) {
+  if (published == null) {
+    return [];
+  }
+
+  let lastId = ' ';
+  const query = `*[_type == "story" && title match "${search}*" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
+    title,
+    "imgUrl": poster.asset->url,
+    main,
+    tags,
+    publishedAt,
+    publishedBy,
+    _id,
+    "slug": slug.current
+  }`
+
+  const result = await client.fetch(query, {}, {});
+  if (result != null && result.length > 0 && result[(result.length - 1)] != null)
+    lastId = result[result.length - 1].publishedAt;
+  else 
+    lastId = null
+
+  return [result, lastId];
+}
+export default {getFeaturedStories, getStoryBySlug, getNextPage, getPaginatedStories, getSearch, getSearchNext}

@@ -10,6 +10,7 @@ import { MenuItem } from "@/types/menuItem";
 import { menuItems } from "@/app/menuItems";
 import Image from "next/image";
 import logo from "../public/logo.png";
+import SearchBar from "./searchBar";
 
 export default function Banner() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -26,6 +27,7 @@ export default function Banner() {
       </div>
       {/*  todo: make this a link to the homepage */}
       <div className={styles.navBarContainer}>
+        <SearchBar />
         <a href={"/"}>
           <Image
             src={logo}
