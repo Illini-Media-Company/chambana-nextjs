@@ -9,7 +9,7 @@ export default function SearchBar() {
     const router = useRouter();
     const [search, setSearch] = useState<string>();
     const [bar, setBar] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef<any>(null);
 
     useEffect(() => {
         const handleOutSideClick = (event: any) => {
@@ -35,7 +35,7 @@ export default function SearchBar() {
         <div ref={ref}>
         <form onSubmit={HandleSubmit} className={styles.submit}>
             <IconContext.Provider value={{className: styles.icon}}>
-                <FaMagnifyingGlass size={22} onClick={() => setBar(!bar)} />
+                <FaMagnifyingGlass size={19} onClick={() => setBar(!bar)} />
             </IconContext.Provider>
             {(bar) &&
                 <input type="search" required placeholder="Search" onChange={(e) => {setSearch(e.target.value)}} className={styles.animation}/>

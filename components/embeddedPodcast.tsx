@@ -25,8 +25,8 @@ export default function Podcast({url, description}: PodcastProps) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const volumeRef = useRef<HTMLInputElement>(null);
 
-    const waveformRef = useRef(null);
-    const wavesurfer = useRef(null);
+    const waveformRef = useRef<any>(null);
+    const wavesurfer = useRef<any>(null);
 
     useEffect(() => {
         create();
