@@ -8,6 +8,7 @@ import shuffle from "@/app/helpers/randomize";
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import storyType from '@/sanity/schemaTypes/storyType';
+import scroll_style from './storyScroll.module.css';
 
 interface PaginatedProps {
     stories: any
@@ -61,8 +62,8 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
         <div className={styles.pc}> 
             <StoryScroll stories={story} ads={ads} sticky={true}/>
             {loading == false && more && 
-                <div ref={ref}>
-                    ...Loading
+                <div ref={ref} className={scroll_style.leftContainer}>
+                    Loading...
                 </div>
             }
         </div>
@@ -72,8 +73,8 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
                     return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
             })}
             {loading == false && more && 
-                <div ref={mRef}>
-                    ...Loading
+                <div ref={mRef} className={scroll_style.leftContainer}>
+                    Loading...
                 </div>
             }
         </div>

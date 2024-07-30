@@ -17,6 +17,7 @@ interface PodcastProps {
 export default function Podcast({url, description}: PodcastProps) {
     const [playing, setPlaying] = useState(false); 
     const [volume, setVolume] = useState(1);
+    const [loading, setLoading] = useState(true);
     const [loaded, setLoaded] = useState(false);
     const [waver, setWaver] = useState(null);
     const el = useRef();
@@ -71,9 +72,10 @@ export default function Podcast({url, description}: PodcastProps) {
             // barWidth: 5,
         })
         try {
-            wavesurfer.current.load(url)
+            wavesurfer.current.load(url);
+            setLoading(false);
         } catch (err) {
-            console.log('Error in loading audio')
+            console.log('Error in loading audio');
         }
     }
       
@@ -94,7 +96,8 @@ export default function Podcast({url, description}: PodcastProps) {
                     <div className={styles.playPauseContainer}>
                         <button className={styles.playButton} onClick={() => handlePlayPause()}>
                             {playing ? <FaCircleStop size={64} /> : <FaPlayCircle size={64} />}
-                            {playing && !loaded ? '' : playing}
+                            {loading && "Loading..."}
+                            {/* {playing && !loaded ? '' : playing} */}
                             {playing && loaded}
                         </button>
                         <div id="waveform" className={styles.waveform} ref={waveformRef} /> 

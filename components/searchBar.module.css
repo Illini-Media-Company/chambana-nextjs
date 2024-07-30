@@ -39,7 +39,7 @@
     fill: #ff6400;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .submit {
         padding: 0.05em;
         gap: 0.05em;

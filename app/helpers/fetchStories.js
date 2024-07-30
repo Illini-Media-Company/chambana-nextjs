@@ -75,7 +75,16 @@ async function getStoryBySlug(slug) {
     publishedAt,
     "imageUrl": poster.asset->url
   }`
-  const story = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
+  let story;
+  let success = false
+  for (let i = 0; i < 3 && success == false; i++) {
+    story = await client.fetch(groq, {}, {next: {revalidate: 60}});
+    if (story != undefined) {
+      success = true;
+    }
+    console.log(i);
+  }
+  // const story = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
   return story
 }
 

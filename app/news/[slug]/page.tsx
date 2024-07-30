@@ -21,8 +21,6 @@ export async function generateStaticParams() {
 
 async function Page({params: {slug}}: Props) {
   const story = await fetchHelper.getStoryBySlug(slug)
-  console.log('story', story);
-  console.log('slug', slug);
   const pre_ad = await fetchAds.getPageAds();
   const ads = shuffle(pre_ad)
   if (story.length === 0) {

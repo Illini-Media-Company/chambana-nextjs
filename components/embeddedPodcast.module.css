@@ -15,6 +15,7 @@
     margin: auto;
     margin-top: 1em;
     align-items: center;
+    box-shadow: var(--box-shadow)
 }
 
 .leftContainer {

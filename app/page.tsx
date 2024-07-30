@@ -20,7 +20,6 @@ export default async function Home() {
   const pageAds = shuffle(pAds);
   const bannerAds = shuffle(banners);
   // TODO: add some error handling here in case the fetch fails
-  console.log(sortedStories)
 
   const exampleAdName = "ButtFuckers";
   return (

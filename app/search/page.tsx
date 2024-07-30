@@ -9,8 +9,6 @@ export default async function SearchPage({
 }) {
   const [stories, published] = await fetchStories.getSearch(searchParams.search);
   const ads = await fetchAds.getPageAds();
-  console.log(searchParams.search);
-  console.log(stories);
   return(
       <>
       {(!stories || stories.length == 0) &&
