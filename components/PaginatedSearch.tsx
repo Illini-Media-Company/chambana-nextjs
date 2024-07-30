@@ -11,7 +11,7 @@ import storyType from '@/sanity/schemaTypes/storyType';
 
 interface PaginatedProps {
     stories: any
-    search: string
+    search: string | string[] | undefined
     ads: any
     lastDate: any
 }

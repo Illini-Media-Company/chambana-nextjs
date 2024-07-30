@@ -2,7 +2,19 @@
 	border-radius: var(--border-radius);
 }
 
+.mobile_logo {
+	display: none;
+}
 
+.banner { 
+	display: flex;
+}
+
+.search {
+	display: none;
+	align-self: flex-end;
+	margin-left: auto;
+}
 .navBarContainer {
 	display: flex;
 	flex-direction: row;
@@ -23,12 +35,20 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	font-size: larger;
+	align-items: center;
 }
 
 .socials {
-	margin-left: 4em;
+	margin-left: 1em;
 	display: flex;
 	gap: 1em; 
+}
+
+.icon {
+	transition: 0.2s;
+}
+.icon:hover {
+	fill: #ff6400;
 }
 
 .menuContainer {
@@ -59,6 +79,15 @@
 	.right {
 		display: none;
 	}
+	.search {
+		display: flex;
+	}
+	.logo {
+		display: none;
+	}
+	.mobile_logo {
+		display: flex;
+	}
 }
 
 .mobileMenuButton {
@@ -72,6 +101,7 @@
 	text-transform: uppercase;
 	padding-left: 1em;
 	padding-right: 1em;
+	transition: 0.2s;
 }
 
 .menu > a:hover {

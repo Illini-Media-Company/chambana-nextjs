@@ -13,7 +13,7 @@
 	border-radius: var(--border-radius);
 	background-color:#dcdee0;
 	gap: 1em;
-
+	box-shadow: var(--box-shadow);
 }
 
 .rightContainer {

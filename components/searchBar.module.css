@@ -2,9 +2,46 @@
     display: flex;
     flex-direction: row;
     gap: 1em;
-    margin-right: 2em;
+    /* margin-right: 2em; */
+    padding-left: 1em;
+    padding-right: 1em;
+    cursor: pointer;
 }
 
 .search {
     width: 130px;
+}
+
+.animation {
+    width: 130px;
+    animation-duration: 0.4s;
+    animation-name: slide-in;
+}
+.deletion {
+    width: 0px;
+    animation-duration: 0.4s;
+    animation-name: deletion;
+}
+
+@keyframes slide-in {
+    0% {width: 0}
+    100% {width: 130px}
+}
+@keyframes deletion {
+    0% {width: 130px}
+    100% {width: 0px}
+}
+
+.icon {
+    transition: 0.2s;
+}
+.icon:hover {
+    fill: #ff6400;
+}
+
+@media (max-width: 500px) {
+    .submit {
+        padding: 0.05em;
+        gap: 0.05em;
+    }
 }

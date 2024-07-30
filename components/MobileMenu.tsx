@@ -21,18 +21,18 @@ export function MobileMenu() {
 				))}
 
 			<div className={styles.socials}>
-			<a href={'https://www.instagram.com/chambana_eats/'}><Image 
+				<a href={'https://www.instagram.com/chambana_eats/'}><Image 
+					height={39}
+					width={39}
+					alt="Instagram"
+					src={'/instagram.png'}
+				/></a>
+				<a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'}><Image 
 				height={39}
 				width={39}
-				alt="Instagram"
-				src={'/instagram.png'}
-            /></a>
-			<a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'}><Image 
-              height={39}
-              width={39}
-              alt="TikTok"
-              src={'/tiktok.png'}
-            /></a>
+				alt="TikTok"
+				src={'/tiktok.png'}
+				/></a>
 			</div>
 			</ul>
 		</div>

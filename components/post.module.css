@@ -13,7 +13,8 @@
 	display: flex;
 	flex-direction: row;
 	margin-top: 1em;
-	gap: 1em
+	gap: 1em;
+	margin-bottom: 1em;  
 }
 
 .leftContainer {
@@ -25,6 +26,7 @@
 	/* flex-basis: 50%; */
 	border-radius: var(--border-radius);
 	background-color:#dcdee0;
+	box-shadow: var(--box-shadow);
 	/* gap: 1em; */
 
 }
@@ -60,6 +62,9 @@
 @media (max-width: 768px) {
 	.container {
 		flex-direction: column;
+	}
+	.leftContainer {
+		border-radius: 0px;
 	}
 	.ads {
 		display: none;

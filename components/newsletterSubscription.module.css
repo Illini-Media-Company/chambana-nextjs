@@ -5,6 +5,7 @@
     margin-top: 0;
     border-radius: var(--border-radius);
     justify-content: center;
+    box-shadow: var(--box-shadow)
 }
 
 .newsletter {
@@ -29,6 +30,7 @@
     font-size: 20px;
     color: white;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .button:hover {

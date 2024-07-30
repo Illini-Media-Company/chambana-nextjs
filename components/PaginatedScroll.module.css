@@ -5,6 +5,7 @@
 .pc {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .button {
@@ -23,5 +24,6 @@
     .mobile {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 }

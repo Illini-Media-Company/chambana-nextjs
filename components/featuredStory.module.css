@@ -21,6 +21,11 @@
 }
 .featStory {
     text-decoration: none;
+    transition: 0.2s;
+}
+
+.featStory:hover {
+    color: #ff6400;
 }
 .title {
     margin-top: 0;

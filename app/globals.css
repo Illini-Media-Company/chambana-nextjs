@@ -7,6 +7,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
   --border-radius: 5px;
+  --box-shadow: 1px 7px 9px #9c9c9c !important;
 }
 
 @media (prefers-color-scheme: dark) {

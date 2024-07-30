@@ -9,8 +9,11 @@ import { TfiClose, TfiMenu } from "react-icons/tfi";
 import { MenuItem } from "@/types/menuItem";
 import { menuItems } from "@/app/menuItems";
 import Image from "next/image";
-import logo from "../public/logo.png";
+import logo from "../public/CE_norm.png";
+import logo_mobile from "../public/CE_horiz.png";
 import SearchBar from "./searchBar";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
 
 export default function Banner() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -24,10 +27,10 @@ export default function Banner() {
           {!showMobileMenu && <TfiMenu />}
           {showMobileMenu && <TfiClose />}
         </div>
+        <div className={styles.search}><SearchBar /></div>
       </div>
       {/*  todo: make this a link to the homepage */}
       <div className={styles.navBarContainer}>
-        <SearchBar />
         <a href={"/"}>
           <Image
             src={logo}
@@ -37,21 +40,30 @@ export default function Banner() {
             className={styles.logo}
           /> 
         </a>
+        <a href={"/"}>
+          <Image 
+            src={logo_mobile}
+            alt={"mobile logo for Chambana Eats"}
+            width={333}
+            height={100}
+            className={styles.mobile_logo}
+          />
+        </a>
         <div className={styles.right}>
           <NavBar />
+
           <div className={styles.socials}>
-            <a href={'https://www.instagram.com/chambana_eats/'}><Image 
-              height={25}
-              width={25}
-              alt="Instagram"
-              src={'/instagram.png'}
-            /></a>
-            <a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'}><Image 
-              height={25}
-              width={25}
-              alt="TikTok"
-              src={'/tiktok.png'}
-            /></a>
+            <a href={'https://www.instagram.com/chambana_eats/'}>
+              <IconContext.Provider value={{className: styles.icon}}>
+                <FaInstagram size={25}/>
+              </IconContext.Provider>
+            </a>
+
+            <a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'}>
+              <IconContext.Provider value={{className: styles.icon}}>
+                <FaTiktok size={25}/>
+              </IconContext.Provider>
+            </a>
           </div>
         </div>
       </div>
@@ -67,6 +79,7 @@ function NavBar() {
         {menuItems.map((item, index) => (
           <DesktopMenuItem key={index} item={item} />
         ))}
+        <SearchBar />
       </nav>
     </div>
   );
