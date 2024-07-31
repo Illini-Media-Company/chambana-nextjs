@@ -8,16 +8,17 @@ import shuffle from "@/app/helpers/randomize";
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import storyType from '@/sanity/schemaTypes/storyType';
+import { Ad, Story } from "@/sanity.types";
 
 interface PaginatedProps {
-    stories: any
+    stories: Story[]
     search: string | string[] | undefined
-    ads: any
+    ads: Ad[]
     lastDate: any
 }
 
 export default function PaginatedSearch({stories, search, ads, lastDate}: PaginatedProps) {
-    const [story, setStory] = useState<any>(stories)
+    const [story, setStory] = useState<Story[]>(stories)
     const [loading, setLoading] = useState(false);
     const [date, setDate] = useState(lastDate);
     const [more, setMore] = useState(true);
@@ -49,7 +50,7 @@ export default function PaginatedSearch({stories, search, ads, lastDate}: Pagina
         }
     }, [mInView])
 
-    const rows = story.reduce(function (rows: any, key: any, index: any) { 
+    const rows = story.reduce(function (rows: any, key: Story, index: number) { 
         return ((index % 6 == 0) ? rows.push([key]) 
           : rows[rows.length-1].push(key)) && rows;
       }, []);
@@ -68,7 +69,7 @@ export default function PaginatedSearch({stories, search, ads, lastDate}: Pagina
         </div>
         <div className={styles.mobile}>
             {rows && 
-                rows.map((row: any, index: number) => {
+                rows.map((row: Story[], index: number) => {
                     return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
             })}
             {loading == false && more && 

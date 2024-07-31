@@ -6,10 +6,11 @@ import urlBuilder from '@sanity/image-url';
 import client from "../app/sanity";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
+import { Ad, Story, PageAd } from "@/sanity.types";
 
 interface PostProps {
-    story: any
-    ads?: any
+    story: Story
+    ads?: PageAd[]
 }
 
 const myPortableTextComponents = {
@@ -71,19 +72,20 @@ export default function Post({story, ads}: PostProps) {
       <div className={styles.container}>
           <div className={styles.leftContainer}>
               <h1 className={styles.title}>{story.title}</h1>
-              {story.publishedBy &&
+              {story.publishedBy && story.publishedAt &&
                 <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>}
               <div className={styles.body}>
                 {(IMAGES) && 
                   <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
-                <PortableText value={story.body} components={myPortableTextComponents}/>
+                {story.body &&
+                <PortableText value={story.body} components={myPortableTextComponents}/>}
               </div>
           </div>
           <div className={styles.rightContainer}>
               <div className={styles.ads}>
                 {ads &&
-                  ads.map((ad: any) => {
-                    return <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
+                  ads.map((ad: PageAd) => {
+                    return (ad.imgUrl && ad.href) && <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
                   })}
               </div>
               <div className={styles.mobileAds}>

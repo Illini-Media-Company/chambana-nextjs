@@ -1,15 +1,16 @@
 'use client';
 
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
 import {
   PrevButton,
   NextButton,
   usePrevNextButtons
-} from './EmblaCarouselArrowButtons'
-import styles from './embla.module.css'
-import useEmblaCarousel from 'embla-carousel-react'
-import Show from './podcastShows'
+} from './EmblaCarouselArrowButtons';
+import styles from './embla.module.css';
+import useEmblaCarousel from 'embla-carousel-react';
+import Show from './podcastShows';
+import { ShowItem } from '@/types/showItem';
 
 type PropType = {
   slides: any
@@ -31,7 +32,7 @@ const PodcastCarousel: React.FC<PropType> = (props) => {
     <section className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {slides.map((show: any, index: number) => (
+          {slides.map((show: ShowItem, index: number) => (
             <div className={styles.embla__slide} key={index}>
               <div className={styles.embla__slide__number}>
                 <Show title={show.title} host={show.host} href={'https://dailyillini.com'}/>

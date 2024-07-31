@@ -6,6 +6,7 @@ import PodcastCarousel from './PodcastCarousel'
 import {showItems} from '@/app/podcastShows'
 import { EmblaOptionsType } from 'embla-carousel';
 import EmblaCarousel from './EmblaCarousel'
+import { ShowItem } from '@/types/showItem';
 
 export default function FeaturedPodcasts() {
     const OPTIONS: EmblaOptionsType = { loop: true };
@@ -16,7 +17,7 @@ export default function FeaturedPodcasts() {
             {/* Replace these images with featuredPodcast components that include title and show host */}
             <div className={styles.featContainer}>
                 {showItems &&
-                    showItems.map((show: any) => (
+                    showItems.map((show: ShowItem) => (
                         <Show title={show.title} host={show.host} image={show.imgUrl} href={show.href} />
                     ))}
             </div>

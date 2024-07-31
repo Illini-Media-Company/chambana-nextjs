@@ -8,31 +8,35 @@ import BannerAd from "./bannerAd";
 import Newsletter from "./newsletter";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
+import { Ad, Story } from "@/sanity.types";
+import Story from "./story";
 
 export default function Featured({
   stories,
   featAds,
 }: {
   // TODO: this is a bit of a code smell, use a type for the stories and ads! google 'sanity typegen' for an automatic way to do it
-  stories: any;
-  featAds: any;
+  stories: Story[];
+  featAds: Ad[];
 }) {
   const OPTIONS: EmblaOptionsType = { loop: true }
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
-        <MainStory
+        {stories[0].title && stories[0].slug && stories[0].tags && stories[0].publishedAt &&
+          <MainStory
           title={stories[0].title}
           imgUrl={stories[0].imgUrl}
           url={stories[0].slug}
           tag={stories[0].tags}
           createdBy={stories[0].publishedBy}
           createdAt={stories[0].publishedAt}
-        />
+        />}
         {stories &&
           stories
             .slice(1, 4)
-            .map((story: any) => (
+            .map((story: Story) => (
+              story.title && story.slug && story.tags && story.publishedAt &&
               <FeatStory
                 title={story.title}
                 url={story.slug}
@@ -53,7 +57,8 @@ export default function Featured({
 
         <div className={styles.ads}>
           {(featAds) &&
-            featAds.map((ad: any) => (
+            featAds.map((ad: Ad) => (
+            ad.imgUrl && ad.href &&
               <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad.imgUrl} />
           ))}
         </div>

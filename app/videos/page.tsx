@@ -4,6 +4,7 @@ import fetchHelper from "../helpers/fetchStories";
 import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
 import styles from "./page.module.css"
+import { Story } from "@/sanity.types";
 
 export default async function NewsPage() {
   const data = await fetchHelper.getFeaturedStories("videos");
@@ -13,7 +14,7 @@ export default async function NewsPage() {
 
   let ads = feat_ads.concat(page_ads)
 
-  const rows = data.reduce(function (rows: any, key: any, index: any) { 
+  const rows = data.reduce(function (rows: any, key: Story, index: number) { 
     return ((index % 4 == 0) ? rows.push([key]) 
       : rows[rows.length-1].push(key)) && rows;
   }, []);
@@ -25,7 +26,7 @@ export default async function NewsPage() {
       {/* TODO: remove inline styles */}
       <div className={styles.mobile}>
         {rows && 
-          rows.map((row: any, index: number) => {
+          rows.map((row: Story[], index: number) => {
             return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
           })}
       </div>

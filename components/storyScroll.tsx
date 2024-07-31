@@ -7,11 +7,12 @@ import FeatAd from "./featuredAd"
 import Newsletter from "./newsletter"
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
+import { Ad, Story as SanityStory} from "@/sanity.types";
 
 interface StoryScrollProps {
   storyCount?: number;
-  stories: any;
-  ads?: any;
+  stories: Story[];
+  ads?: Ad[];
   inverse?: boolean;
   adslides?: boolean;
   sticky?: boolean;
@@ -26,7 +27,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
           {stories &&
             stories
               .slice(0, storyCount)
-              .map((story: any) => (
+              .map((story: SanityStory) => (
+                story.title && story.tags && story.slug && story.publishedAt &&
                 <Story
                   title={story.title}
                   tag={story.tags}
@@ -40,8 +42,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
         <div className={styles.rightContainer}>
           <div className={styles.ads}>
             {(ads) && 
-            ads.map((ad: any) => {
-              return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+            ads.map((ad: Ad) => {
+              return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
             })} 
           </div>
           <div className={styles.mobileAds}>
@@ -59,7 +61,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
         <div className={styles.leftContainer}>
           {stories &&
             stories
-              .map((story: any) => (
+              .map((story: SanityStory) => (
+                story.title && story.tags && story.slug && story.publishedAt &&
                 <Story
                   title={story.title}
                   tag={story.tags}
@@ -75,14 +78,14 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
             {(ads) && (sticky) &&
               ads
               .slice(0, 2)
-              .map((ad: any) => {
-                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+              .map((ad: Ad) => {
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
             })} 
 
             {(ads) && (!sticky) &&
               ads
-              .map((ad: any) => {
-                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+              .map((ad: Ad) => {
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
             })} 
           </div>
           {(sticky) &&
@@ -90,8 +93,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
             {(ads) && (sticky) &&
               ads
               .slice(2, 4)
-              .map((ad: any) => {
-                return <FeatAd imgUrl={ad.imgUrl} href={ad.href}/> 
+              .map((ad: Ad) => {
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
               })}
           </div>}
           <div className={styles.mobileAds}>

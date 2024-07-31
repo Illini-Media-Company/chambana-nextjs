@@ -4,6 +4,7 @@ import Post from "@components/post"
 import fetchHelper from "../../helpers/fetchStories"
 import fetchAds from "../../helpers/fetchAds"
 import shuffle from "../../helpers/randomize"
+import { Story } from "@/sanity.types"
 
 type Props = {
   params: {
@@ -13,7 +14,7 @@ type Props = {
 
 export async function generateStaticParams() {
     const posts = await client.fetch(`*[_type == "story"]`).catch((err) => console.log('error', err));
-    return posts.map((post: any) => {
+    return posts.map((post: Story) => {
         slug: post.slug
     })
 }
