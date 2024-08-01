@@ -35,8 +35,8 @@ export default function NewsletterSubscription() {
             <div className={styles.newsletter}>
                 <h2>Get Chambana Eats in Your Inbox!</h2>
                 <form onSubmit={handleSubmit} className={styles.form}>
-                    <input type="email" placeholder="Enter Email" required disabled={loading} className={styles.input} />
-                    <button type="submit" disabled={loading} className={styles.button}>
+                    <input type="email" placeholder="Enter Email" required disabled={loading || success} className={styles.input} />
+                    <button type="submit" disabled={loading || success} className={styles.button}>
                         <div>
                             {loading && '...'}
                             {!success && !loading && 'Subscribe'}

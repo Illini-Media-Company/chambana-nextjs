@@ -25,5 +25,9 @@
     .link {
         border-bottom: 2px black solid;
         padding-bottom: 1em;
+        transition: 0s;
+    }
+    .link:focus {
+        color: #ff6400;
     }
 }

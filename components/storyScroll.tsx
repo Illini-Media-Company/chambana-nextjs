@@ -30,6 +30,7 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               .map((story: SanityStory) => (
                 story.title && story.tags && story.slug && story.publishedAt &&
                 <Story
+                  key={story._id}
                   title={story.title}
                   tag={story.tags}
                   url={story.slug}
@@ -64,6 +65,7 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               .map((story: SanityStory) => (
                 story.title && story.tags && story.slug && story.publishedAt &&
                 <Story
+                  key={story._id}
                   title={story.title}
                   tag={story.tags}
                   url={story.slug}

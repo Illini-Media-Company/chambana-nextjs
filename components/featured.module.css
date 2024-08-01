@@ -11,8 +11,10 @@
 	flex-direction: column;
 	padding: 1em;
 	flex-grow: 2;
-	border-radius: var(--border-radius);
-	background-color:#dcdee0;
+	/* border-radius: var(--border-radius); */
+	border-radius: 2px;
+	background-color:#e0dedc;
+	/* background-color:#dcdee0; */
 	gap: 1em;
 	box-shadow: var(--box-shadow);
 }

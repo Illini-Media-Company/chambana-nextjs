@@ -71,7 +71,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
         <div className={styles.mobile}>
             {rows && 
                 rows.map((row: Story[], index: number) => {
-                    return <StoryScroll stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
+                    return <StoryScroll key={index} stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
             })}
             {loading == false && more && 
                 <div ref={mRef} className={scroll_style.leftContainer}>

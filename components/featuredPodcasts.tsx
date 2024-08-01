@@ -17,8 +17,8 @@ export default function FeaturedPodcasts() {
             {/* Replace these images with featuredPodcast components that include title and show host */}
             <div className={styles.featContainer}>
                 {showItems &&
-                    showItems.map((show: ShowItem) => (
-                        <Show title={show.title} host={show.host} image={show.imgUrl} href={show.href} />
+                    showItems.map((show: ShowItem, index: number) => (
+                        <Show key={index} title={show.title} host={show.host} image={show.imgUrl} href={show.href} />
                     ))}
             </div>
             <div className={styles.mobile}>

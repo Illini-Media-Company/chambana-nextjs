@@ -1,6 +1,7 @@
 .container {
     display: flex;
-    background-color:#dcdee0;
+    background-color:#e0dedc;
+    /* background-color:#dcdee0; */
     margin: 2em;
     margin-top: 0;
     border-radius: var(--border-radius);
@@ -33,9 +34,12 @@
     transition: 0.2s;
 }
 
-.button:hover {
+.button:hover:enabled {
     background-color: white;
     color: #ff6400
+}
+.button:disabled {
+    cursor: auto;
 }
 
 .input {

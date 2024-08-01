@@ -24,8 +24,8 @@ export default function Banner() {
           onClick={() => setShowMobileMenu(!showMobileMenu)}
           className={styles.mobileMenuButton}
         >
-          {!showMobileMenu && <TfiMenu />}
-          {showMobileMenu && <TfiClose />}
+          {!showMobileMenu && <TfiMenu size={30}/>}
+          {showMobileMenu && <TfiClose size={30}/>}
         </div>
         <div className={styles.search}><SearchBar /></div>
       </div>
@@ -53,17 +53,19 @@ export default function Banner() {
           <NavBar />
 
           <div className={styles.socials}>
-            <a href={'https://www.instagram.com/chambana_eats/'}>
+            
+            <a href={'https://www.instagram.com/chambana_eats/'} className={styles.anchor}>
               <IconContext.Provider value={{className: styles.icon}}>
                 <FaInstagram size={25}/>
               </IconContext.Provider>
             </a>
 
-            <a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'}>
+            <a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'} className={styles.anchor}>
               <IconContext.Provider value={{className: styles.icon}}>
-                <FaTiktok size={25}/>
+                <FaTiktok size={25} className={styles.icon_png}/>
               </IconContext.Provider>
             </a>
+
           </div>
         </div>
       </div>

@@ -40,6 +40,10 @@
 }
 
 @media (max-width: 768px) {
+    .icon {
+        height: 30px;
+        width: 30px;
+    }
     .submit {
         padding: 0.05em;
         gap: 0.05em;

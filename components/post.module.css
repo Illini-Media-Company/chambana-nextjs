@@ -25,7 +25,8 @@
 	flex-grow: 2;
 	/* flex-basis: 50%; */
 	border-radius: var(--border-radius);
-	background-color:#dcdee0;
+	/* background-color:#dcdee0; */
+    background-color:#e0dedc;
 	box-shadow: var(--box-shadow);
 	/* gap: 1em; */
 

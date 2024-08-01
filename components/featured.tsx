@@ -44,7 +44,6 @@ export default function Featured({
                 imgUrl={story.imgUrl}
                 createdBy={story.publishedBy}
                 createdAt={story.publishedAt}
-                key={story.slug}
               />
             ))}
       </div>
