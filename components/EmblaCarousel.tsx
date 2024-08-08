@@ -21,7 +21,8 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options, ad} = props
-  const [emblaRef, emblaApi] = !ad ? useEmblaCarousel(options) : useEmblaCarousel(options, [Autoplay({jump: true, playOnInit: true})])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const [adRef, adEmblaApi] = useEmblaCarousel(options, [Autoplay()])
 
   const {
     prevBtnDisabled,
@@ -32,7 +33,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   return (
     <section className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
+      <div className={styles.embla__viewport} ref={!ad ? emblaRef : adRef}>
         <div className={styles.embla__container}>
           {slides.map((image: any, index: number) => (
             <div className={styles.embla__slide} key={index}>

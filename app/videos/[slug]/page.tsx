@@ -1,6 +1,7 @@
 import client from "../../sanity"
 import React from 'react'
 import Post from "@components/post"
+import { Story } from "@/sanity.types"
 
 type Props = {
   params: {
@@ -10,7 +11,7 @@ type Props = {
 
 export async function generateStaticParams() {
     const posts = await client.fetch(`*[_type == "story"]`)
-    return posts.map((post: any) => {
+    return posts.map((post: Story) => {
         slug: post.slug
     })
 }
