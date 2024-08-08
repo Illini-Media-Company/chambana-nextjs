@@ -45,6 +45,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                       height={250}
                       width={300}
                       className={styles.ad_container}
+                      key={index}
                     />
                   </a>
                 }

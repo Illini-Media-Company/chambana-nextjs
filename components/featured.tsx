@@ -44,6 +44,7 @@ export default function Featured({
                 imgUrl={story.imgUrl}
                 createdBy={story.publishedBy}
                 createdAt={story.publishedAt}
+                key={story._id}
               />
             ))}
       </div>
@@ -58,7 +59,7 @@ export default function Featured({
           {(featAds) &&
             featAds.map((ad: Ad) => (
             ad.imgUrl && ad.href &&
-              <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad.imgUrl} />
+              <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id} />
           ))}
         </div>
       </div>

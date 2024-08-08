@@ -4,9 +4,10 @@
     /* background-color:#dcdee0; */
     margin: 2em;
     margin-top: 0;
+    /* max-width: 300px; */
     border-radius: var(--border-radius);
     justify-content: center;
-    box-shadow: var(--box-shadow)
+    box-shadow: var(--box-shadow);
 }
 
 .newsletter {

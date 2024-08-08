@@ -35,7 +35,7 @@ const PodcastCarousel: React.FC<PropType> = (props) => {
           {slides.map((show: ShowItem, index: number) => (
             <div className={styles.embla__slide} key={index}>
               <div className={styles.embla__slide__number}>
-                <Show title={show.title} host={show.host} href={'https://dailyillini.com'}/>
+                <Show title={show.title} host={show.host} href={'https://dailyillini.com'} key={index}/>
               </div>
             </div>
           ))}

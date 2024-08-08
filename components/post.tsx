@@ -85,7 +85,7 @@ export default function Post({story, ads}: PostProps) {
               <div className={styles.ads}>
                 {ads &&
                   ads.map((ad: PageAd) => {
-                    return (ad.imgUrl && ad.href) && <FeatAd imgUrl={ad.imgUrl} href={ad.href} />
+                    return (ad.imgUrl && ad.href) && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
                   })}
               </div>
               <div className={styles.mobileAds}>

@@ -93,6 +93,7 @@
 	}
 	.mobile_logo {
 		display: flex;
+		margin-top: 1em;
 	}
 	.banner {
 		padding: 10px 10px 0px 10px;

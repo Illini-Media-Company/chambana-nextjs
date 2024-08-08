@@ -44,7 +44,7 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
           <div className={styles.ads}>
             {(ads) && 
             ads.map((ad: Ad) => {
-              return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+              return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
             })} 
           </div>
           <div className={styles.mobileAds}>
@@ -81,13 +81,13 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               ads
               .slice(0, 2)
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
             })} 
 
             {(ads) && (!sticky) &&
               ads
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
             })} 
           </div>
           {(sticky) &&
@@ -96,7 +96,7 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               ads
               .slice(2, 4)
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href}/>
+                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
               })}
           </div>}
           <div className={styles.mobileAds}>
