@@ -25,6 +25,7 @@ const myPortableTextComponents = {
                 .height(400)
                 .auto('format')
                 .url()} 
+            loading="lazy"
             className={styles.imageContainer}/>,
     callToAction: ({value, isInline}: {value: any, isInline: any}) =>
       isInline ? (
