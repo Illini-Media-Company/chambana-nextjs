@@ -21,7 +21,10 @@ export default async function PodcastsPage() {
 
   return (
     <main>
-      <Podcast url={parsed.enclosure.url} description={parsed.contentSnippet} />
+      {
+        (parsed.enclosure && parsed.enclosure.url) &&
+          <Podcast url={parsed.enclosure.url} description={parsed.contentSnippet} />
+      }
       <FeaturedPodcasts />
       <PaginatedScroll stories={paginated} ads={ads.splice(0, 4)} filter="podcasts" lastDate={lastDate}/>
     </main>

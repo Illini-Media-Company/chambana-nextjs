@@ -26,7 +26,7 @@ export default function Podcast({url, description}: PodcastProps) {
     const volumeRef = useRef<HTMLInputElement>(null);
 
     const waveformRef = useRef<WaveSurfer>(null);
-    const wavesurfer = useRef<WaveSurfer>(null);
+    const wavesurfer = useRef<WaveSurfer | null>(null);
 
     useEffect(() => {
         create();
@@ -44,13 +44,16 @@ export default function Podcast({url, description}: PodcastProps) {
 
     const handlePlayPause = () => {
         setPlaying(!playing);
-        wavesurfer.current.playPause();
+
+        if (wavesurfer.current)
+            wavesurfer.current.playPause();
     };
 
     const handleValueChange = (e: any) => {
         const volume = e.target.value;
 
-        wavesurfer.current.setVolume(volume);
+        if (wavesurfer.current)
+            wavesurfer.current.setVolume(volume);
     }
 
     const create = async () => {
