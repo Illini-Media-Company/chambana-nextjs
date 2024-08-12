@@ -50,7 +50,7 @@ export default function Featured({
       </div>
       {/* TODO: redo this css */}
       <div className={styles.rightContainer}>
-        <Newsletter />
+        <Newsletter recaptchaKey={process.env.GOOGLE_RECAPTCHA_KEY}/>
         <div className={styles.carousel}>
           <EmblaCarousel ad={true} slides={featAds} options={OPTIONS}/>
         </div>

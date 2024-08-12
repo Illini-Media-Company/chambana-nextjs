@@ -3,13 +3,19 @@
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSubscription from "./newsletterSubscription";
 
+interface NewsletterProps {
+    recaptchaKey?: string
+}
+
 function throwError(msg: string): never {
     throw new Error(msg)
 }
 
-const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY ?? throwError('recaptcha key not provided');
 
-export default function Newsletter() {
+export default function Newsletter({recaptchaKey}: NewsletterProps) {
+    if (!recaptchaKey) {
+        throwError('recaptcha key not found');
+    }
     return (
         <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
             <NewsletterSubscription />
