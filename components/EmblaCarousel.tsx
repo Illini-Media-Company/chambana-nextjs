@@ -14,7 +14,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { Ad, Story } from '@/sanity.types';
 
 type PropType = {
-  slides: Story[] | Ad[]
+  slides: Story["gallery"] | Ad[]
   options?: EmblaOptionsType
   ad?: boolean
 }
@@ -35,7 +35,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     <section className={styles.embla}>
       <div className={styles.embla__viewport} ref={!ad ? emblaRef : adRef}>
         <div className={styles.embla__container}>
-          {slides.map((image: any, index: number) => (
+          {slides && slides.map((image: any, index: number) => (
             <div className={styles.embla__slide} key={index}>
               <div className={styles.embla__slide__number}>
                 {ad && 

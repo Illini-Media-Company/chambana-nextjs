@@ -8,7 +8,7 @@ import BannerAd from "./bannerAd";
 import Newsletter from "./newsletter";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
-import { Ad, Story } from "@/sanity.types";
+import { Ad, Story as SanityStory } from "@/sanity.types";
 import Story from "./story";
 
 export default function Featured({
@@ -16,7 +16,7 @@ export default function Featured({
   featAds,
 }: {
   // TODO: this is a bit of a code smell, use a type for the stories and ads! google 'sanity typegen' for an automatic way to do it
-  stories: Story[];
+  stories: SanityStory[];
   featAds: Ad[];
 }) {
   const OPTIONS: EmblaOptionsType = { loop: true }
@@ -35,7 +35,7 @@ export default function Featured({
         {stories &&
           stories
             .slice(1, 4)
-            .map((story: Story) => (
+            .map((story: SanityStory) => (
               story.title && story.slug && story.tags && story.publishedAt &&
               <FeatStory
                 title={story.title}

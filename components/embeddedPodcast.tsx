@@ -25,8 +25,8 @@ export default function Podcast({url, description}: PodcastProps) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const volumeRef = useRef<HTMLInputElement>(null);
 
-    const waveformRef = useRef<WaveSurfer>(null);
-    const wavesurfer = useRef<WaveSurfer | null>(null);
+    const waveformRef = useRef(null);
+    const wavesurfer = useRef({} as WaveSurfer);
 
     useEffect(() => {
         create();
@@ -57,25 +57,27 @@ export default function Podcast({url, description}: PodcastProps) {
     }
 
     const create = async () => {
-        wavesurfer.current = WaveSurfer.create({
-            container: waveformRef.current,
-            backend: 'MediaElement',
-            waveColor: "#34374B",
-            progressColor: "#ff6400",
-            // url: "https://podcasts.captivate.fm/media/4bae19d2-ed73-48cf-9113-6541d6984934/NWS240509-mixdown.mp3",
-            dragToSeek: true,
-            fillParent: true,
-            // width: "12vw",
-            height: 75,
-            hideScrollbar: true,
-            normalize: true,
-            // barGap: 1,
-            barHeight: 20,
-            barRadius: 20,
-            // barWidth: 5,
-        })
+        if (waveformRef.current)
+            wavesurfer.current = WaveSurfer.create({
+                container: waveformRef.current,
+                backend: 'MediaElement',
+                waveColor: "#34374B",
+                progressColor: "#ff6400",
+                // url: "https://podcasts.captivate.fm/media/4bae19d2-ed73-48cf-9113-6541d6984934/NWS240509-mixdown.mp3",
+                dragToSeek: true,
+                fillParent: true,
+                // width: "12vw",
+                height: 75,
+                hideScrollbar: true,
+                normalize: true,
+                // barGap: 1,
+                barHeight: 20,
+                barRadius: 20,
+                // barWidth: 5,
+            })
         try {
-            wavesurfer.current.load(url);
+            if (wavesurfer.current)
+                wavesurfer.current.load(url);
             setLoading(false);
         } catch (err) {
             console.log('Error in loading audio');

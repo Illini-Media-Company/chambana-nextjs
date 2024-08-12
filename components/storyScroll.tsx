@@ -11,7 +11,7 @@ import { Ad, Story as SanityStory} from "@/sanity.types";
 
 interface StoryScrollProps {
   storyCount?: number;
-  stories: Story[];
+  stories: SanityStory[];
   ads?: Ad[];
   inverse?: boolean;
   adslides?: boolean;
@@ -103,7 +103,7 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
             {ads && adslides && 
               <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
             {ads && !adslides && 
-              <FeatAd imgUrl={ads[0].imgUrl} href={ads[0].href}/>}
+              <FeatAd imgUrl={ads[0].imgUrl} href={ads[0].href ? ads[0].href : ""}/>}
           </div>
         </div>
       </div>
