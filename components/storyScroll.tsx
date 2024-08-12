@@ -9,6 +9,10 @@ import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story as SanityStory} from "@/sanity.types";
 
+function throwError(msg: string): never {
+  throw new Error(msg)
+}
+
 interface StoryScrollProps {
   storyCount?: number;
   stories: SanityStory[];
@@ -20,6 +24,8 @@ interface StoryScrollProps {
 
 export default function StoryScroll({ storyCount, stories, ads, inverse, adslides = true, sticky = false }: StoryScrollProps) {
   const OPTIONS: EmblaOptionsType = { loop: true }
+  const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('Could not find image endpoint')
+  const replacement='.'
   if (storyCount) {
     return (
       <div className={styles.container}>
@@ -33,8 +39,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
                   key={story._id}
                   title={story.title}
                   tag={story.tags}
-                  url={story.slug}
-                  imgUrl={story.imgUrl}
+                  url={story.slug.current ? story.slug.current : ""}
+                  imgUrl={(story.poster && story.poster.asset && story.poster.asset._ref) ? u + story.poster?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1') : undefined}
                   createdBy={story.publishedBy}
                   createdAt={story.publishedAt}
                 />
@@ -44,14 +50,14 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
           <div className={styles.ads}>
             {(ads) && 
             ads.map((ad: Ad) => {
-              return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
+              return ad.ad && ad.ad.asset && ad.ad.asset._ref && ad.href && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
             })} 
           </div>
           <div className={styles.mobileAds}>
             {ads && adslides && 
               <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
-            {ads && !adslides && 
-              <FeatAd imgUrl={ads[0]} href={ads[0].href}/>}
+            {ads && !adslides && ads[0].href && 
+              <FeatAd imgUrl={u + ads[0].ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ads[0].href}/>}
           </div>
         </div>
       </div>
@@ -68,8 +74,8 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
                   key={story._id}
                   title={story.title}
                   tag={story.tags}
-                  url={story.slug}
-                  imgUrl={story.imgUrl}
+                  url={story.slug.current ? story.slug.current : ""}
+                  imgUrl={(story.poster && story.poster.asset && story.poster.asset._ref) ? u + story.poster?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1') : undefined}
                   createdBy={story.publishedBy}
                   createdAt={story.publishedAt}
                 />
@@ -81,13 +87,13 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               ads
               .slice(0, 2)
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
+                return ad.ad && ad.ad.asset && ad.ad.asset._ref && ad.href && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
             })} 
 
             {(ads) && (!sticky) &&
               ads
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
+                return ad.ad && ad.ad.asset && ad.ad.asset._ref && ad.href && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
             })} 
           </div>
           {(sticky) &&
@@ -96,14 +102,14 @@ export default function StoryScroll({ storyCount, stories, ads, inverse, adslide
               ads
               .slice(2, 4)
               .map((ad: Ad) => {
-                return ad.imgUrl && ad.href && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
+                return ad.ad && ad.ad.asset && ad.ad.asset._ref && ad.href && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
               })}
           </div>}
           <div className={styles.mobileAds}>
             {ads && adslides && 
               <EmblaCarousel ad={true} slides={ads} options={OPTIONS} />}
-            {ads && !adslides && 
-              <FeatAd imgUrl={ads[0].imgUrl} href={ads[0].href ? ads[0].href : ""}/>}
+            {ads && !adslides && ads[0].href && 
+              <FeatAd imgUrl={u + ads[0].ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ads[0].href}/>}
           </div>
         </div>
       </div>

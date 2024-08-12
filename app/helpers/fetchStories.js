@@ -7,12 +7,13 @@ async function getFeaturedStories(filter) {
     const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) [0...20] {
         title,
         "imgUrl": poster.asset->url,
+        poster,
         main,
         tags,
         publishedAt,
         publishedBy,
         _id,
-        "slug": slug.current
+        slug,
     }`
 
     const data = await client.fetch(groq, {lastId}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
@@ -27,12 +28,13 @@ async function getFeaturedStories(filter) {
     const groq = `*[_type == "story"] | order(_createdAt desc) [0...50] {
         title,
         "imgUrl": poster.asset->url,
+        poster,
         main,
         tags,
         publishedAt,
         publishedBy,
         _id,
-        "slug": slug.current
+        slug,
     }`
     const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
 
@@ -45,12 +47,13 @@ async function getPaginatedStories(filter) {
   const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) [0...20] {
       title,
       "imgUrl": poster.asset->url,
+      poster,
       main,
       tags,
       publishedAt,
       publishedBy,
       _id,
-      "slug": slug.current
+      slug,
   }`
 
   const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
@@ -97,12 +100,13 @@ async function getNextPage(published, filter) {
   const query = `*[_type == "story" && tags == "${filter}" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
+    poster,
     main,
     tags,
     publishedAt,
     publishedBy,
     _id,
-    "slug": slug.current
+    slug,
   }`
 
   const result = await client.fetch(query, {}, {});
@@ -120,12 +124,13 @@ async function getSearch(search) {
   const query = `*[_type == "story" && title match "${search}*"] | order(_createdAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
+    poster,
     main,
     tags,
     publishedAt,
     publishedBy,
     _id,
-    "slug": slug.current
+    slug,
   }` 
 
   const result = await client.fetch(query, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
@@ -146,12 +151,13 @@ async function getSearchNext(search, published) {
   const query = `*[_type == "story" && title match "${search}*" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
+    poster,
     main,
     tags,
     publishedAt,
     publishedBy,
     _id,
-    "slug": slug.current
+    slug,
   }`
 
   const result = await client.fetch(query, {}, {});

@@ -8,6 +8,10 @@ import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story, PageAd } from "@/sanity.types";
 
+function throwError(msg: string): never {
+  throw new Error(msg)
+}
+
 interface PostProps {
     story: Story
     ads?: PageAd[]
@@ -53,6 +57,8 @@ export default function Post({story, ads}: PostProps) {
   const OPTIONS: EmblaOptionsType = { loop: true };
   const SLIDE_COUNT = 5;
   const IMAGES = story.gallery;
+  const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('Could not find image endpoint');
+  const replacement='.';
 
 
   // THIS IS THE TEMPLATE FOR ADDING ADS TO THE MIDDLE OF THE PORTABLE TEXT
@@ -85,7 +91,7 @@ export default function Post({story, ads}: PostProps) {
               <div className={styles.ads}>
                 {ads &&
                   ads.map((ad: PageAd) => {
-                    return (ad.imgUrl && ad.href) && <FeatAd imgUrl={ad.imgUrl} href={ad.href} key={ad._id}/>
+                    return (ad.ad?.asset?._ref && ad.href) && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
                   })}
               </div>
               <div className={styles.mobileAds}>

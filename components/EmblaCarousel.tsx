@@ -11,10 +11,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import styles from './embla.module.css'
 import Image from 'next/image'
 import Autoplay from 'embla-carousel-autoplay'
-import { Ad, Story } from '@/sanity.types';
+import { Ad, PageAd, Story } from '@/sanity.types';
 
 type PropType = {
-  slides: Story["gallery"] | Ad[]
+  slides: Story["gallery"] | Ad[] | PageAd[]
   options?: EmblaOptionsType
   ad?: boolean
 }

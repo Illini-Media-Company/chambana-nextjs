@@ -5,6 +5,7 @@ async function getFeaturedAds(slice1, slice2) {
     if (slice1 != null && slice2 != null) {
         const groq = `*[_type == 'ad'] | order(_createdAt asc) [${slice1}..${slice2}] {
             "imgUrl": ad.asset->url,
+            ad,
             href,
             _id
         }`
@@ -13,6 +14,7 @@ async function getFeaturedAds(slice1, slice2) {
     } else {
         const groq = `*[_type == 'ad'] | order(_createdAt asc) [0..1] {
             "imgUrl": ad.asset->url,
+            ad,
             href,
             _id
         }`
@@ -26,6 +28,7 @@ async function getPageAds() {
     const revalidate = 60;
     const groq = `*[_type == 'page-ad'] | order(_createdAt asc) {
         "imgUrl": ad.asset->url,
+        ad,
         href,
         _id
     }`;
@@ -37,6 +40,7 @@ async function getBannerAds() {
     const revalidate = 60;
     const groq = `*[_type == 'banner-ad'] | order(_createdAt asc){
         "imgUrl": ad.asset->url,
+        ad,
         href,
         _id
     }`
