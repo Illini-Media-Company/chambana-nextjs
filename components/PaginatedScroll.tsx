@@ -42,13 +42,15 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     useEffect(() => {
         if (inView) {
             HandleLoad();
-        }
+        } else 
+            return
     }, [inView])
 
     useEffect(() => {
         if (mInView) {
             HandleLoad();
-        }
+        } else 
+            return
     }, [mInView])
 
     const rows = story.reduce(function (rows: any, key: Story, index: number) { 
