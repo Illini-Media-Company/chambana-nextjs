@@ -32,7 +32,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
         setDate(data[1]);
 
         if (data[1] != null)
-            setStory([...story, ...data[0]])
+            setStory(() => [...story, ...data[0]])
         else
             setMore(false);
 
@@ -42,15 +42,15 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     useEffect(() => {
         if (inView) {
             HandleLoad();
-        } else 
-            return
+        }
+        inView === false;
     }, [inView])
 
     useEffect(() => {
         if (mInView) {
             HandleLoad();
-        } else 
-            return
+        }
+        inView === false;
     }, [mInView])
 
     const rows = story.reduce(function (rows: any, key: Story, index: number) { 
@@ -58,7 +58,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
           : rows[rows.length-1].push(key)) && rows;
       }, []);
 
-    console.log('rows', rows);
+    // console.log('rows', rows);
 
     return(
         <>

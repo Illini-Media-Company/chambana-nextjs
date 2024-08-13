@@ -55,7 +55,7 @@ export default function PaginatedSearch({stories, search, ads, lastDate}: Pagina
           : rows[rows.length-1].push(key)) && rows;
       }, []);
 
-    console.log('rows', rows);
+    // console.log('rows', rows);
 
     return(
         <>
