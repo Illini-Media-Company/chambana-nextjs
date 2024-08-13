@@ -40,17 +40,19 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     }
 
     useEffect(() => {
-        if (inView) {
+        if (inView)
             HandleLoad();
+        return () => {
+            console.log(story)
         }
-        inView === false;
     }, [inView])
 
     useEffect(() => {
-        if (mInView) {
+        if (mInView)
             HandleLoad();
+        return () => {
+            console.log(story)
         }
-        inView === false;
     }, [mInView])
 
     const rows = story.reduce(function (rows: any, key: Story, index: number) { 
