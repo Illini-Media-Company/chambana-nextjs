@@ -1,0 +1,5 @@
+User-Agent: Googlebot
+disallow: /studio
+
+User-Agent: *
+disallow: /studio
