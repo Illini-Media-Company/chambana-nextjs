@@ -1,0 +1,27 @@
+.rotateLoader {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border: 3px solid transparent;
+	border-radius: 50%;
+	border-top-color: var(--main-bg-color);
+	animation: spin 1s linear infinite;
+	margin-right: auto;
+	margin-left: auto;
+	-webkit-animation: spin 1s linear infinite;
+}
+
+.inverted {
+	border-top-color: black !important;
+}
+
+@keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}

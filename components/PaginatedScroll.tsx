@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import storyType from '@/sanity/schemaTypes/storyType';
 import scroll_style from './storyScroll.module.css';
 import { Ad, Story } from "@/sanity.types";
+import LoadingAnimation from "./loadingAnimation";
 
 interface PaginatedProps {
     stories: Story[]
@@ -19,12 +20,14 @@ interface PaginatedProps {
 }
 
 export default function PaginatedScroll({stories, filter, ads, lastDate}: PaginatedProps) {
+    const options = {threshold: 0.50}
+
     const [story, setStory] = useState<Story[]>(stories)
     const [loading, setLoading] = useState(false);
     const [date, setDate] = useState(lastDate);
     const [more, setMore] = useState(true);
-    const [ref, inView] = useInView();
-    const [mRef, mInView] = useInView();
+    const [ref, inView] = useInView(options);
+    const [mRef, mInView] = useInView(options);
 
     const HandleLoad = async () => {
         setLoading(true);
@@ -62,7 +65,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
             <StoryScroll stories={story} ads={ads} sticky={true}/>
             {loading == false && more && 
                 <div ref={ref} className={scroll_style.leftContainer}>
-                    Loading...
+                    <LoadingAnimation />
                 </div>
                 // <button onClick={HandleLoad}/>
             }
@@ -74,7 +77,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
             })}
             {loading == false && more && 
                 <div ref={mRef} className={scroll_style.leftContainer}>
-                    Loading...
+                    <LoadingAnimation />
                 </div>
                 // <button onClick={HandleLoad}/>
             }
