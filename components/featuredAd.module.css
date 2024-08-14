@@ -1,8 +1,7 @@
 .parentContainer {
     height: 250px;
     width: 300px;
-    margin: 2em;
-    margin-top: 0;
+    margin: 0 0 2em 0;
 }
 
 .image {
