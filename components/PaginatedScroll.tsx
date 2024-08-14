@@ -42,17 +42,11 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
     useEffect(() => {
         if (inView)
             HandleLoad();
-        return () => {
-            console.log(story)
-        }
     }, [inView])
 
     useEffect(() => {
         if (mInView)
             HandleLoad();
-        return () => {
-            console.log(story)
-        }
     }, [mInView])
 
     const rows = story.reduce(function (rows: any, key: Story, index: number) { 
@@ -70,6 +64,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
                 <div ref={ref} className={scroll_style.leftContainer}>
                     Loading...
                 </div>
+                // <button onClick={HandleLoad}/>
             }
         </div>
         <div className={styles.mobile}>
@@ -81,6 +76,7 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
                 <div ref={mRef} className={scroll_style.leftContainer}>
                     Loading...
                 </div>
+                // <button onClick={HandleLoad}/>
             }
         </div>
         </>
