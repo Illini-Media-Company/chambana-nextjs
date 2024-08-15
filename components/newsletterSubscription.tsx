@@ -44,6 +44,9 @@ export default function NewsletterSubscription() {
                             {!loading && success && 'Success!'}
                         </div>
                     </button>
+                    <p className={styles.google}>This site is protected by reCAPTCHA and the Google&nbsp;
+                        <a className={styles.link} href={"https://policies.google.com/privacy"}>Privacy Policy</a> and&nbsp;
+                        <a className={styles.link} href={"https://policies.google.com/terms"}>Terms of Service</a> apply.</p>
                 </form>
             </div>
         </div>

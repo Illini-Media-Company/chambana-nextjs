@@ -38,7 +38,8 @@
 
 @media (max-width: 768px) {
 	.container {
-		flex-direction: column
+		flex-direction: column;
+		margin: 0;
 	}
 	.leftContainer {
 		border-radius: 0;
