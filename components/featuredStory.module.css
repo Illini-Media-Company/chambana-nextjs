@@ -9,6 +9,10 @@
 }
 .column {
     float: left;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 1em 0;
 }
 
 .featStoryImage {
@@ -32,7 +36,8 @@
     font-weight: 600;
 }
 .byline {
-    font-weight: 500
+    font-weight: 500;
+    margin: 0;
 }
 
 @media (max-width: 500px) {
