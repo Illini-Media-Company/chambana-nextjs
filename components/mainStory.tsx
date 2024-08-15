@@ -31,9 +31,9 @@ export default function MainStory({
       <div>
         <div className={styles.title}>
           <h1>{title}</h1>
-          <h3>
+          <h2>
             By {createdBy}, {dateTime.toLocaleDateString()}
-          </h3>
+          </h2>
         </div>
         <div>
           <Image
