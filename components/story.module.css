@@ -39,11 +39,13 @@
     min-width: 0;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-weight: 500;
 }
 
 .date {
     margin: 0;
     padding: 0;
+    font-weight:400
 }
 
 .link {
@@ -77,6 +79,7 @@
     } */
     .rightContainer {
         padding: 1em;
+        width: auto;
     }
     .link {
         transition: 0s;

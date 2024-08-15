@@ -29,6 +29,10 @@
 }
 .title {
     margin-top: 0;
+    font-weight: 600;
+}
+.byline {
+    font-weight: 500
 }
 
 @media (max-width: 500px) {
