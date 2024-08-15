@@ -90,6 +90,7 @@ export default function Podcast({url, description}: PodcastProps) {
                 <Image 
                     src={'/wpgupodcast.png'}
                     alt={'podcast image'}
+                    priority
                     height={300}
                     width={300}
                     className={styles.imageContainer}
