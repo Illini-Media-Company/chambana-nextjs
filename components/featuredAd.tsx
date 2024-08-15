@@ -16,12 +16,12 @@ export default function FeatAd({imgUrl, href}: FeatAdProps) {
             <a href={href}><Image
                 src={imgUrl}
                 alt={"Featured Ad"}
-                priority
                 height={250}
                 width={300}
                 className={styles.image}
                 placeholder="blur"
                 blurDataURL="/blur.png"
+                loading="lazy"
             /></a>
         </div>
         </div>
