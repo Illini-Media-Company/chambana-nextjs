@@ -18,3 +18,9 @@
     margin-bottom: 0;
     font-weight: 900;
 }
+
+@media (max-width: 768px) {
+    .imageContainer {
+        width: 80%;
+    }
+}

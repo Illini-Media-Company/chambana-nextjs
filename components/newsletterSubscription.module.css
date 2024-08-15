@@ -4,10 +4,11 @@
     /* background-color:#dcdee0; */
     margin: 0 0 2em 0;
     margin-top: 0;
-    /* max-width: 300px; */
+    max-width: 300px;
     border-radius: var(--border-radius);
     justify-content: center;
     box-shadow: var(--box-shadow);
+    align-self: center;
 }
 
 .newsletter {
@@ -51,6 +52,19 @@
     border-radius: var(--border-radius);
     border-style: solid;
     font-size: 16px;
+}
+
+.google {
+    margin: 0;
+    font-size: smaller;
+    color: #808080;
+}
+
+.link {
+    color:#ff6400
+}
+.link:hover {
+    text-decoration: underline;
 }
 
 @media(max-width: 768px) {
