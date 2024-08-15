@@ -21,6 +21,10 @@
 @media (max-width: 500px) {
     .mainImage {
         height: 250px;
+        border-radius: 0;
+    }
+    .title {
+        padding: 0.5em;
     }
     .link {
         border-bottom: 2px black solid;

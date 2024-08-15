@@ -47,6 +47,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                       width={300}
                       className={styles.ad_container}
                       key={index}
+                      loading="lazy"
                     />
                   </a>
                 }
@@ -58,6 +59,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                       height={500}
                       width={600}
                       className={styles.image_container}
+                      loading="lazy"
                     />
                     <div className={styles.caption}>{image.caption}</div>
                   </div>

@@ -34,6 +34,7 @@ export default async function Home() {
             width="400"
             height="100"
             className={styles.bannerAd}
+            loading="lazy"
           />
         </a>
         <StoryScroll storyCount={5} stories={sortedStories.slice(4)} ads={pageAds.slice(0, 2)}/>

@@ -36,10 +36,10 @@ export default function Story({
           <Image
               src={imgUrl ? imgUrl : "/placeholder.webp"}
               alt={description ? description : "Featured Story"}
-              priority
               height={166}
               width={250}
               className={styles.storyImage}
+              loading="lazy"
             />
         </div>
         <div className={styles.rightContainer}>
