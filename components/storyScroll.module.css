@@ -32,10 +32,15 @@
 .ads {
 	display: flex;
 	flex-direction: column;
+	gap: 2em;
+	margin-bottom: 2em;
 }
 .sticky {
+	display: flex;
+	flex-direction: column;
 	position: sticky;
 	top: 130px;
+	gap: 2em;
 }
 
 .mobileAds {

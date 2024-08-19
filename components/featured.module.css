@@ -35,6 +35,7 @@
 .ads {
 	display: flex;
 	flex-direction: column;
+	gap: 2em;
 }
 
 @media (max-width: 768px) {
