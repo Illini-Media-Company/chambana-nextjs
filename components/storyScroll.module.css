@@ -32,6 +32,7 @@
 .ads {
 	display: flex;
 	flex-direction: column;
+	gap: 2em;
 }
 .sticky {
 	position: sticky;

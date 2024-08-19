@@ -1,7 +1,7 @@
 .parentContainer {
     height: 250px;
     width: 300px;
-    margin: 0 0 2em 0;
+    /* margin: 0 0 2em 0; */
 }
 
 .image {
@@ -14,6 +14,6 @@
         justify-content: center;
         display: flex;
         margin: auto;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
     }
 }
