@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, redirect } from 'next/navigation';
 import styles from './searchBar.module.css';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { IconContext } from 'react-icons/lib';
@@ -28,8 +28,8 @@ export default function SearchBar() {
 
     const HandleSubmit = (e: any) => {
         e.preventDefault();
-        router.push('/search?search=' + search);
         window.location.reload();
+        router.push('/search?search=' + search);
     }
 
     return (

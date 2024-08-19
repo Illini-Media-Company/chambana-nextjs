@@ -46,7 +46,7 @@
 	.container {
 		flex-direction: column;
 		margin: 0 1em 0em 1em;
-		gap: 2em;
+		gap: 1em;
 	}
 	.ads {
 		display: none;

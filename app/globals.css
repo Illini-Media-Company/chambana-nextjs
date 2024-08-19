@@ -5,6 +5,8 @@
 /* TODO: define a bunch of these. then you can use media seelectors for themes and dark mode! */
 :root {
   --foreground-rgb: 0, 0, 0;
+  /* --background-hex: #fff7f2; */
+  --background-hex:  #F2F2F2;
   --background-rgb: 255, 255, 255;
   --border-radius: 5px;
   --box-shadow: 1px 1px 3px #e7e7e7 !important;
@@ -21,6 +23,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--background-rgb));
+  /* background-color: var(--background-hex) */
 }
 
 @layer utilities {
