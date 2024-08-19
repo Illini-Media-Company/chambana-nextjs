@@ -12,7 +12,7 @@
 .leftContainer {
 	display: flex;
 	flex-direction: column;
-	padding: 0 1em 1em;
+	/* padding: 0 1em 1em; */
 	flex-grow: 2;
 	border-radius: var(--border-radius);
 	gap: 1em;
