@@ -34,7 +34,8 @@
 
 .title {
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
+    padding-right: 0.7em;
     margin-bottom: 0.5em;
     min-width: 0;
     text-overflow: ellipsis;
@@ -66,10 +67,13 @@
     .storyImage {
         width: 100%;
         /* height: 100%  */
-        height: 222px;
+        height: 227px;
     }
     .leftContainer {
         align-items:center
+    }
+    .title {
+        padding: 0;
     }
     /* .title {
         margin: 0 1em 0;

@@ -12,7 +12,7 @@ export default function BannerAd({
     return(
         <a href="https://dailyillini.com" className={styles.bannerAdContainer}>
           <Image
-            src={"/banner-placeholder.png"}
+            src={"/banner-placeholder.webp"}
             alt={`Banner ad`}
             width="0"
             height="0"
