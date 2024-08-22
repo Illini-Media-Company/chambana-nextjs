@@ -9,7 +9,7 @@ import { TfiClose, TfiMenu } from "react-icons/tfi";
 import { MenuItem } from "@/types/menuItem";
 import { menuItems } from "@/app/menuItems";
 import Image from "next/image";
-import logo from "../public/CE_norm.svg";
+import logo from "../public/CE_horiz.svg";
 import logo_mobile from "../public/CE_horiz.svg";
 import SearchBar from "./searchBar";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
@@ -35,8 +35,8 @@ export default function Banner() {
           <Image
             src={logo}
             alt={"Logo for the Daily Illini"}
-            width={100}
-            height={100}
+            width={266.4}
+            height={80}
             className={styles.logo}
           /> 
         </a>
