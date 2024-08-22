@@ -88,6 +88,9 @@
 	.leftContainer {
 		border-radius: 0px;
 	}
+	.imageContainer {
+		height: 250px;
+	}
 	.ads {
 		display: none;
 	}

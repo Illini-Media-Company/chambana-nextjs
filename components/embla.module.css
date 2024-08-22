@@ -34,6 +34,7 @@
   border-radius: var(--border-radius);
   width: 95%;
   object-fit: cover;
+  /* height: 54%; */
 }
 .ad_container {
   position: relative;
@@ -95,6 +96,7 @@
 
 @media (max-width: 768px) {
   .image_container {
+    width: 95%;
     height: 250px;
   }
 }

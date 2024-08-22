@@ -56,7 +56,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                     <Image 
                       src={image.url}
                       alt="pic"
-                      height={500}
+                      height={450}
                       width={600}
                       className={styles.image_container}
                       loading="lazy"
