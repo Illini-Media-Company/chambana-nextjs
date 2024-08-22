@@ -33,6 +33,14 @@ const myPortableTextComponents = {
       ) : (
         <div className="callToAction">{value.text}</div>
       ),
+    
+    code: ({value}: any) => {
+      return (
+        <label className={styles.map}>
+          <label dangerouslySetInnerHTML={{__html: value.code}} className={styles.map}/>
+        </label>
+      )
+    }
   },
 
   block: {

@@ -34,4 +34,6 @@ async function Page({params: {slug}}: Props) {
   )
 }
 
-export default Page
+export default Page;
+
+export const revalidate = 120;

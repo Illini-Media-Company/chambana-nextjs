@@ -1,39 +1,40 @@
 import Banner from "@components/banner";
 import client from "../sanity";
+import styles from "./page.module.css"
 
 export default async function AboutPage() {
   return (
-    <main>
+    <main className={styles.about}>
       {/* TODO: remove inline styles */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
-        <h1>About Page</h1>
-        <h2>Welcome to [Your Publication Name]</h2>
-        <p>At [Your Publication Name], we’re passionate about food, community, and the stories that bring them together. We believe that food is more than just sustenance; it’s a reflection of our culture, our history, and the vibrant diversity that makes our local community unique.</p>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <h1>What We're About</h1>
+        <p>Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink. We’re here to give you the behind the scenes of what you eat. </p>
 
-        <h2>Our Mission</h2>
-        <p>Our mission is to serve as the definitive guide to the local food scene, celebrating the chefs, farmers, artisans, and food lovers who make our area so special. We strive to provide our readers with engaging, in-depth coverage of the latest food trends, restaurant openings, local markets, and culinary events, all while highlighting the stories behind the food.</p>
+        <p>Who in town is making our food? </p>
 
-        <h2>What We Cover</h2>
-        <p>From farm-to-table movements to hidden gem eateries, our content spans a wide range of topics that resonate with both food enthusiasts and casual diners alike. We feature:</p>
-        <ul>
-            <li><strong>Restaurant Reviews:</strong> Honest, insightful reviews of local dining spots, from cozy cafes to fine dining establishments.</li>
-            <li><strong>Chef Spotlights:</strong> Profiles on the talented chefs and culinary teams driving the local food scene.</li>
-            <li><strong>Food Trends:</strong> Exploration of the latest food trends, both locally and beyond, that are influencing what we eat and how we dine.</li>
-            <li><strong>Farmers & Artisans:</strong> Stories about the local farmers, bakers, brewers, and artisans who bring fresh, sustainable, and innovative products to our tables.</li>
-            <li><strong>Events & Festivals:</strong> Coverage of food festivals, tasting events, pop-ups, and other culinary happenings that make our community vibrant.</li>
-            <li><strong>Recipes & Tips:</strong> Delicious, easy-to-follow recipes that celebrate local ingredients, along with cooking tips and tricks from the pros.</li>
-        </ul>
+        <p>How do they do it? </p>
 
-        <h2>Our Team</h2>
-        <p>We are a team of dedicated food writers, photographers, and culinary enthusiasts who share a deep love for our local food culture. Our diverse backgrounds and experiences allow us to approach stories from multiple angles, offering our readers fresh perspectives and a true taste of our community.</p>
+        <p>And maybe most importantly — what should you eat next? </p>
 
-        <h2>Why We Do It</h2>
-        <p>We believe that food has the power to bring people together. By sharing the stories of those who create, serve, and enjoy local cuisine, we hope to foster a deeper connection within our community and inspire our readers to explore and appreciate the food landscape around them.</p>
+        <p>In a community surrounded by farms cultivating delicious local produce, the Champaign-Urbana community deserves a publication highlighting the ingredients and food in our
+          community and who makes them. </p>
 
-        <h2>Join Us on Our Journey</h2>
-        <p>Whether you’re a foodie, a home cook, or simply someone who loves to eat, [Your Publication Name] is your go-to source for all things food in [Your City/Area]. We invite you to join us on this delicious journey as we explore the flavors, stories, and people that make our local food scene so special.</p>
-        <p>Stay connected by subscribing to our newsletter, following us on social media, and sharing your own food stories with us. Together, let’s celebrate the vibrant, diverse, and ever-evolving culinary landscape that we’re so proud to call home.</p>
+        <p>Chambana Eats also aims to be a place where service industry professionals can get advice from each other, share tips, openings and transitions. Whether you’re a bartender, 
+          executive chef or owner, you’re the celebrities of this publication. </p>
 
+        <p>If you’re interested in telling your story, or highlighting something about your work,&nbsp;
+          <a href="mailto:chambanaeats@illinimedia.com" className={styles.link}>reach out to us.</a></p>
+
+        <p>We cover the entirety of Champaign-Urbana — not just Campustown — because good eats are all over our community.</p>
+
+        <p>We are powered by the <a href="http://illinimedia.com" className={styles.link}>Illini Media Company</a>, home of award-winning publications&nbsp;
+        <a href="http://dailyillini.com" className={styles.link}>The Daily Illini</a>, 
+        <a href="http://wpgu.com" className={styles.link}>WPGU</a> and the <a href="http://illioyearbook.com" className={styles.link}>Illio Yearbook</a>. </p>
+
+        <p>Chambana Eats is Illini Media’s first hybrid newsroom, where students both lead and learn alongside professional journalists. They gain experience running a professional 
+          newsroom, while receiving mentorship and feedback from industry professionals. </p>
+        <p>For more information, or to get involved,&nbsp;
+          <a href="mailto:chambanaeats@illinimedia.com" className={styles.link}>reach out to Illini Media Company’s Executive Director Jake Williams.</a></p>
       </div>
     </main>
   );

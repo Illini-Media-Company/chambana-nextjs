@@ -51,6 +51,7 @@
     }
     .column {
         border-bottom: 2px black solid;
+        padding: 0;
         padding-bottom: 1em;
         margin: 0 0.5em;
     }

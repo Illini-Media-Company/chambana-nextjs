@@ -1,0 +1,8 @@
+.link {
+    color:#ff6400;
+}
+@media (max-width: 768px) {
+    .about {
+        padding: 0 0.5em;
+    }
+}

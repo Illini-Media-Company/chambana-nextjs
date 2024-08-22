@@ -70,6 +70,7 @@
         flex-direction: column;
         margin: 0;
         width: auto;
+        gap: 1em;
     }
     .imageContainer {
         width: 100%;
