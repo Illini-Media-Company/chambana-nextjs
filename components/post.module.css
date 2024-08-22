@@ -13,8 +13,9 @@
 	display: flex;
 	flex-direction: row;
 	margin-top: 1em;
-	gap: 1em;
+	gap: 2em;
 	margin-bottom: 1em;  
+	padding: 0.5em 1em;
 }
 
 .leftContainer {
@@ -30,6 +31,22 @@
 	box-shadow: var(--box-shadow);
 	/* gap: 1em; */
 
+}
+
+.map {
+	width: 100%;
+	display: flex;
+	align-self: center;
+}
+.map iframe {
+	margin-left: auto;
+	margin-right: auto;
+	align-self: center;
+	width: 100%;
+	height: 480px;
+	max-width: 700px;
+	border: 0;
+	border-radius: var(--border-radius);
 }
 
 .rightContainer {
@@ -64,6 +81,9 @@
 @media (max-width: 768px) {
 	.container {
 		flex-direction: column;
+		margin-top: 0;
+		padding: 0;
+		gap: 1em;
 	}
 	.leftContainer {
 		border-radius: 0px;
@@ -74,5 +94,8 @@
 	.mobileAds {
 		display: flex;
 		justify-content: center;
+	}
+	.map iframe {
+		height: 400px;
 	}
 }

@@ -50,6 +50,9 @@ const storyType = defineType({
         },
         {
           type: 'image'
+        },
+        {
+          type: 'code'
         }
       ],
     },
@@ -86,6 +89,11 @@ const storyType = defineType({
           title: 'Attribution',
         }
       ]
+    },
+    {
+      name: 'map',
+      type: 'geopoint',
+      title: 'Map'
     },
     {
       name: 'gallery',

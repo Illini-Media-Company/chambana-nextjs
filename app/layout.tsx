@@ -22,12 +22,14 @@ export default function RootLayout({
       <body className={inter.className + " " + styles.body}>
         <div className={inter.className + " " + styles.header}> 
           <Banner />
-          <hr /> 
+          <hr className={styles.line}/> 
         </div>
         <div className={inter.className + " " + styles.bodyWrap}>
            {children} 
         </div>
-        <footer className={styles.foot}>Chambana Eats • © 2024 Illini Media Company</footer>
+        <footer className={styles.foot}>
+          <a href="." className={styles.link}>Chambana Eats</a> • © 2024 <a href="https://illinimedia.org" className={styles.link}>Illini Media Company</a>
+        </footer>
       </body>
     </html>
   );
