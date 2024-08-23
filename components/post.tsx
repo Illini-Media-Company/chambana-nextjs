@@ -88,7 +88,7 @@ export default function Post({story, ads}: PostProps) {
           <div className={styles.leftContainer}>
               <h1 className={styles.title}>{story.title}</h1>
               {story.publishedBy && story.publishedAt &&
-                <h3 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h3>}
+                <h2 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h2>}
               <div className={styles.body}>
                 {(IMAGES) && 
                   <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
