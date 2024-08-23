@@ -20,6 +20,11 @@ const storyType = defineType({
       }
     },
     {
+      name: 'description',
+      title: 'Description',
+      type: 'string'
+    },
+    {
       name: 'main',
       title: 'Main Story',
       type: 'boolean',
