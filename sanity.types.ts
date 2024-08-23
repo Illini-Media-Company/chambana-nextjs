@@ -155,6 +155,7 @@ export type Ad = {
 };
 
 export type Story = {
+  description: string | undefined;
   _id: string;
   _type: "story";
   _createdAt: string;

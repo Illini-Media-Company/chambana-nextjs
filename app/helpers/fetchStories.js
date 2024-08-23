@@ -76,7 +76,9 @@ async function getStoryBySlug(slug) {
     },
     publishedBy,
     publishedAt,
-    "imageUrl": poster.asset->url
+    "imageUrl": poster.asset->url,
+    poster,
+    description
   }`
   let story;
   let success = false
