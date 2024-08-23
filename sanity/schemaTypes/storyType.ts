@@ -22,7 +22,7 @@ const storyType = defineType({
     {
       name: 'description',
       title: 'Description',
-      type: 'string'
+      type: 'text'
     },
     {
       name: 'main',

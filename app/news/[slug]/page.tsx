@@ -30,6 +30,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> { 
   const story: Story[] = await fetchHelper.getStoryBySlug(slug);
+  console.log(story);
 
   const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('no image endpoing');
   const replacement = '.';
