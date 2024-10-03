@@ -30,8 +30,8 @@ export default function MainStory({
     <a className={styles.link} href={create_url(tag, url)}>
       <div>
         <div className={styles.title}>
-          <h1>{title}</h1>
-          <h2>
+          <h1 className={styles.mainTitle}>{title}</h1>
+          <h2 className={styles.mainAuthor}>
             By {createdBy}, {dateTime.toLocaleDateString()}
           </h2>
         </div>
