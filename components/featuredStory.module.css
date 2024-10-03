@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 .parentContainer {
     width:100%;
     display: flex;
@@ -20,12 +22,14 @@
 }
 
 .imageContainer {
-   
+
     gap: 1em;
 }
 .featStory {
     text-decoration: none;
     transition: 0.2s;
+    font-weight: 800;
+	font-family: "Lora", serif;
 }
 
 .featStory:hover {

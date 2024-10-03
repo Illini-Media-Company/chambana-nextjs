@@ -6,7 +6,7 @@
 	display: none;
 }
 
-.banner { 
+.banner {
 	display: flex;
 }
 
@@ -42,7 +42,7 @@
 .socials {
 	margin-left: 1em;
 	display: flex;
-	gap: 1em; 
+	gap: 1em;
 }
 
 .icon {

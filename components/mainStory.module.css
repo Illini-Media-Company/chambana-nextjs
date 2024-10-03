@@ -1,16 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
 .title {
-    font-weight: bold;
     margin-bottom: 0.5em;
-    /* color: var(--foreground-rgb); */
+}
+
+.mainTitle {
+    font-weight: 800;
+    font-size: 32px;
+    font-family: "Lora", serif;
+}
+
+.mainAuthor {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Lora", serif;
 }
 
 .link {
     text-decoration: none;
     transition: 0.2s;
 }
+
 .link:hover {
-    color: #ff6400
+    color: #ff6400;
 }
 
 .mainImage {
