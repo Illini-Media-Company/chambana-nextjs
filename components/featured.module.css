@@ -12,8 +12,8 @@
 	flex-grow: 2;
 	/* border-radius: var(--border-radius); */
 	border-radius: 2px;
-	background-color:#e0dedc;
-	/* background-color:#dcdee0; */
+	/* background-color:#e0dedc; */
+	background-color: rgb(var(--primary-gray-rgb));
 	gap: 1em;
 	box-shadow: var(--box-shadow);
 }
@@ -26,6 +26,7 @@
 	border-radius: var(--border-radius);
 	flex-direction: column;
 	flex-basis: 2em;
+	min-width: 300px;
 }
 
 .carousel {

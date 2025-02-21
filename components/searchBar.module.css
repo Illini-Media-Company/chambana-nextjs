@@ -36,7 +36,7 @@
     transition: 0.2s;
 }
 .icon:hover {
-    fill: #ff6400;
+    fill: rgb(var(--primary-rgb));
 }
 
 @media (max-width: 768px) {
