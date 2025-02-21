@@ -54,7 +54,7 @@
     transition: 0.2s;
 }
 .link:hover {
-    color: #ff6400;
+    color: rgb(var(--primary-rgb));
 }
 
 @media (max-width: 768px) {
@@ -89,6 +89,6 @@
         transition: 0s;
     }
     .link:focus {
-        color: #ff6400
+        color: rgb(var(--primary-rgb))
     }
 }

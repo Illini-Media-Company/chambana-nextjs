@@ -9,6 +9,7 @@ import Newsletter from "./newsletter";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story as SanityStory } from "@/sanity.types";
+import Script from "next/script"
 import Story from "./story";
 import { url } from "inspector";
 
@@ -16,7 +17,7 @@ function throwError(msg: string): never {
   throw new Error(msg)
 }
 
-export default function Featured({
+export default async function Featured({
   stories,
   featAds,
 }: {
@@ -65,11 +66,17 @@ export default function Featured({
         </div>
 
         <div className={styles.ads}>
-          {(featAds) &&
+          {/* {(featAds) &&
             featAds.map((ad: Ad) => (
             ad.ad && ad.ad.asset && ad.ad.asset._ref && ad.href &&
               <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id} />
-          ))}
+          ))} */}
+          <ins
+              data-type="broadstreet"
+              data-zone-id="174930"
+              data-click-url-empty="">
+            <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+          </ins>
         </div>
       </div>
     </div>

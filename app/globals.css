@@ -10,6 +10,9 @@
   --background-rgb: 255, 255, 255;
   --border-radius: 5px;
   --box-shadow: 1px 1px 3px #e7e7e7 !important;
+  --primary-rgb: 249, 159, 32;
+  --primary-gray-rgb: 201, 202, 204;
+  --secondary-gray-rgb: 101, 101, 101;
 }
 
 @media (prefers-color-scheme: dark) {
