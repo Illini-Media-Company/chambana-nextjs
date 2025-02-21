@@ -29,7 +29,7 @@
 }
 
 .featStory:hover {
-    color: #ff6400;
+    color: rgb(var(--primary-rgb));
 }
 .title {
     margin-top: 0;

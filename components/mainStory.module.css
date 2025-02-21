@@ -10,7 +10,7 @@
     transition: 0.2s;
 }
 .link:hover {
-    color: #ff6400
+    color: rgb(var(--primary-rgb))
 }
 
 .mainImage {

@@ -54,7 +54,7 @@ export default function Banner() {
 
           <div className={styles.socials}>
             
-            <a href={'https://www.instagram.com/chambana_eats/'} className={styles.anchor}>
+            <a href={'https://www.instagram.com/chambanaeats/'} className={styles.anchor}>
               <IconContext.Provider value={{className: styles.icon}}>
                 <FaInstagram size={25}/>
               </IconContext.Provider>

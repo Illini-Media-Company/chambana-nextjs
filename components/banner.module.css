@@ -49,7 +49,7 @@
 	transition: 0.2s;
 }
 .icon:hover {
-	fill: #ff6400;
+	fill: rgb(var(--primary-rgb));
 }
 
 .anchor {
