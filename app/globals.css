@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/xxb2osb.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +11,7 @@
   --background-rgb: 255, 255, 255;
   --border-radius: 5px;
   --box-shadow: 1px 1px 3px #e7e7e7 !important;
+  /* --box-shadow: none !important; */
   --primary-rgb: 249, 159, 32;
   --primary-gray-rgb: 201, 202, 204;
   --secondary-gray-rgb: 101, 101, 101;
@@ -45,12 +47,21 @@ a {
 }
 
 h1 {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   margin-bottom: 0.5em;
   margin-top: 0;
 }
 h2 {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   margin: 0;
 }
 h3 {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 	margin-bottom: 0.5em;
 }

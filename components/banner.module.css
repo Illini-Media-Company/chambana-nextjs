@@ -28,6 +28,7 @@
 
 
 .menu {
+	font-family: futura-pt-bold, sans-serif;
 	display: flex;
 	flex-direction: row;
 	font-weight: bold;
