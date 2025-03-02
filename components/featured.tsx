@@ -62,7 +62,13 @@ export default async function Featured({
       <div className={styles.rightContainer}>
         <Newsletter recaptchaKey={process.env.GOOGLE_RECAPTCHA_KEY}/>
         <div className={styles.carousel}>
-          <EmblaCarousel ad={true} slides={featAds} options={OPTIONS}/>
+          {/* <EmblaCarousel ad={true} slides={featAds} options={OPTIONS}/> */}
+          <ins
+              data-type="broadstreet"
+              data-zone-id="174930"
+              data-click-url-empty="">
+            <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+          </ins>
         </div>
 
         <div className={styles.ads}>

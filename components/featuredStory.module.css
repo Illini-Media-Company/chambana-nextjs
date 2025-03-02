@@ -1,3 +1,4 @@
+/* @import url("https://use.typekit.net/xxb2osb.css"); */
 .parentContainer {
     width:100%;
     display: flex;
@@ -32,12 +33,15 @@
     color: rgb(var(--primary-rgb));
 }
 .title {
-    margin-top: 0;
+    font-family: futura-pt-bold, sans-serif;
     font-weight: 700;
+    font-style: normal;
+    margin-top: 0;
+    /* font-weight: 700; */
     /* padding-right: 0.7em; */
 }
 .byline {
-    font-weight: 600;
+    /* font-weight: 600; */
     margin: 0;
 }
 

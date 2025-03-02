@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Baskervville } from "next/font/google";
 import "./globals.css";
 import Banner from "@/components/banner";
 import styles from "./layout.module.css";
 import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
+const bask = Baskervville({subsets: ["latin"], display: "swap", weight: "400"})
 
 export const metadata: Metadata = {
   title: "Chambana Eats",
@@ -25,12 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " " + styles.body}>
-        <div className={inter.className + " " + styles.header}> 
+      <body className={bask.className + " " + styles.body}>
+        <div className={bask.className + " " + styles.header}> 
           <Banner />
           <hr className={styles.line}/> 
         </div>
-        <div className={inter.className + " " + styles.bodyWrap}>
+        <div className={bask.className + " " + styles.bodyWrap}>
            {children} 
         </div>
         <footer className={styles.foot}>

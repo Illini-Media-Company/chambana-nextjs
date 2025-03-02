@@ -15,6 +15,14 @@
     border-radius: 10px;
 }
 
+.containerBackground {
+    background: hsl(340deg 100% 32%);
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+}
+
 .leftContainer {
     display: flex;
     flex-direction: column;
