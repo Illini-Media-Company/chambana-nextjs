@@ -6,6 +6,8 @@ import fetchAds from "../../helpers/fetchAds"
 import shuffle from "../../helpers/randomize"
 import { Story } from "@/sanity.types"
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     slug: string

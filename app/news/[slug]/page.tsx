@@ -8,6 +8,8 @@ import { redirect } from "next/navigation"
 import { Story } from "@/sanity.types"
 import { Metadata, ResolvingMetadata } from "next"
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     slug: string
