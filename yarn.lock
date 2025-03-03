@@ -3841,17 +3841,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"embla-carousel@npm:8.5.2":
+"embla-carousel@npm:8.5.2, embla-carousel@npm:^8.5.2":
   version: 8.5.2
   resolution: "embla-carousel@npm:8.5.2"
   checksum: 10c0/4bbb04c08616d560a7b47b1897794a077baa5aa27642420b35b3be58ab7b0dc000ef073b6e47d0029b0791c046e0cd39d295704faecb1957d2c315df51be58e6
-  languageName: node
-  linkType: hard
-
-"embla-carousel@npm:^8.1.5":
-  version: 8.1.5
-  resolution: "embla-carousel@npm:8.1.5"
-  checksum: 10c0/5fa18cf332654ce3f380874e41caa6a520a04c5d43f2832f1d797b74e822f271de61f27346155fc3a8321633f1968b7b808ad0d56152305c8696ff5d12d3200f
   languageName: node
   linkType: hard
 
@@ -6785,7 +6778,7 @@ __metadata:
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
     clsx: "npm:^2.1.1"
-    embla-carousel: "npm:^8.1.5"
+    embla-carousel: "npm:^8.5.2"
     embla-carousel-autoplay: "npm:^8.5.2"
     embla-carousel-react: "npm:^8.5.2"
     eslint: "npm:^8"
