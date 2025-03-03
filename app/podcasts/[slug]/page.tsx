@@ -1,5 +1,3 @@
-"use client"
-
 import client from "../../sanity"
 import React from 'react'
 import Post from "@components/post"

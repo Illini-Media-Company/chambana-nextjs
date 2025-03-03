@@ -1,3 +1,5 @@
+"use client"
+
 import {PortableText} from "@portabletext/react";
 import styles from "./post.module.css";
 import FeatAd from "./featuredAd";
