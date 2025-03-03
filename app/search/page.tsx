@@ -20,4 +20,3 @@ export default async function SearchPage({
   )
 }
 
-export const runtime = 'edge'

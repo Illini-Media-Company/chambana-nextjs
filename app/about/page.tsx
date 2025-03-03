@@ -40,4 +40,4 @@ export default async function AboutPage() {
   );
 }
 
-export const runtime = 'edge'
+

@@ -32,4 +32,4 @@ export default async function PodcastsPage() {
 }
 
 export const revalidate = 60;
-export const runtime = 'edge'
+

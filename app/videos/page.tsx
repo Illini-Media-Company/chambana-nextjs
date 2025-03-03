@@ -38,4 +38,3 @@ export default async function NewsPage() {
 }
 
 export const revalidate = 60;
-export const runtime = 'edge'
