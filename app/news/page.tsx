@@ -22,4 +22,3 @@ export default async function NewsPage() {
 }
 
 export const revalidate = 60;
-;
