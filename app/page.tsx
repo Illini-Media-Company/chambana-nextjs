@@ -26,7 +26,7 @@ export default async function Home() {
     <main>
       <div className={styles.contentContainer}>
         <Featured stories={sortedStories} featAds={ads} />
-        {/* TODO: you may want to put this in its own component? Like <BannerAd />? */}
+        {/* TODO: you may want to put this i n its own component? Like <BannerAd />? */}
         <a href={bannerAds[0].href} className={styles.bannerAdContainer}>
           <Image
             src={bannerAds[0].imgUrl}
