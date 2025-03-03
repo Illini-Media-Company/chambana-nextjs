@@ -21,3 +21,4 @@ export default async function EventsPage() {
 }
 
 export const revalidate = 60;
+export const runtime = 'edge'

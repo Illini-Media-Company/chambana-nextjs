@@ -39,3 +39,5 @@ export default async function AboutPage() {
     </main>
   );
 }
+
+export const runtime = 'edge'

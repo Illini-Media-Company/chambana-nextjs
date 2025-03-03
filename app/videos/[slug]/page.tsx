@@ -27,3 +27,4 @@ async function Page({params: {slug}}: Props) {
 }
 
 export default Page
+export const runtime = 'edge'
