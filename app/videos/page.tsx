@@ -6,6 +6,8 @@ import shuffle from "../helpers/randomize";
 import styles from "./page.module.css"
 import { Story } from "@/sanity.types";
 
+export const runtime = 'edge';
+
 export default async function NewsPage() {
   const data = await fetchHelper.getFeaturedStories("videos");
   const feat_ads = await adsHelper.getFeaturedAds(); 

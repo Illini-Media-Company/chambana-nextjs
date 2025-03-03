@@ -7,6 +7,8 @@ import FeaturedPodcasts from "@/components/featuredPodcasts";
 import PaginatedScroll from "@/components/PaginatedScroll";
 // import parser from "../helpers/parseFeed";
 
+export const runtime = 'edge';
+
 export default async function PodcastsPage() {
   const [paginated, lastDate] = await fetchHelper.getPaginatedStories("podcasts");
   const feat_ads = await adsHelper.getFeaturedAds(); 

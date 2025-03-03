@@ -9,6 +9,8 @@ import BannerAd from "@components/bannerAd"
 import shuffle from "./helpers/randomize"
 import rearrangeStories from "./helpers/sortStories"
 
+export const runtime = 'edge';
+
 export default async function Home() {
   const stories = await fetchHelper.getFeaturedStories();
   const ads = await adsHelper.getFeaturedAds(0, 2);

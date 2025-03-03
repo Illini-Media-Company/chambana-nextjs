@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import PaginatedScroll from "@components/PaginatedScroll";
 import FeatStory from "@/components/featuredStory";
 
+export const runtime = 'edge';
+
 export default async function NewsPage() {
   const [paginated, lastDate] = await fetchHelper.getPaginatedStories("news");
   const feat_ads = await adsHelper.getFeaturedAds(); 
