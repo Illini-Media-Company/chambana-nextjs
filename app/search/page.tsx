@@ -2,7 +2,7 @@ import fetchStories from "../helpers/fetchStories";
 import fetchAds from "../helpers/fetchAds";
 import PaginatedSearch from "@/components/PaginatedSearch";
 
-export const runtime = 'experimental-edge';
+export const runtime = 'edge';
 
 export default async function SearchPage({
   searchParams,

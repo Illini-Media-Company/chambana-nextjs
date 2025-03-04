@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Featured from "@components/featured";
 import StoryScroll from "@components/storyScroll";
-import client from "./sanity";
 import styles from "./page.module.css";
 import fetchHelper from "./helpers/fetchStories";
 import adsHelper from "./helpers/fetchAds";
-import BannerAd from "@components/bannerAd"
 import shuffle from "./helpers/randomize"
 import rearrangeStories from "./helpers/sortStories"
 
-export const runtime = 'experimental-edge';
+export const runtime = 'edge';
 
 export default async function Home() {
   const stories = await fetchHelper.getFeaturedStories();

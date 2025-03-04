@@ -1,5 +1,4 @@
 import client from '../sanity'
-import rearrangeStories from './sortStories'
 
 async function getFeaturedStories(filter) {
   if (filter != null) {
