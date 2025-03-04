@@ -3,7 +3,7 @@ import React from 'react'
 import Post from "@components/post"
 import { Story } from "@/sanity.types"
 
-export const runtime = 'edge';
+export const runtime = 'experimental edge';
 
 type Props = {
   params: {
