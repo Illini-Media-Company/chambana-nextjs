@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 };
 
-export const runtime = 'experimental edge';
+export const runtime = 'experimental-edge';
 
 export default function RootLayout({
   children,
