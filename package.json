@@ -10,6 +10,7 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.8",
     "@portabletext/react": "^3.0.18",
     "@sanity/client": "6.12.4",
     "@sanity/code-input": "^4.1.4",
