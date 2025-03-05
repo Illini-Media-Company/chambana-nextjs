@@ -3,6 +3,7 @@ import { Inter, Baskervville } from "next/font/google";
 import "./globals.css";
 import Banner from "@/components/banner";
 import styles from "./layout.module.css";
+import logo from "@/public/CE_norm.svg"
 import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chambana Eats",
     description: "Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink. We're here to give you the behind the scenes of what you eat!",
-    images: "/CE_norm.svg",
+    images: logo,
   }
 
 };

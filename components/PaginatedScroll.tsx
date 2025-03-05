@@ -64,10 +64,10 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
         <div className={styles.pc}> 
             <StoryScroll stories={story} ads={ads} sticky={true}/>
             {loading == false && more && 
-                <div ref={ref} className={scroll_style.leftContainer}>
-                    <LoadingAnimation />
-                </div>
-                // <button onClick={HandleLoad}/>
+                // <div ref={ref} className={scroll_style.leftContainer}>
+                //     <LoadingAnimation />
+                // </div>
+                <button onClick={HandleLoad}/>
             }
         </div>
         <div className={styles.mobile}>
@@ -76,10 +76,10 @@ export default function PaginatedScroll({stories, filter, ads, lastDate}: Pagina
                     return <StoryScroll key={index} stories={row} ads={[ads[index % ads.length]]} adslides={false}/>
             })}
             {loading == false && more && 
-                <div ref={mRef} className={scroll_style.leftContainer}>
-                    <LoadingAnimation />
-                </div>
-                // <button onClick={HandleLoad}/>
+                // <div ref={mRef} className={scroll_style.leftContainer}>
+                //     <LoadingAnimation />
+                // </div>
+                <button onClick={HandleLoad}/>
             }
         </div>
         </>
