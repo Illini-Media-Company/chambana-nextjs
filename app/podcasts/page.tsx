@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import Podcast from "@/components/embeddedPodcast";
 import FeaturedPodcasts from "@/components/featuredPodcasts";
 import PaginatedScroll from "@/components/PaginatedScroll";
-// import parser from "../helpers/parseFeed";
+import parser from "../helpers/parseFeed";
 
 export const runtime = 'edge';
 

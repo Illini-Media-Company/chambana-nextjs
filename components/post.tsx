@@ -9,6 +9,7 @@ import client from "../app/sanity";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story, PageAd } from "@/sanity.types";
+import Script from "next/script";
 
 function throwError(msg: string): never {
   throw new Error(msg)
@@ -100,14 +101,24 @@ export default function Post({story, ads}: PostProps) {
           </div>
           <div className={styles.rightContainer}>
               <div className={styles.ads}>
-                {ads &&
+                {/* {ads &&
                   ads.map((ad: PageAd) => {
                     return (ad.ad?.asset?._ref && ad.href) && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
-                  })}
+                  })} */}
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
               </div>
               <div className={styles.mobileAds}>
-                {ads && 
-                  <EmblaCarousel ad={true} slides={ads} options={OPTIONS}/>}
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
               </div>
           </div>
       </div>
