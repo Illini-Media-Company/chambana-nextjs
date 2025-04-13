@@ -43,6 +43,8 @@ export default function MainStory({
             width={600}
             height={400}
             className={styles.mainImage}
+            unoptimized={true}
+            quality={100}
           />
         </div>
       </div>

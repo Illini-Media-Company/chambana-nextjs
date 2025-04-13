@@ -64,9 +64,9 @@ export default async function Featured({
         <div className={styles.carousel}>
           {/* <EmblaCarousel ad={true} slides={featAds} options={OPTIONS}/> */}
           <ins
-              data-type="broadstreet"
-              data-zone-id="174930"
-              data-click-url-empty="">
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty="">
             <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
           </ins>
         </div>
@@ -78,9 +78,9 @@ export default async function Featured({
               <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id} />
           ))} */}
           <ins
-              data-type="broadstreet"
-              data-zone-id="174930"
-              data-click-url-empty="">
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty="">
             <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
           </ins>
         </div>

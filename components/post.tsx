@@ -23,13 +23,26 @@ interface PostProps {
 const myPortableTextComponents = {
   types: {
     image: ({value, isInLine}: {value: any, isInLine?: any}) => 
-      <img src={urlBuilder(client)
+      // <img src={urlBuilder(client)
+      //           .image(value)
+      //           .height(400)
+      //           .auto('format')
+      //           .url()} 
+      //       loading="lazy"
+      //       className={styles.imageContainer}/>
+      <div className={styles.imageParent}>
+      <Image 
+        src={urlBuilder(client)
                 .image(value)
-                .height(400)
                 .auto('format')
                 .url()} 
-            loading="lazy"
-            className={styles.imageContainer}/>,
+            alt={value.alt} 
+            width={600} 
+            height={500} 
+            className={styles.imageContainer} 
+            unoptimized={true}
+            quality={100}
+      /></div>, 
     callToAction: ({value, isInline}: {value: any, isInline: any}) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -111,6 +124,7 @@ export default function Post({story, ads}: PostProps) {
                   data-click-url-empty="">
                   <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
                 </ins>
+                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
               </div>
               <div className={styles.mobileAds}>
                 <ins
@@ -119,6 +133,7 @@ export default function Post({story, ads}: PostProps) {
                   data-click-url-empty="">
                   <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
                 </ins>
+                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
               </div>
           </div>
       </div>

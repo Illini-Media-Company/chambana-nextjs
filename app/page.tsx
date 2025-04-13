@@ -29,19 +29,21 @@ export default async function Home() {
         <Featured stories={sortedStories} featAds={ads} />
         {/* TODO: you may want to put this i n its own component? Like <BannerAd />? */}
         <ins
+            className={styles.bannerAdContainer}
             data-type="broadstreet"
             data-zone-id="174931"
             data-click-url-empty="">
           <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
         </ins>
-        <StoryScroll storyCount={5} stories={sortedStories.slice(4)} ads={pageAds.slice(0, 2)}/>
+        {/* <StoryScroll storyCount={5} stories={sortedStories.slice(4)} ads={pageAds.slice(0, 2)}/>
         <ins
+            className={styles.bannerAdContainer}
             data-type="broadstreet"
             data-zone-id="174931"
             data-click-url-empty="">
           <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
         </ins>
-        <StoryScroll storyCount={5} stories={sortedStories.slice(9)} ads={pageAds.slice(2)}/>
+        <StoryScroll storyCount={5} stories={sortedStories.slice(9)} ads={pageAds.slice(2)}/> */}
       </div>
     </main>
   );
