@@ -68,9 +68,11 @@ const myPortableTextComponents = {
 
   marks: {
     link: ({children, value}: {children?: any, value?: any}) => {
-      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+      var rel = undefined
+      if (value.href != undefined)
+        rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
-        <a href={value.href} rel={rel} target="_blank">
+        <a href={value.href} rel={rel} target="_blank" className={styles.link}>
           {children}
         </a>
       )

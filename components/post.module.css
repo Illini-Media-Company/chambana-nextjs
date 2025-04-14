@@ -88,6 +88,11 @@
 	display: none;
 }
 
+.link {
+	text-decoration: underline;
+	color: rgb(var(--primary-rgb));
+}
+
 .gallery {
 	margin-top: 0.5em;
 }
