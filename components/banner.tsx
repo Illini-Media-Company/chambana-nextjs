@@ -60,7 +60,7 @@ export default function Banner() {
               </IconContext.Provider>
             </a>
 
-            <a href={'https://www.tiktok.com/@chambana_eats?_d=secCgYIASAHKAESPgo8FzCqYeaEL%2FgRHBY3kJOdmU[…]fd9fd0c4b40beff802f38685551d987abfa&language=en&sec_uid=MS4wL'} className={styles.anchor}>
+            <a href={'https://www.tiktok.com/@chambanaeats'} className={styles.anchor}>
               <IconContext.Provider value={{className: styles.icon}}>
                 <FaTiktok size={25} className={styles.icon_png}/>
               </IconContext.Provider>
