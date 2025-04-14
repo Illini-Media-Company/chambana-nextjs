@@ -40,6 +40,8 @@ export default function Story({
               width={250}
               className={styles.storyImage}
               loading="lazy"
+              quality={100}
+              unoptimized={true}
             />
         </div>
         <div className={styles.rightContainer}>

@@ -92,8 +92,8 @@ interface DesktopMenuItemProps {
 }
 function DesktopMenuItem({ item }: DesktopMenuItemProps) {
   return (
-    <Link href={item.href} target={item.newWindow ? "_blank" : "_self"}>
+    <a href={item.href} target={item.newWindow ? "_blank" : "_self"}>
       {item.title}
-    </Link>
+    </a>
   );
 }

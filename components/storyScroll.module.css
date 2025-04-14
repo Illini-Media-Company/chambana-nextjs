@@ -44,6 +44,8 @@
 	position: sticky;
 	top: 130px;
 	gap: 2em;
+	width: 300px;
+	height: 250px;
 }
 
 .mobileAds {

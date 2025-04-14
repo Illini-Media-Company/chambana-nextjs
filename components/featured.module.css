@@ -54,12 +54,15 @@
 	.rightContainer {
 		flex-direction: column-reverse;
 		gap: 1em;
+		align-items: center;
 	}
 	.ads {
 		display: none
 	}
 	.carousel {
 		display:flex;
+		width: 300px;
+		height: 250px;
 		justify-content: center;
 	}
 }

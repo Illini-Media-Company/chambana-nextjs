@@ -17,11 +17,12 @@
 }
 
 .featStoryImage {
+    object-fit: cover;
     border-radius: var(--border-radius);
 }
 
 .imageContainer {
-   
+    
     gap: 1em;
 }
 .featStory {

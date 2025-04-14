@@ -57,7 +57,7 @@ async function getPaginatedStories(filter) {
 
   const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
 
-  if (data.length > 0)
+  if (data.length > 0 && data.length == 20)
     lastId = data[data.length - 1].publishedAt
   else
     lastId = null
@@ -135,7 +135,7 @@ async function getSearch(search) {
   }` 
 
   const result = await client.fetch(query, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
-  if (result != null && result.length > 0 && result[(result.length - 1)] != null)
+  if (result != null && result.length > 0 && result[(result.length - 1)] != null && result.length >= 20)
     lastId = result[result.length - 1].publishedAt;
   else
     lastId = null

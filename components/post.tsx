@@ -124,6 +124,30 @@ export default function Post({story, ads}: PostProps) {
                   data-click-url-empty="">
                   <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
                 </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
                 {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
               </div>
               <div className={styles.mobileAds}>
