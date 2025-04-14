@@ -43,7 +43,7 @@ async function getFeaturedStories(filter) {
 
 async function getPaginatedStories(filter) {
   let lastId = ' '
-  const groq = `*[_type == "story" && tags == "${filter}"] | order(_createdAt desc) [0...20] {
+  const groq = `*[_type == "story" && tags == "${filter}"] | order(publishedAt desc) [0...20] {
       title,
       "imgUrl": poster.asset->url,
       poster,
@@ -57,7 +57,7 @@ async function getPaginatedStories(filter) {
 
   const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
 
-  if (data.length > 0 && data.length == 20)
+  if (data.length > 0)
     lastId = data[data.length - 1].publishedAt
   else
     lastId = null
@@ -98,7 +98,7 @@ async function getNextPage(published, filter) {
     return []
   }
   let lastId = ' ';
-  const query = `*[_type == "story" && tags == "${filter}" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
+  const query = `*[_type == "story" && tags == "${filter}" && publishedAt < "${published}"] | order(publishedAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
     poster,
@@ -122,7 +122,7 @@ async function getNextPage(published, filter) {
 
 async function getSearch(search) {
   let lastId = ' ';
-  const query = `*[_type == "story" && title match "${search}*"] | order(_createdAt desc) [0...20] {
+  const query = `*[_type == "story" && title match "${search}*"] | order(publishedAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
     poster,
@@ -149,7 +149,7 @@ async function getSearchNext(search, published) {
   }
 
   let lastId = ' ';
-  const query = `*[_type == "story" && title match "${search}*" && publishedAt < "${published}"] | order(_createdAt desc) [0...20] {
+  const query = `*[_type == "story" && title match "${search}*" && publishedAt < "${published}"] | order(publishedAt desc) [0...20] {
     title,
     "imgUrl": poster.asset->url,
     poster,
