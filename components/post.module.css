@@ -29,11 +29,11 @@
 	padding-bottom: 0;
 	flex-grow: 2;
 	/* flex-basis: 50%; */
-	border-radius: var(--border-radius);
+	/* border-radius: var(--border-radius); */
 	/* background-color:#dcdee0; */
     /* background-color:#e0dedc; */
-	background-color: rgb(var(--primary-gray-rgb));
-	box-shadow: var(--box-shadow);
+	/* background-color: rgb(var(--primary-gray-rgb)); */
+	/* box-shadow: var(--box-shadow); */
 	/* gap: 1em; */
 
 }
