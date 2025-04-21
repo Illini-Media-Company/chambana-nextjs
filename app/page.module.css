@@ -16,6 +16,12 @@
     justify-content: center;
 }
 
+.loadMore {
+    max-width: 300px;
+    max-height: 50px;
+    align-self: center;
+}
+
 @media (max-width: 768px) {
     /* .bannerAdContainer {
         position: sticky;

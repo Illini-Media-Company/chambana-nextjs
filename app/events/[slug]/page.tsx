@@ -6,6 +6,8 @@ import fetchAds from "../../helpers/fetchAds"
 import shuffle from "../../helpers/randomize"
 import { Story } from "@/sanity.types"
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     slug: string
@@ -19,7 +21,7 @@ export async function generateStaticParams() {
     })
 }
 
-async function Page({params: {slug}}: Props) {
+export default async function Page({params: {slug}}: Props) {
   console.log('slug', slug);
   const story = await fetchHelper.getStoryBySlug(slug)
   const pre_ad = await fetchAds.getPageAds();
@@ -31,4 +33,3 @@ async function Page({params: {slug}}: Props) {
   )
 }
 
-export default Page

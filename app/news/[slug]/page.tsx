@@ -8,6 +8,8 @@ import { redirect } from "next/navigation"
 import { Story } from "@/sanity.types"
 import { Metadata, ResolvingMetadata } from "next"
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     slug: string
@@ -30,7 +32,6 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> { 
   const story: Story[] = await fetchHelper.getStoryBySlug(slug);
-  console.log(story);
 
   const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('no image endpoing');
   const replacement = '.';

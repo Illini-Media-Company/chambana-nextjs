@@ -3,6 +3,8 @@ import React from 'react'
 import Post from "@components/post"
 import { Story } from "@/sanity.types"
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     slug: string
@@ -16,7 +18,7 @@ export async function generateStaticParams() {
     })
 }
 
-async function Page({params: {slug}}: Props) {
+export default async function Page({params: {slug}}: Props) {
   const story = await client.fetch(`*[_type == "story" && slug.current=='${slug}']`, {}, {next: {revalidate: 60}})
   // console.log(story)
   return(
@@ -26,4 +28,3 @@ async function Page({params: {slug}}: Props) {
   )
 }
 
-export default Page

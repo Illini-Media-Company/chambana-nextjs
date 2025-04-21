@@ -4,6 +4,8 @@ import shuffle from "../helpers/randomize";
 import styles from "./page.module.css";
 import PaginatedScroll from "@components/PaginatedScroll";
 
+export const runtime = 'edge';
+
 export default async function EventsPage() {
   const [paginated, lastDate] = await fetchHelper.getPaginatedStories("events");
   const feat_ads = await adsHelper.getFeaturedAds(); 
@@ -20,4 +22,5 @@ export default async function EventsPage() {
   );
 }
 
-export const revalidate = 60;
+// export const revalidate = 60;
+

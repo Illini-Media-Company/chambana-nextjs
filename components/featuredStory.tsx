@@ -36,6 +36,8 @@ export default function FeatStory({
             width={300}
             height={200}
             className={styles.featStoryImage}
+            unoptimized={true}
+            quality={100}
           />
         </div>
         <div className={styles.column + " " + styles.title}>

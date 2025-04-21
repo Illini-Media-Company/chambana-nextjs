@@ -1,3 +1,5 @@
+"use client"
+
 import {PortableText} from "@portabletext/react";
 import styles from "./post.module.css";
 import FeatAd from "./featuredAd";
@@ -7,6 +9,7 @@ import client from "../app/sanity";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story, PageAd } from "@/sanity.types";
+import Script from "next/script";
 
 function throwError(msg: string): never {
   throw new Error(msg)
@@ -20,13 +23,26 @@ interface PostProps {
 const myPortableTextComponents = {
   types: {
     image: ({value, isInLine}: {value: any, isInLine?: any}) => 
-      <img src={urlBuilder(client)
+      // <img src={urlBuilder(client)
+      //           .image(value)
+      //           .height(400)
+      //           .auto('format')
+      //           .url()} 
+      //       loading="lazy"
+      //       className={styles.imageContainer}/>
+      <div className={styles.imageParent}>
+      <Image 
+        src={urlBuilder(client)
                 .image(value)
-                .height(400)
                 .auto('format')
                 .url()} 
-            loading="lazy"
-            className={styles.imageContainer}/>,
+            alt={value.alt} 
+            width={600} 
+            height={500} 
+            className={styles.imageContainer} 
+            unoptimized={true}
+            quality={100}
+      /></div>, 
     callToAction: ({value, isInline}: {value: any, isInline: any}) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -52,9 +68,11 @@ const myPortableTextComponents = {
 
   marks: {
     link: ({children, value}: {children?: any, value?: any}) => {
-      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+      var rel = undefined
+      if (value.href != undefined)
+        rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
-        <a href={value.href} rel={rel} target="_blank">
+        <a href={value.href} rel={rel} target="_blank" className={styles.link}>
           {children}
         </a>
       )
@@ -98,14 +116,50 @@ export default function Post({story, ads}: PostProps) {
           </div>
           <div className={styles.rightContainer}>
               <div className={styles.ads}>
-                {ads &&
+                {/* {ads &&
                   ads.map((ad: PageAd) => {
                     return (ad.ad?.asset?._ref && ad.href) && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
-                  })}
+                  })} */}
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
               </div>
               <div className={styles.mobileAds}>
-                {ads && 
-                  <EmblaCarousel ad={true} slides={ads} options={OPTIONS}/>}
+                <ins
+                  data-type="broadstreet"
+                  data-zone-id="174930"
+                  data-click-url-empty="">
+                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
+                </ins>
+                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
               </div>
           </div>
       </div>

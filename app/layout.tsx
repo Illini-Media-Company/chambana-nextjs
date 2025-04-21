@@ -3,7 +3,9 @@ import { Inter, Baskervville } from "next/font/google";
 import "./globals.css";
 import Banner from "@/components/banner";
 import styles from "./layout.module.css";
+import logo from "@/public/CE_norm.svg"
 import Head from 'next/head';
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
 const bask = Baskervville({subsets: ["latin"], display: "swap", weight: "400"})
@@ -14,10 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chambana Eats",
     description: "Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink. We're here to give you the behind the scenes of what you eat!",
-    images: "/CE_norm.svg",
+    images: logo,
   }
 
 };
+
+export const runtime = 'edge';
 
 export default function RootLayout({
   children,
@@ -26,6 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" /> {/* TODO: add a favicon */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      </Head> 
       <body className={bask.className + " " + styles.body}>
         <div className={bask.className + " " + styles.header}> 
           <Banner />
@@ -35,7 +44,7 @@ export default function RootLayout({
            {children} 
         </div>
         <footer className={styles.foot}>
-          <a href="." className={styles.link}>Chambana Eats</a> • © 2024 <a href="https://illinimedia.org" className={styles.link}>Illini Media Company</a>
+          <a href="." className={styles.link}>Chambana Eats</a> • © 2025 <a href="https://illinimedia.org" className={styles.link}>Illini Media Company</a>
         </footer>
       </body>
     </html>

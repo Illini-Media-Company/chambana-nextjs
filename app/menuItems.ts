@@ -11,11 +11,11 @@ export const menuItems: MenuItem[] = [
 		href: '/news',
 		newWindow: false,
 	},
-	{
-		title: 'Podcasts',
-		href: '/podcasts',
-		newWindow: false,
-	},
+	// {
+	// 	title: 'Podcasts',
+	// 	href: '/podcasts',
+	// 	newWindow: false,
+	// },
 	// {
 	// 	title: 'Videos',
 	// 	href:'/videos',
