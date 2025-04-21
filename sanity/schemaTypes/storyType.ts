@@ -1,142 +1,143 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from "sanity";
 
 const storyType = defineType({
-  name: 'story',
-  title: 'Story',
-  type: 'document',
+  name: "story",
+  title: "Story",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      validation: rule => rule.required(),
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      validation: (rule) => rule.required(),
       options: {
-        source: 'title'
-      }
+        source: "title",
+      },
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text'
+      name: "description",
+      title: "Description",
+      type: "text",
     },
     {
-      name: 'main',
-      title: 'Main Story',
-      type: 'boolean',
+      name: "main",
+      title: "Main Story",
+      type: "boolean",
       initialValue: false,
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-      validation: rule => rule.required(),
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
+      validation: (rule) => rule.required(),
       options: {
-        dateFormat: 'MM-DD-YYYY',
-        timeFormat: 'HH:mm'
-      }
+        dateFormat: "MM-DD-YYYY",
+        timeFormat: "HH:mm",
+      },
     },
     {
-      name: 'publishedBy',
+      name: "publishedBy",
       title: "Published By",
-      type: 'string',
+      type: "string",
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'array',
+      name: "body",
+      title: "Body",
+      type: "array",
       of: [
         {
-          type: 'block',
+          type: "block",
         },
         {
-          type: 'image'
+          type: "image",
         },
         {
-          type: 'code'
-        }
+          type: "code",
+        },
       ],
     },
     {
-      title: 'Tags',
-      name: 'tags',
-      type: 'string',
+      title: "Tags",
+      name: "tags",
+      type: "string",
       options: {
         list: [
-          {title: 'News', value: 'news'},
-          {title: 'Podcasts', value: 'podcasts'},
-          {title: 'Videos', value: 'videos'},
-          {title: 'Events', value: 'events'}
+          { title: "News", value: "news" },
+          { title: "Podcasts", value: "podcasts" },
+          { title: "Videos", value: "videos" },
+          { title: "Events", value: "events" },
+          { title: "Sponsored Content", value: "sponsored-content" },
         ],
-        layout: 'radio'
-      }
+        layout: "radio",
+      },
     },
     {
-      name: 'poster',
-      title: 'Image',
-      type: 'image',
+      name: "poster",
+      title: "Image",
+      type: "image",
       options: {
-        hotspot: true // <-- Defaults to false
+        hotspot: true, // <-- Defaults to false
       },
       fields: [
         {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
+          name: "caption",
+          type: "string",
+          title: "Caption",
         },
         {
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
-        }
-      ]
+          name: "attribution",
+          type: "string",
+          title: "Attribution",
+        },
+      ],
     },
     {
-      name: 'map',
-      type: 'geopoint',
-      title: 'Map'
+      name: "map",
+      type: "geopoint",
+      title: "Map",
     },
     {
-      name: 'gallery',
-      type: 'array',
-      title: 'Gallery',
+      name: "gallery",
+      type: "array",
+      title: "Gallery",
       of: [
         {
-          name: 'image',
-          type: 'image',
-          title: 'Image',
+          name: "image",
+          type: "image",
+          title: "Image",
           options: {
             hotspot: true,
           },
           fields: [
             {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
+              name: "caption",
+              type: "string",
+              title: "Caption",
             },
             {
-              name: 'attribute',
-              type: 'string',
-              title: 'Attribution'
-            }
+              name: "attribute",
+              type: "string",
+              title: "Attribution",
+            },
           ],
         },
       ],
       options: {
-        layout: 'grid',
+        layout: "grid",
       },
     },
   ],
   preview: {
     select: {
-      media: 'image',
-      title: 'title',
+      media: "image",
+      title: "title",
     },
   },
-})
+});
 
-export default storyType
+export default storyType;
