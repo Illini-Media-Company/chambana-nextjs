@@ -19,7 +19,6 @@ export default async function Home() {
   const sortedStories = rearrangeStories(stories)
 
   const pageAds = shuffle(pAds);
-  const bannerAds = shuffle(banners);
   // TODO: add some error handling here in case the fetch fails
 
   const exampleAdName = "ButtFuckers";
@@ -43,7 +42,8 @@ export default async function Home() {
             data-click-url-empty="">
           <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
         </ins>
-        {/* <StoryScroll storyCount={5} stories={sortedStories.slice(9)} ads={pageAds.slice(2)}/> */}
+        <StoryScroll storyCount={5} stories={sortedStories.slice(9)} ads={pageAds.slice(2)}/>
+        {/* <a href="/news" className={styles.loadMore}><button>Load More Stories</button></a> */}
       </div>
     </main>
   );

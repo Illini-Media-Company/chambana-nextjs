@@ -70,7 +70,8 @@ const storyType = defineType({
           {title: 'News', value: 'news'},
           {title: 'Podcasts', value: 'podcasts'},
           {title: 'Videos', value: 'videos'},
-          {title: 'Events', value: 'events'}
+          {title: 'Events', value: 'events'},
+          {title: 'Sponsored', value: 'sponsored'},
         ],
         layout: 'radio'
       }
