@@ -4,6 +4,7 @@ import styles from "./mainStory.module.css";
 import { create } from "domain";
 
 function create_url(tag: string, url: string) {
+  if (tag == "sponsored") tag = "news";
   return tag + "/" + url;
 }
 
