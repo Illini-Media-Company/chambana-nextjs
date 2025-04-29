@@ -36,7 +36,6 @@ async function getFeaturedStories(filter) {
         slug,
     }`
     const data = await client.fetch(groq, {}, {next: {revalidate: 60}}).then(console.log('success')).catch(err => {console.log('error', err)});
-
     return data
   }
 }

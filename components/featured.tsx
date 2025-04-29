@@ -30,6 +30,7 @@ export default async function Featured({
   const replacement='.'
 
   // console.log(u + featAds[0].ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1'))
+
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>

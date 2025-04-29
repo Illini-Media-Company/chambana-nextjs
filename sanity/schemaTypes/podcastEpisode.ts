@@ -6,6 +6,16 @@ const podcastType = defineType({
     type: 'document',
     fields: [
         {
+            name: 'show',
+            title: 'Podcast Show',
+            type: 'reference',
+            to: [{ type: 'podcastShow' }],
+            validation: rule => rule.required(),
+            options: {
+                disableNew: true
+            }
+        },
+        {
             name: 'title',
             title: 'Title',
             type: 'string',
