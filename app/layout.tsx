@@ -34,6 +34,16 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" /> {/* TODO: add a favicon */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R5D8JKT52"></script>
+        <script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-0R5D8JKT52');
+          `}
+        </script>
       </Head> 
       <body className={bask.className + " " + styles.body}>
         <div className={bask.className + " " + styles.header}> 
