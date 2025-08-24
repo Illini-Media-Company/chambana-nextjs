@@ -2,6 +2,7 @@ import styles from "./featuredStory.module.css";
 import Image from "next/image";
 
 function create_url(tag: string, url: string) {
+  if (tag == "sponsored") tag = "news";
   return tag + "/" + url;
 }
 
