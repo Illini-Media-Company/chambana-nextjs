@@ -62,7 +62,7 @@ export default function Podcast({url, description}: PodcastProps) {
                 container: waveformRef.current,
                 backend: 'MediaElement',
                 waveColor: "#34374B",
-                progressColor: "#ff6400",
+                progressColor: "#F99F20",
                 // url: "https://podcasts.captivate.fm/media/4bae19d2-ed73-48cf-9113-6541d6984934/NWS240509-mixdown.mp3",
                 dragToSeek: true,
                 fillParent: true,

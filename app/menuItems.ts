@@ -36,4 +36,9 @@ export const menuItems: MenuItem[] = [
 		href: '/about',
 		newWindow: false,
 	},
+	{
+		title: 'Food Truck Tracker',
+		href: '/foodtruck',
+		newWindow: false,
+	}
 ];

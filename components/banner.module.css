@@ -8,12 +8,16 @@
 
 .banner { 
 	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
 .search {
 	display: none;
 	align-self: flex-end;
 	margin-left: auto;
+	vertical-align: middle;
 }
 .navBarContainer {
 	display: flex;
@@ -93,8 +97,7 @@
 		display: none;
 	}
 	.mobile_logo {
-		display: flex;
-		margin-top: 1em;
+		display: inline-block;
 	}
 	.banner {
 		padding: 10px 10px 0px 10px;
@@ -103,6 +106,8 @@
 
 .mobileMenuButton {
 	display: none;
+	vertical-align: middle;
+	margin-right: auto;
 }
 
 .menu > a {

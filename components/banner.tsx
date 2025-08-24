@@ -27,27 +27,28 @@ export default function Banner() {
           {!showMobileMenu && <TfiMenu size={30}/>}
           {showMobileMenu && <TfiClose size={30}/>}
         </div>
-        <div className={styles.search}><SearchBar /></div>
+        <a href={"/"}>
+            <Image 
+              src={logo_mobile}
+              alt={"mobile logo for Chambana Eats"}
+              height={30}
+              className={styles.mobile_logo}
+            />
+          </a>
+        <div className={styles.search}>
+          <SearchBar />
+        </div>
       </div>
       {/*  todo: make this a link to the homepage */}
       <div className={styles.navBarContainer}>
         <a href={"/"}>
           <Image
             src={logo}
-            alt={"Logo for the Daily Illini"}
+            alt={"Logo for the Chambana Eats"}
             width={266.4}
             height={80}
             className={styles.logo}
           /> 
-        </a>
-        <a href={"/"}>
-          <Image 
-            src={logo_mobile}
-            alt={"mobile logo for Chambana Eats"}
-            width={333}
-            height={100}
-            className={styles.mobile_logo}
-          />
         </a>
         <div className={styles.right}>
           <NavBar />
