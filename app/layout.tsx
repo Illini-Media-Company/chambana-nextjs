@@ -5,7 +5,7 @@ import Banner from "@/components/banner";
 import styles from "./layout.module.css";
 import logo from "@/public/CE_norm.svg"
 import Head from 'next/head';
-import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"], display: "swap" }); // TODO: choose a different font if you so desire, Inter pretty good tho
 const bask = Baskervville({subsets: ["latin"], display: "swap", weight: "400"})
@@ -34,18 +34,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" /> {/* TODO: add a favicon */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0R5D8JKT52"></script>
-        <script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-0R5D8JKT52');
-          `}
-        </script>
       </Head> 
       <body className={bask.className + " " + styles.body}>
+        <GoogleAnalytics gaId="G-0R5D8JKT52" />
         <div className={bask.className + " " + styles.header}> 
           <Banner />
           <hr className={styles.line}/> 
