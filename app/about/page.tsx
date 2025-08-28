@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import Banner from "@components/banner";
 import client from "../sanity";
 import styles from "./page.module.css"
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink.",
+};
 
 export default async function AboutPage() {
   return (
