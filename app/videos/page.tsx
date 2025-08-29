@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Banner from "@components/banner";
 import StoryScroll from "@components/storyScroll";
 import fetchHelper from "../helpers/fetchStories";
@@ -7,6 +8,11 @@ import styles from "./page.module.css"
 import { Story } from "@/sanity.types";
 
 export const runtime = 'edge';
+
+export const metadata: Metadata = {
+  title: "Videos",
+  description: "Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink.",
+};
 
 export default async function NewsPage() {
   const data = await fetchHelper.getFeaturedStories("videos");

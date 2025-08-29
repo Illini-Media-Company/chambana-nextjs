@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import fetchHelper from "../helpers/fetchStories";
 import adsHelper from "../helpers/fetchAds";
 import shuffle from "../helpers/randomize";
@@ -8,6 +9,11 @@ import PaginatedScroll from "@/components/PaginatedScroll";
 import parser from "../helpers/parseFeed";
 
 export const runtime = 'edge';
+
+export const metadata: Metadata = {
+  title: "Podcasts",
+  description: "Chambana Eats is the only Champaign-Urbana publication exclusively focused on food and drink.",
+};
 
 export default async function PodcastsPage() {
   const [paginated, lastDate] = await fetchHelper.getPaginatedStories("podcasts");
