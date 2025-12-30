@@ -1,5 +1,6 @@
 import styles from "./featuredStory.module.css";
 import Image from "next/image";
+import { formatApDate } from "@/app/helpers/formatApDate";
 
 function create_url(tag: string, url: string) {
   if (tag == "sponsored") tag = "news";
@@ -25,7 +26,7 @@ export default function FeatStory({
   createdBy,
   createdAt,
 }: FeatStoryProps) {
-  const dateTime = new Date(createdAt);
+  const formattedDate = formatApDate(createdAt);
   return (
     <a href={create_url(tag, url)} className={styles.featStory}>
       <div className={styles.parentContainer}>
@@ -44,7 +45,8 @@ export default function FeatStory({
         <div className={styles.column + " " + styles.title}>
           <h2 className={styles.title}>{title}</h2>
           <h3 className={styles.byline}>
-            By {createdBy}, {dateTime.toLocaleDateString()}
+            By {createdBy}
+            {formattedDate ? `, ${formattedDate}` : null}
           </h3>
         </div>
       </div>
