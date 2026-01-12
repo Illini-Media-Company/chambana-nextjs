@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./story.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { formatApDate } from "@/app/helpers/formatApDate";
 
 function create_url(tag: string, url: string) {
   if (tag == "sponsored") tag = "news";
@@ -28,7 +29,7 @@ export default function Story({
   createdBy,
   createdAt,
 }: Story) {
-  const dateTime = new Date(createdAt);
+  const formattedDate = formatApDate(createdAt);
 
   return (
     <a className={styles.link} href={create_url(tag, url)}>
@@ -48,7 +49,10 @@ export default function Story({
         <div className={styles.rightContainer}>
           <h2 className={styles.title}>{title}</h2>
           {createdBy && 
-            <h3 className={styles.date}>By {createdBy}, {dateTime.toLocaleDateString()}</h3>
+            <h3 className={styles.date}>
+              By {createdBy}
+              {formattedDate ? `, ${formattedDate}` : null}
+            </h3>
           }
         </div>
       </div>

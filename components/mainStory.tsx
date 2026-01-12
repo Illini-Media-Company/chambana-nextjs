@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./mainStory.module.css";
 import { create } from "domain";
+import { formatApDate } from "@/app/helpers/formatApDate";
 
 function create_url(tag: string, url: string) {
   if (tag == "sponsored") tag = "news";
@@ -26,14 +27,15 @@ export default function MainStory({
   createdAt,
 }: MainStoryProps) {
   var defImgUrl = "/placeholder.webp";
-  const dateTime = new Date(createdAt);
+  const formattedDate = formatApDate(createdAt);
   return (
     <a className={styles.link} href={create_url(tag, url)}>
       <div>
         <div className={styles.title}>
           <h1>{title}</h1>
           <h2>
-            By {createdBy}, {dateTime.toLocaleDateString()}
+            By {createdBy}
+            {formattedDate ? `, ${formattedDate}` : null}
           </h2>
         </div>
         <div>

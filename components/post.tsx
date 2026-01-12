@@ -10,6 +10,7 @@ import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel';
 import { Ad, Story, PageAd } from "@/sanity.types";
 import Script from "next/script";
+import { formatApDate } from "@/app/helpers/formatApDate";
 
 function throwError(msg: string): never {
   throw new Error(msg)
@@ -86,6 +87,7 @@ export default function Post({story, ads}: PostProps) {
   const IMAGES = story.gallery;
   const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('Could not find image endpoint');
   const replacement='.';
+  const formattedPublishedDate = formatApDate(story.publishedAt);
 
 
   // THIS IS THE TEMPLATE FOR ADDING ADS TO THE MIDDLE OF THE PORTABLE TEXT
@@ -102,15 +104,18 @@ export default function Post({story, ads}: PostProps) {
   // console.log(IMAGES)
   
   return (
-      <div className={styles.container}>
-          <div className={styles.leftContainer}>
-              <h1 className={styles.title}>{story.title}</h1>
-              {story.publishedBy && story.publishedAt &&
-                <h2 className={styles.byline}>By: {story.publishedBy}, {new Date(story.publishedAt).toLocaleDateString()}</h2>}
-              <div className={styles.body}>
-                {(IMAGES) && 
-                  <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
-                {story.body &&
+	      <div className={styles.container}>
+	          <div className={styles.leftContainer}>
+	              <h1 className={styles.title}>{story.title}</h1>
+	              {story.publishedBy && story.publishedAt &&
+	                <h2 className={styles.byline}>
+                    By: {story.publishedBy}
+                    {formattedPublishedDate ? `, ${formattedPublishedDate}` : null}
+                  </h2>}
+	              <div className={styles.body}>
+	                {(IMAGES) && 
+	                  <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
+	                {story.body &&
                 <PortableText value={story.body} components={myPortableTextComponents}/>}
               </div>
           </div>
