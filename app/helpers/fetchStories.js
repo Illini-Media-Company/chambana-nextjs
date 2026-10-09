@@ -41,6 +41,50 @@ async function getFeaturedStories(filter) {
   }
 }
 
+async function getHomepageStories() {
+  const [homepage, recentStories] = await Promise.all([
+    client.fetch(`*[_type == "homePage"] | order(_updatedAt desc)[0]{
+      "leadStory": leadStory->{
+        title,
+        poster,
+        tags,
+        publishedAt,
+        publishedBy,
+        _id,
+        slug,
+      },
+      "featuredStories": featuredStories[]->{
+        title,
+        poster,
+        tags,
+        publishedAt,
+        publishedBy,
+        _id,
+        slug,
+      }
+    }`, {}, {next: {revalidate: 60}}),
+    client.fetch(`*[_type == "story"] | order(main desc, publishedAt desc)[0...50] {
+      title,
+      poster,
+      main,
+      tags,
+      publishedAt,
+      publishedBy,
+      _id,
+      slug,
+    }`, {}, {next: {revalidate: 60}}),
+  ]);
+
+  const selectedStories = [homepage?.leadStory, ...(homepage?.featuredStories ?? [])];
+  const seenStoryIds = new Set();
+
+  return [...selectedStories, ...(recentStories ?? [])].filter((story) => {
+    if (!story?._id || seenStoryIds.has(story._id)) return false;
+    seenStoryIds.add(story._id);
+    return true;
+  });
+}
+
 async function getPaginatedStories(filter) {
   let lastId = ' '
   const groq = `*[_type == "story" && tags == "${filter}"] | order(publishedAt desc) [0...20] {
@@ -169,4 +213,4 @@ async function getSearchNext(search, published) {
 
   return [result, lastId];
 }
-export default {getFeaturedStories, getStoryBySlug, getNextPage, getPaginatedStories, getSearch, getSearchNext}
+export default {getFeaturedStories, getHomepageStories, getStoryBySlug, getNextPage, getPaginatedStories, getSearch, getSearchNext}

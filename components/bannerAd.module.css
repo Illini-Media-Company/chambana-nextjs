@@ -1,12 +1,22 @@
 .parentContainer {
-    height: 100px;
-    width: 100%;
+  height: 100px;
+  width: 100%;
 }
+
 .bannerAdContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
+
 .bannerAd {
-    width: 80%;
-    height: 100px; 
+  width: 80%;
+  height: 100px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .bannerAd {
+    width: 100%;
+  }
 }

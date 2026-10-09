@@ -1,17 +1,25 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Sanity Studio
 
-First, run the development server:
+The Next.js app is in this folder. Its standalone Sanity Studio is the sibling folder `../studio-chambana-eats/`, with schemas in `../studio-chambana-eats/schemaTypes/`.
+
+Run the app and Studio in separate terminals from the repository root:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+corepack yarn install
+corepack yarn dev
+npm run studio
+```
+
+The app is available at [http://localhost:3000](http://localhost:3000) and the Studio at [http://localhost:3333](http://localhost:3333). Both are configured for project `as6uze7t` and dataset `production`.
+
+## Getting Started
+
+After installing dependencies with `corepack yarn install`, run the development server:
+
+```bash
+corepack yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

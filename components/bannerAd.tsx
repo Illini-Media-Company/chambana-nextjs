@@ -1,23 +1,22 @@
-import styles from "./banner.module.css"
-import Image from 'next/image'
+import styles from "./bannerAd.module.css";
+import Image from "next/image";
+
 interface BannerAdProps {
-    imgUrl: string
-    href: string
+  imgUrl: string;
+  href: string;
 }
 
-export default function BannerAd({
-    imgUrl,
-    href
-}: BannerAdProps) {
-    return(
-        <a href="https://dailyillini.com" className={styles.bannerAdContainer}>
-          <Image
-            src={"/banner-placeholder.webp"}
-            alt={`Banner ad`}
-            width="0"
-            height="0"
-            className={styles.bannerAd}
-          />
-        </a>
-    );
+export default function BannerAd({ imgUrl, href }: BannerAdProps) {
+  return (
+    <a href={href} className={styles.bannerAdContainer}>
+      <Image
+        src={imgUrl}
+        alt="Banner advertisement"
+        width={1200}
+        height={150}
+        className={styles.bannerAd}
+        unoptimized
+      />
+    </a>
+  );
 }

@@ -1,99 +1,94 @@
-"use client"
+"use client";
 
-import {PortableText} from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import styles from "./post.module.css";
 import FeatAd from "./featuredAd";
-import Image from 'next/image';
-import urlBuilder from '@sanity/image-url';
+import Image from "next/image";
+import urlBuilder from "@sanity/image-url";
 import client from "../app/sanity";
 import EmblaCarousel from "./EmblaCarousel";
-import { EmblaOptionsType } from 'embla-carousel';
+import { EmblaOptionsType } from "embla-carousel";
 import { Ad, Story, PageAd } from "@/sanity.types";
 import Script from "next/script";
 import { formatApDate } from "@/app/helpers/formatApDate";
 
-function throwError(msg: string): never {
-  throw new Error(msg)
-}
-
 interface PostProps {
-    story: Story
-    ads?: PageAd[]
+  story: Story;
+  ads?: PageAd[];
 }
 
 const myPortableTextComponents = {
   types: {
-    image: ({value, isInLine}: {value: any, isInLine?: any}) => 
+    image: ({ value, isInLine }: { value: any; isInLine?: any }) => (
       // <img src={urlBuilder(client)
       //           .image(value)
       //           .height(400)
       //           .auto('format')
-      //           .url()} 
+      //           .url()}
       //       loading="lazy"
       //       className={styles.imageContainer}/>
       <div className={styles.imageParent}>
-      <Image 
-        src={urlBuilder(client)
-                .image(value)
-                .auto('format')
-                .url()} 
-            alt={value.alt} 
-            width={600} 
-            height={500} 
-            className={styles.imageContainer} 
-            unoptimized={true}
-            quality={100}
-      /></div>, 
-    callToAction: ({value, isInline}: {value: any, isInline: any}) =>
+        <Image
+          src={urlBuilder(client).image(value).auto("format").url()}
+          alt={value.alt}
+          width={600}
+          height={500}
+          className={styles.imageContainer}
+          unoptimized={true}
+          quality={100}
+        />
+      </div>
+    ),
+    callToAction: ({ value, isInline }: { value: any; isInline: any }) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
       ) : (
         <div className="callToAction">{value.text}</div>
       ),
-    
-    code: ({value}: any) => {
+
+    code: ({ value }: any) => {
       return (
         <label className={styles.map}>
-          <label dangerouslySetInnerHTML={{__html: value.code}} className={styles.map}/>
+          <label
+            dangerouslySetInnerHTML={{ __html: value.code }}
+            className={styles.map}
+          />
         </label>
-      )
-    }
+      );
+    },
   },
 
   block: {
     // Ex. 1: customizing common block types
-    blockquote: ({ children }: {children?: any}) => (
+    blockquote: ({ children }: { children?: any }) => (
       <blockquote className="border-l-purple-500">{children}</blockquote>
     ),
   },
 
   marks: {
-    link: ({children, value}: {children?: any, value?: any}) => {
-      var rel = undefined
+    link: ({ children, value }: { children?: any; value?: any }) => {
+      var rel = undefined;
       if (value.href != undefined)
-        rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+        rel = !value.href.startsWith("/") ? "noreferrer noopener" : undefined;
       return (
         <a href={value.href} rel={rel} target="_blank" className={styles.link}>
           {children}
         </a>
-      )
+      );
     },
   },
-}
+};
 
-export default function Post({story, ads}: PostProps) {
+export default function Post({ story, ads }: PostProps) {
   const OPTIONS: EmblaOptionsType = { loop: true };
   const SLIDE_COUNT = 5;
   const IMAGES = story.gallery;
-  const u = process.env.NEXT_PUBLIC_IMAGE_ENDPOINT ?? throwError('Could not find image endpoint');
-  const replacement='.';
   const formattedPublishedDate = formatApDate(story.publishedAt);
-
 
   // THIS IS THE TEMPLATE FOR ADDING ADS TO THE MIDDLE OF THE PORTABLE TEXT
 
   // story.body.push(
-  //   {    
+  //   {
   //     asset: {
   //       _ref: 'image-19bc486b92afd40f0db056173aa60486f1c286a5-4000x2015-jpg',
   //       _type: 'reference'
@@ -102,71 +97,103 @@ export default function Post({story, ads}: PostProps) {
   //   }
   // )
   // console.log(IMAGES)
-  
+
   return (
-	      <div className={styles.container}>
-	          <div className={styles.leftContainer}>
-	              <h1 className={styles.title}>{story.title}</h1>
-	              {story.publishedBy && story.publishedAt &&
-	                <h2 className={styles.byline}>
-                    By: {story.publishedBy}
-                    {formattedPublishedDate ? `, ${formattedPublishedDate}` : null}
-                  </h2>}
-	              <div className={styles.body}>
-	                {(IMAGES) && 
-	                  <div className={styles.gallery}><EmblaCarousel slides={IMAGES} options={OPTIONS} /></div>}
-	                {story.body &&
-                <PortableText value={story.body} components={myPortableTextComponents}/>}
-              </div>
-          </div>
-          <div className={styles.rightContainer}>
-              <div className={styles.ads}>
-                {/* {ads &&
+    <div className={styles.container}>
+      <div className={styles.leftContainer}>
+        <h1 className={styles.title}>{story.title}</h1>
+        {story.publishedBy && story.publishedAt && (
+          <h2 className={styles.byline}>
+            By: {story.publishedBy}
+            {formattedPublishedDate ? `, ${formattedPublishedDate}` : null}
+          </h2>
+        )}
+        <div className={styles.body}>
+          {IMAGES && (
+            <div className={styles.gallery}>
+              <EmblaCarousel slides={IMAGES} options={OPTIONS} />
+            </div>
+          )}
+          {story.body && (
+            <PortableText
+              value={story.body}
+              components={myPortableTextComponents}
+            />
+          )}
+        </div>
+      </div>
+      <div className={styles.rightContainer}>
+        <div className={styles.ads}>
+          {/* {ads &&
                   ads.map((ad: PageAd) => {
                     return (ad.ad?.asset?._ref && ad.href) && <FeatAd imgUrl={u + ad.ad?.asset?._ref.slice(6).replace(/-([^-]*)$/, replacement + '$1')} href={ad.href} key={ad._id}/>
                   })} */}
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
-              </div>
-              <div className={styles.mobileAds}>
-                <ins
-                  data-type="broadstreet"
-                  data-zone-id="174930"
-                  data-click-url-empty="">
-                  <Script src="https://cdn.broadstreetads.com/init-2.min.js" async></Script>
-                </ins>
-                {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
-              </div>
-          </div>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
+        </div>
+        <div className={styles.mobileAds}>
+          <ins
+            data-type="broadstreet"
+            data-zone-id="174930"
+            data-click-url-empty=""
+          >
+            <Script
+              src="https://cdn.broadstreetads.com/init-2.min.js"
+              async
+            ></Script>
+          </ins>
+          {/* <iframe scrolling="no" frameBorder={0} src="https://ad.broadstreetads.com/zdisplay/174930.html" width={1250} height={1042}></iframe> */}
+        </div>
       </div>
-  )
+    </div>
+  );
 }
